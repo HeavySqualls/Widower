@@ -13,7 +13,6 @@ public class PlayerController_Test : MonoBehaviour
     public float speedDelaySeconds;
     public float speedReduction;
     public float pCurrentMoveSpeed;
-    public float rotSpeed;
     public bool processInputs = true;
     public bool isRunning = true;
     public bool canRun = true;
@@ -55,7 +54,7 @@ public class PlayerController_Test : MonoBehaviour
             movementDirection.Normalize();
 
             Vector3 input = new Vector3(0, Input.GetAxis("Horizontal"), 0);
-            transform.Rotate(input * rotSpeed * Time.deltaTime);
+            transform.Rotate(input * Time.deltaTime);
 
         }
     }
@@ -70,7 +69,7 @@ public class PlayerController_Test : MonoBehaviour
     {
         Vector3 input = new Vector3(Input.GetAxis("Horizontal"), 0, 0);
 
-        transform.Rotate(input * rotSpeed * Time.deltaTime);
+        transform.Rotate(input * Time.deltaTime);
     }
 
 
