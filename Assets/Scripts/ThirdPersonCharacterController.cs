@@ -32,6 +32,16 @@ public class ThirdPersonCharacterController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
+        PlayerInputs();
+    }
+
+    void PlayerInputs()
+    {
+        if (Input.GetKeyUp(KeyCode.Return))
+        {
+            Toolbox.GetInstance().GetTimer().StartTimer();
+            Debug.Log("Time has started!");
+        }
     }
 
     void PlayerMovement()
