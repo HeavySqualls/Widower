@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     public float pWalkSpeed = 8;
     //public float speedReduction = 4;
 
-    public float eatSpeed;
+    public float eatSpeed = 5;
 
     public int greyPickUps;
     public int orangePickUps;
