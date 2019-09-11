@@ -10,25 +10,37 @@ public class PickupID : MonoBehaviour
 
     public float pickUpValue;
 
-    void Start()
+    public void IncrementStats()
     {
         if (pickupGrey)
         {
-            pickUpValue = Toolbox.GetInstance().GetPlayerManager().greyPickUps;
+            AddGreyStats();
         }
         else if (pickupOrange)
         {
-            pickUpValue = Toolbox.GetInstance().GetPlayerManager().orangePickUps;
+            AddOrangeStats();
         }
         else if (pickupBlue)
         {
-            pickUpValue = Toolbox.GetInstance().GetPlayerManager().bluePickUps;
+            AddBlueStats();
         }
     }
 
-    public void AddPlayerStats()
+    public void AddGreyStats()
     {
-        Debug.Log("Add player stats");
-        pickUpValue += 1;
+        Debug.Log("Add grey player stats");
+        Toolbox.GetInstance().GetPlayerManager().greyPickUps += 1;
+    }
+
+    public void AddOrangeStats()
+    {
+        Debug.Log("Add grey player stats");
+        Toolbox.GetInstance().GetPlayerManager().orangePickUps += 1;
+    }
+
+    public void AddBlueStats()
+    {
+        Debug.Log("Add grey player stats");
+        Toolbox.GetInstance().GetPlayerManager().bluePickUps += 1;
     }
 }

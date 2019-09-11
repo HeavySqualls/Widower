@@ -60,8 +60,8 @@ public class TimeManager : MonoBehaviour
 
     public void ResetTimer()
     {
-        minutes = 0.ToString();
-        seconds = 0.ToString();
+        minutes = "0";
+        seconds = "0";
     }
 }
 

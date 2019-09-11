@@ -10,12 +10,14 @@ public class PickupController : MonoBehaviour
 
     private BoxCollider player;
 
-    public PickupID pickupID;
+    private PickupID pickupID;
 
     [SerializeField]
-    public float currentTime;
-    public float startTime;
-    public bool countDown = false;
+    private float currentTime;
+    [SerializeField]
+    private float startTime;
+    [SerializeField]
+    private bool countDown = false;
 
     void Start()
     {
@@ -43,7 +45,7 @@ public class PickupController : MonoBehaviour
         Debug.Log("StartCountdownTimer");
         startTime = time;
         countDown = true;
-        return startTime;
+        return startTime;                               
     }
 
     private void TrackTime()
@@ -54,7 +56,7 @@ public class PickupController : MonoBehaviour
 
             if (currentTime <= 0)
             {
-                pickupID.AddPlayerStats();
+                pickupID.IncrementStats();
                 countDown = false;
                 Destroy(gameObject);
             }
