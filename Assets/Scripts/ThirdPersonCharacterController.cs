@@ -39,7 +39,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            GameManager.GetInstance().GetTimer().StartTimer();
+            Toolbox.GetInstance().GetTimer().StartTimer();
             Debug.Log("Time has started!");
         }
     }
