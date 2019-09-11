@@ -225,10 +225,10 @@ MonoBehaviour:
   canRun: 1
   secondsCanRun: 2
   runCooldownSeconds: 2
-  pRunSpeed: 20
-  pMoveSpeedStart: 10
+  pRunSpeed: 12
+  pMoveSpeedStart: 6
   speedReduction: 5
-  runTime: 2
+  runTime: 0
   pCurrentMoveSpeed: 0
 --- !u!1 &8809668672203173277
 GameObject:

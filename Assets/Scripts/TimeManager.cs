@@ -5,31 +5,22 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    static TimeManager instance;
-
     private float startTime;
     private float currentTime;
-    private bool countUpTime = false;
+
+    private bool countDownTime = false;
 
     public Text time;
 
     public string minutes;
     public string seconds;
 
-    void Awake()
+    void Start()
     {
-        if (instance != null)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
-        }
-
-        time = GameObject.Find("Time").GetComponent<Text>();
+        //TODO: check to see if this is needed or not
+        time = GameObject.Find("TimerUI").GetComponent<Text>();
     }
+
 
     void Update()
     {
@@ -38,26 +29,33 @@ public class TimeManager : MonoBehaviour
 
     private void TrackTime()
     {
-        if (countUpTime)
+        if (countDownTime)
         {
-            currentTime = Time.time - startTime;
+            currentTime = startTime - Time.time;
 
             minutes = ((int)currentTime / 60).ToString();
-            seconds = (currentTime % 60).ToString("f2");
+            seconds = (currentTime % 60).ToString("f1");
 
             time.text = minutes + ":" + seconds;
+
+            if (currentTime <= 0)
+            {
+                StopCountDownTimer();
+            }
         }
     }
 
-    public void StartTimer()
+    public float StartCountDownTimer(float levelTime)
     {
-        startTime = Time.time;
-        countUpTime = true;
+        startTime = levelTime;
+        countDownTime = true;
+
+        return startTime;
     }
 
-    public void StopTimer()
+    public void StopCountDownTimer()
     {
-        countUpTime = false;
+        countDownTime = false;
     }
 
     public void ResetTimer()

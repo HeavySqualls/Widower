@@ -2,21 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonCharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Space]
     [Header("Player States:")]
     public bool processInputs = true;
-    public bool isRunning = true;
+    public bool isRunning = false;
     public bool canRun = true;
-
-    [Space]
-    [Header("Player Movement:")]
-    public float secondsCanRun;
-    public float runCooldownSeconds;
-    public float pRunSpeed;
-    public float pMoveSpeedStart;
-    public float speedReduction;
+    private bool runWindDown = false;
 
     [SerializeField]
     private float runTime;
@@ -26,20 +19,21 @@ public class ThirdPersonCharacterController : MonoBehaviour
 
     void Start()
     {
-        pCurrentMoveSpeed = pMoveSpeedStart;
+        pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pWalkSpeed;
     }
 
     void Update()
     {
         PlayerMovement();
         PlayerInputs();
+        RunWindDown();
     }
 
     void PlayerInputs()
     {
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            Toolbox.GetInstance().GetTimer().StartTimer();
+            Toolbox.GetInstance().GetTimer().StartCountDownTimer(Toolbox.GetInstance().GetGameManager().levelTime);
             Debug.Log("Time has started!");
         }
     }
@@ -56,9 +50,7 @@ public class ThirdPersonCharacterController : MonoBehaviour
             // Start Running
             if (Input.GetKey(KeyCode.LeftShift) && pCurrentMoveSpeed != 0 && canRun == true)
             {
-                pCurrentMoveSpeed = 1.0f;
-                //Debug.Log("Player State: Running");
-                pCurrentMoveSpeed = pRunSpeed;
+                pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pRunSpeed;
                 runTime += 1 / (1 / Time.deltaTime);
                 isRunning = true;
             }
@@ -67,32 +59,57 @@ public class ThirdPersonCharacterController : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
                 Debug.Log("Player State: Stopped Running");
-                pCurrentMoveSpeed = pMoveSpeedStart;
-                runTime = 0f;
+                pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pWalkSpeed;
+                runWindDown = true;
+                Debug.Log("Run wind down!");
                 isRunning = false;
             }
 
             // Stop Running Case - Player ran out of stamina
-            if (isRunning == true && runTime > secondsCanRun)
+            if (isRunning == true && runTime > Toolbox.GetInstance().GetPlayerManager().secondsCanRun)
             {
                 Debug.Log("Player State: Out of stamina");
-                pCurrentMoveSpeed = pMoveSpeedStart;
+                pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pWalkSpeed;
                 runTime = 0f;
                 isRunning = false;
+                canRun = false;
                 PlayerRunningCoolDown();
             }
         }       
     }
+
+
+
+    // ---- RUNNING METHODS ---- //
 
     void PlayerRunningCoolDown()
     {
         StartCoroutine(IRunningCooldown());
     }
 
+    void RunWindDown()
+    {
+        if (runTime > 0 && runWindDown)
+        {
+            runTime -= 1 * Time.deltaTime;
+
+            if (runTime <= 0 || isRunning)
+            {
+                runWindDown = false;
+            }
+
+            if (runTime <= 0)
+            {
+                runWindDown = false;
+                runTime = 0;
+            }
+        }
+    }
+
     public IEnumerator IRunningCooldown()
     {
         canRun = false;
-        yield return new WaitForSeconds(runCooldownSeconds);
+        yield return new WaitForSeconds(Toolbox.GetInstance().GetPlayerManager().runCooldownSeconds);
         canRun = true;
         Debug.Log("Running Ready!");
     }

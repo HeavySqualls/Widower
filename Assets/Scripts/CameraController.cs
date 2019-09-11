@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThirdPersonCameraController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     float rotationSpeed = 1;
     public Transform Target, Player;
