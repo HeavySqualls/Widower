@@ -41,6 +41,7 @@ public class TimeManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 StopCountDownTimer();
+                Toolbox.GetInstance().GetGameManager().isGameOver = true;
             }
         }
     }

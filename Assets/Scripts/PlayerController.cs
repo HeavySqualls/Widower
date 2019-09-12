@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float runTime;
+
     [SerializeField]
     private float pCurrentMoveSpeed;
 

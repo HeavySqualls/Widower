@@ -10,16 +10,28 @@ public class PlayerManager : MonoBehaviour
     public float runCooldownSeconds = 4;
     public float pRunSpeed = 16;
     public float pWalkSpeed = 8;
-    //public float speedReduction = 4;
 
-    public float eatSpeed = 5;
+    public float eatSpeed = 3;
 
     public int greyPickUps;
     public int orangePickUps;
     public int bluePickUps;
 
-    public void AddScore()
+    private PlayerController playerController;
+
+    private void Awake()
     {
-        // tally & present player pick-ups
+        // Add playerController
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
+
+    public void FreezePlayer()
+    {
+        playerController.processInputs = false;
+    }
+
+    public void UnFreezePlayer()
+    {
+        playerController.processInputs = true;
     }
 }
