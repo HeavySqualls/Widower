@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 234318291}
   - component: {fileID: 234318290}
   - component: {fileID: 234318289}
+  - component: {fileID: 5361042459707597397}
   m_Layer: 5
   m_Name: PickupUICanvas
   m_TagString: Untagged
@@ -100,6 +101,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5361042459707597397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 234318287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dedbc565cca29c4a9a49e41a7f09aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickupController: {fileID: 2611404314363061208}
 --- !u!1 &415414814
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +456,7 @@ MonoBehaviour:
   countDownTimeStart: 0
   eatProgress: {fileID: 415414817}
   inputCall: {fileID: 1171486666}
+  cameraTarget: {fileID: 0}
 --- !u!1 &2611404314890648448
 GameObject:
   m_ObjectHideFlags: 0

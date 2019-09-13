@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public bool isInteracting = false;
     private bool runWindDown = false;
 
-    public GameObject interactedObject;
+    public PickupController interactedController;
 
     [SerializeField]
     private float runTime;
@@ -23,7 +23,6 @@ public class PlayerController : MonoBehaviour
     private PlayerManager playerManager;
     private GameManager gameManager;
     private TimeManager timeManager;
-    private PickupController PickupController;
 
     private void Awake()
     {
@@ -46,9 +45,10 @@ public class PlayerController : MonoBehaviour
 
     public void InteractableObject(PickupController interObject)
     {
+        interactedController = interObject;
+
         if (interObject != null)
         {
-            interactedObject = interObject;
             isInteracting = true;
         }
         else
@@ -59,15 +59,17 @@ public class PlayerController : MonoBehaviour
 
     void PlayerInputs()
     {
+        //TODO: Move to GameManager
         if (Input.GetKeyUp(KeyCode.Return))
         {
             timeManager.StartCountDownTimer(gameManager.levelTime);
             Debug.Log("Time has started!");
         }
 
-        if (Input.GetKey(KeyCode.E) || isInteracting)
+        if (Input.GetKey(KeyCode.E) && isInteracting)
         {
-            interactedObject.StartCountdownTimer(playerManager.eatSpeed);
+            Debug.Log("eat!");
+            interactedController.StartCountdownTimer(playerManager.eatSpeed);
         }
     }
 

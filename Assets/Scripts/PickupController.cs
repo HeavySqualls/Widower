@@ -5,14 +5,6 @@ using UnityEngine.UI;
 
 public class PickupController : MonoBehaviour
 {
-    /// <summary>
-    /// ONCE TESTING IS DONE, PLACE THIS BACK ON THE GAME OBJECT
-    /// </summary>
-
-    private BoxCollider player;
-
-    private PickupID pickupID;
-
     [SerializeField]
     private float currentTime;
     [SerializeField]
@@ -20,13 +12,15 @@ public class PickupController : MonoBehaviour
     [SerializeField]
     private float countDownTimeStart;
 
-    private float eatSpeed;
-
     public Image eatProgress;
     public Text inputCall;
 
     private PlayerManager playerManager;
     private PlayerController playerController;
+    private BoxCollider player;
+    public Camera cameraTarget;
+
+    private PickupID pickupID;
 
     private void Awake()
     {
@@ -38,7 +32,8 @@ public class PickupController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
         pickupID = gameObject.GetComponentInChildren<PickupID>();
-        eatSpeed = playerManager.eatSpeed;
+        cameraTarget = GameObject.Find("Player").GetComponentInChildren<Camera>();
+
         inputCall.enabled = false;
         eatProgress.enabled = false;
     }
@@ -49,7 +44,7 @@ public class PickupController : MonoBehaviour
         if (countDownTime > 0)
         {
             countDownTime -= Time.deltaTime;
-
+            inputCall.enabled = false;
             eatProgress.fillAmount = (countDownTime / countDownTimeStart);
 
             playerManager.FreezePlayer();
@@ -69,8 +64,7 @@ public class PickupController : MonoBehaviour
         {
             inputCall.enabled = true;
             eatProgress.enabled = true;
-            playerController.InteractableObject(gameObject);
-            //StartCountdownTimer(playerManager.eatSpeed);
+            playerController.InteractableObject(gameObject.GetComponent<PickupController>());
         }
     }
 
@@ -78,7 +72,7 @@ public class PickupController : MonoBehaviour
     {
         if (other == player)
         {
-            playerController.interObject = null;
+            //playerController.InteractableObject == null;
             inputCall.enabled = false;
             eatProgress.enabled = false;
         }
