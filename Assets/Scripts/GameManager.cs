@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -11,19 +12,21 @@ public class GameManager : MonoBehaviour
 
     public int 
         gameDeathCount,
-        bugEatenOrange,
-        bugEatenBlue,
-        bugEatenGrey,
-        numberOfPlayers; //for knowing if it is multi player
-
+        numberOfPlayers,//for knowing if it is multi player
+        currentLevel; 
+    
 
     private Text playerStats; //will change the text from the UI
     private PlayerManager playerManager;
 
     private void Start()
     {
+        //get text object from the scene
         playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
+        
         playerManager = Toolbox.GetInstance().GetPlayerManager();
+        
+        currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
     }
 
 
@@ -41,7 +44,9 @@ public class GameManager : MonoBehaviour
     {
 
 
-        playerStats.text = "Test Stats: " + playerManager.greyPickUps + "\n" 
+        playerStats.text = "Test Stats: "+ "\n"
+                           + "level:" + currentLevel +"\n"
+                           + "nextG: " + playerManager.greyPickUps + "\n" 
                            + "nextO: " + playerManager.orangePickUps + "\n" 
                            + "nextB: " + playerManager.bluePickUps;
 
