@@ -11,20 +11,23 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
 
     public int 
-        gameDeathCount,
-        numberOfPlayers,//for knowing if it is multi player
-        currentLevel; 
+            gameDeathCount,
+            numberOfPlayers,//for knowing if it is multi player
+            currentLevel; 
     
 
     private Text playerStats; //will change the text from the UI
     private PlayerManager playerManager;
 
+    private void Awake()
+    {
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+    }
+
     private void Start()
     {
         //get text object from the scene
         playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
-        
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
         
         currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
     }

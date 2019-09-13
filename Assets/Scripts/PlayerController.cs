@@ -17,10 +17,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float pCurrentMoveSpeed;
 
+    private PlayerManager playerManager;
+
+    private void Awake()
+    {
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+    }
 
     void Start()
     {
-        pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pWalkSpeed;
+        pCurrentMoveSpeed = playerManager.pWalkSpeed;
     }
 
     void Update()
