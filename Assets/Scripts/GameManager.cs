@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,10 +9,23 @@ public class GameManager : MonoBehaviour
 
     public bool isGameOver = false;
 
-    public int gameScore,
+    public int 
         gameDeathCount,
-        gameBugEaten,
-        numberOfplayers; //for knowing if it is multi player
+        bugEatenOrange,
+        bugEatenBlue,
+        bugEatenGrey,
+        numberOfPlayers; //for knowing if it is multi player
+
+
+    private Text playerStats; //will change the text from the UI
+    private PlayerManager playerManager;
+
+    private void Start()
+    {
+        playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+    }
+
 
     private void Update()
     {
@@ -19,12 +33,23 @@ public class GameManager : MonoBehaviour
         {
             Toolbox.GetInstance().GetPlayerManager().FreezePlayer();
             DisplayScore();
+            
         }
     }
 
-    public void DisplayScore()
+    private void DisplayScore()
     {
+
+
+        playerStats.text = "Test Stats: " + playerManager.greyPickUps + "\n" 
+                           + "nextO: " + playerManager.orangePickUps + "\n" 
+                           + "nextB: " + playerManager.bluePickUps;
+
+
         // tally & present player pick-ups
+
+
+
     }
 
 }
