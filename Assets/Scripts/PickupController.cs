@@ -1,27 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickupController : MonoBehaviour
 {
-    /// <summary>
-    /// ONCE TESTING IS DONE, PLACE THIS BACK ON THE GAME OBJECT
-    /// </summary>
-
-    private BoxCollider player;
-
-    private PickupID pickupID;
-
     [SerializeField]
     private float currentTime;
     [SerializeField]
     private float countDownTime;
     [SerializeField]
+    private float countDownTimeStart;
+
+    public Image eatProgress;
+    public Text inputCall;
+
+    private PlayerManager playerManager;
+    private PlayerController playerController;
+    private BoxCollider player;
+    public Camera cameraTarget;
+
+    private PickupID pickupID;
+
+    private void Awake()
+    {
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+    }
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
         pickupID = gameObject.GetComponentInChildren<PickupID>();
+        cameraTarget = GameObject.Find("Player").GetComponentInChildren<Camera>();
+
+        inputCall.enabled = false;
+        eatProgress.enabled = false;
     }
 
 
@@ -30,11 +44,14 @@ public class PickupController : MonoBehaviour
         if (countDownTime > 0)
         {
             countDownTime -= Time.deltaTime;
-            Toolbox.GetInstance().GetPlayerManager().FreezePlayer();
+            inputCall.enabled = false;
+            eatProgress.fillAmount = (countDownTime / countDownTimeStart);
+
+            playerManager.FreezePlayer();
 
             if (countDownTime <= 0)
             {
-                Toolbox.GetInstance().GetPlayerManager().UnFreezePlayer();
+                playerManager.UnFreezePlayer();
                 pickupID.IncrementStats();
                 Destroy(gameObject);
             }
@@ -45,15 +62,26 @@ public class PickupController : MonoBehaviour
     {
         if (other == player)
         {
-            Debug.Log("Call StartCountdownTimer");
-            StartCountdownTimer(Toolbox.GetInstance().GetPlayerManager().eatSpeed);
+            inputCall.enabled = true;
+            eatProgress.enabled = true;
+            playerController.InteractableObject(gameObject.GetComponent<PickupController>());
         }
     }
 
-    private float StartCountdownTimer(float time)
+    private void OnTriggerExit(Collider other)
     {
-        Debug.Log("StartCountdownTimer");
+        if (other == player)
+        {
+            //playerController.InteractableObject == null;
+            inputCall.enabled = false;
+            eatProgress.enabled = false;
+        }
+    }
+
+    public float StartCountdownTimer(float time)
+    {
         countDownTime = time;
+        countDownTimeStart = countDownTime;
         return countDownTime;                               
     }
 }

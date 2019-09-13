@@ -15,6 +15,13 @@ public class TimeManager : MonoBehaviour
     public string minutes;
     public string seconds;
 
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = Toolbox.GetInstance().GetGameManager();
+    }
+
     void Start()
     {
         //TODO: check to see if this is needed or not
@@ -41,7 +48,7 @@ public class TimeManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 StopCountDownTimer();
-                Toolbox.GetInstance().GetGameManager().isGameOver = true;
+                gameManager.isGameOver = true;
             }
         }
     }

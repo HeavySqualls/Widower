@@ -6,10 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     [Space]
     [Header("Player States:")]
-    public bool processInputs = true;
+    public bool processMovement = true;
     public bool isRunning = false;
     public bool canRun = true;
+    public bool isInteracting = false;
     private bool runWindDown = false;
+
+    public PickupController interactedController;
 
     [SerializeField]
     private float runTime;
@@ -17,10 +20,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float pCurrentMoveSpeed;
 
+    private PlayerManager playerManager;
+    private GameManager gameManager;
+    private TimeManager timeManager;
+
+    private void Awake()
+    {
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        gameManager = Toolbox.GetInstance().GetGameManager();
+        timeManager = Toolbox.GetInstance().GetTimer();
+    }
 
     void Start()
     {
-        pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pWalkSpeed;
+        pCurrentMoveSpeed = playerManager.pWalkSpeed;
     }
 
     void Update()
@@ -30,18 +43,39 @@ public class PlayerController : MonoBehaviour
         RunWindDown();
     }
 
+    public void InteractableObject(PickupController interObject)
+    {
+        interactedController = interObject;
+
+        if (interObject != null)
+        {
+            isInteracting = true;
+        }
+        else
+        {
+            isInteracting = false;
+        }
+    }
+
     void PlayerInputs()
     {
+        //TODO: Move to GameManager
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            Toolbox.GetInstance().GetTimer().StartCountDownTimer(Toolbox.GetInstance().GetGameManager().levelTime);
+            timeManager.StartCountDownTimer(gameManager.levelTime);
             Debug.Log("Time has started!");
+        }
+
+        if (Input.GetKey(KeyCode.E) && isInteracting)
+        {
+            Debug.Log("eat!");
+            interactedController.StartCountdownTimer(playerManager.eatSpeed);
         }
     }
 
     void PlayerMovement()
     {
-        if (processInputs)
+        if (processMovement)
         {
             float hor = Input.GetAxis("Horizontal");
             float vert = Input.GetAxis("Vertical");
