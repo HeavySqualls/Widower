@@ -40,21 +40,27 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     private void DisplayScore()
     {
 
 
         playerStats.text = "Test Stats: "+ "\n"
-                           + "level:" + currentLevel +"\n"
+                           + "level: " + currentLevel +"\n"
                            + "nextG: " + playerManager.greyPickUps + "\n" 
                            + "nextO: " + playerManager.orangePickUps + "\n" 
                            + "nextB: " + playerManager.bluePickUps;
+        
+        //todo: 
 
-
-        // tally & present player pick-ups
-
-
-
+        // tally & present player pick-up
     }
+
+    private void upgradePlayerStats( PlayerManager pm ) //TODO: why are the Stats to be updated
+    {
+        //pm.
+    }
+
+
 
 }
