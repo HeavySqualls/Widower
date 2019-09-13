@@ -26,11 +26,11 @@ public class PlayerManager : MonoBehaviour
 
     public void FreezePlayer()
     {
-        playerController.processInputs = false;
+        playerController.processMovement = false;
     }
 
     public void UnFreezePlayer()
     {
-        playerController.processInputs = true;
+        playerController.processMovement = true;
     }
 }

@@ -6,10 +6,13 @@ public class PlayerController : MonoBehaviour
 {
     [Space]
     [Header("Player States:")]
-    public bool processInputs = true;
+    public bool processMovement = true;
     public bool isRunning = false;
     public bool canRun = true;
+    public bool isInteracting = false;
     private bool runWindDown = false;
+
+    public GameObject interactedObject;
 
     [SerializeField]
     private float runTime;
@@ -18,10 +21,15 @@ public class PlayerController : MonoBehaviour
     private float pCurrentMoveSpeed;
 
     private PlayerManager playerManager;
+    private GameManager gameManager;
+    private TimeManager timeManager;
+    private PickupController PickupController;
 
     private void Awake()
     {
         playerManager = Toolbox.GetInstance().GetPlayerManager();
+        gameManager = Toolbox.GetInstance().GetGameManager();
+        timeManager = Toolbox.GetInstance().GetTimer();
     }
 
     void Start()
@@ -36,18 +44,36 @@ public class PlayerController : MonoBehaviour
         RunWindDown();
     }
 
+    public void InteractableObject(PickupController interObject)
+    {
+        if (interObject != null)
+        {
+            interactedObject = interObject;
+            isInteracting = true;
+        }
+        else
+        {
+            isInteracting = false;
+        }
+    }
+
     void PlayerInputs()
     {
         if (Input.GetKeyUp(KeyCode.Return))
         {
-            Toolbox.GetInstance().GetTimer().StartCountDownTimer(Toolbox.GetInstance().GetGameManager().levelTime);
+            timeManager.StartCountDownTimer(gameManager.levelTime);
             Debug.Log("Time has started!");
+        }
+
+        if (Input.GetKey(KeyCode.E) || isInteracting)
+        {
+            interactedObject.StartCountdownTimer(playerManager.eatSpeed);
         }
     }
 
     void PlayerMovement()
     {
-        if (processInputs)
+        if (processMovement)
         {
             float hor = Input.GetAxis("Horizontal");
             float vert = Input.GetAxis("Vertical");
