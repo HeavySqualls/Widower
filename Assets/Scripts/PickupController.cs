@@ -63,7 +63,6 @@ public class PickupController : MonoBehaviour
         if (other == player)
         {
             inputCall.enabled = true;
-            eatProgress.enabled = true;
             playerController.InteractableObject(gameObject.GetComponent<PickupController>());
         }
     }
@@ -80,6 +79,7 @@ public class PickupController : MonoBehaviour
 
     public float StartCountdownTimer(float time)
     {
+        eatProgress.enabled = true;
         countDownTime = time;
         countDownTimeStart = countDownTime;
         return countDownTime;                               

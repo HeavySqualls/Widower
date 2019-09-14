@@ -10,22 +10,20 @@ public class TimeManager : MonoBehaviour
 
     private bool countDownTime = false;
 
+    public Text startText;
     public Text time;
 
     public string minutes;
     public string seconds;
 
-    private GameManager gameManager;
-
-    private void Awake()
-    {
-        gameManager = Toolbox.GetInstance().GetGameManager();
-    }
+    public GameManager gameManager;
 
     void Start()
     {
         //TODO: check to see if this is needed or not
+        gameManager = Toolbox.GetInstance().GetGameManager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
+        startText = GameObject.Find("Start").GetComponent<Text>();
     }
 
 
@@ -38,6 +36,8 @@ public class TimeManager : MonoBehaviour
     {
         if (countDownTime)
         {
+            startText.enabled = false;
+
             currentTime = startTime - Time.time;
 
             minutes = ((int)currentTime / 60).ToString();
@@ -48,7 +48,6 @@ public class TimeManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 StopCountDownTimer();
-                gameManager.isGameOver = true;
             }
         }
     }
@@ -64,6 +63,7 @@ public class TimeManager : MonoBehaviour
     public void StopCountDownTimer()
     {
         countDownTime = false;
+        gameManager.isGameOver = true;
     }
 
     public void ResetTimer()

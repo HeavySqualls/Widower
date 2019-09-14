@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public float levelTime = 60;
+    public float levelTime = 20;
 
     public bool isGameOver = false;
+    private bool scorePresented = false;
 
     public int 
             gameDeathCount,
@@ -19,34 +20,29 @@ public class GameManager : MonoBehaviour
     private Text playerStats; //will change the text from the UI
     private PlayerManager playerManager;
 
-    private void Awake()
-    {
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
-    }
-
     private void Start()
     {
         //get text object from the scene
-        playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
-        
+        //playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
         currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
     }
 
 
     private void Update()
     {
-        if (isGameOver)
+        if (isGameOver && !scorePresented)
         {
-            Toolbox.GetInstance().GetPlayerManager().FreezePlayer();
-            DisplayScore();
-            
+            playerManager.FreezePlayer();
+
+            //DisplayScore();           
         }
     }
 
     
     private void DisplayScore()
     {
-
+        scorePresented = true;
 
         playerStats.text = "Test Stats: "+ "\n"
                            + "level: " + currentLevel +"\n"

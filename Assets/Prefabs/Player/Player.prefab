@@ -220,14 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a36a7209a72c47f4f887f722d3d8326d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  processInputs: 1
+  processMovement: 1
   isRunning: 0
   canRun: 1
-  secondsCanRun: 2
-  runCooldownSeconds: 2
-  pRunSpeed: 12
-  pMoveSpeedStart: 6
-  speedReduction: 5
+  isInteracting: 0
+  interactedController: {fileID: 0}
   runTime: 0
   pCurrentMoveSpeed: 0
 --- !u!1 &8809668672203173277
@@ -240,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8809668672203173278}
   - component: {fileID: 8809668672203173279}
+  - component: {fileID: 265526404554528704}
   m_Layer: 0
   m_Name: Target
   m_TagString: Player
@@ -254,8 +252,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8809668672203173277}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.84999996, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.88, z: -1.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8809668672896237632}
@@ -300,6 +298,21 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &265526404554528704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809668672203173277}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b796155823e1c64e844f6ee3b8a4e89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8809668671460646249}
+  useDamping: 1
+  damping: 0.2
 --- !u!1 &8809668672586667861
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,7 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 8809668672203173278}
   Player: {fileID: 8809668671460646249}
-  Obstruction: {fileID: 0}
+  smoothSpeed: 0
 --- !u!81 &8809668672896237638
 AudioListener:
   m_ObjectHideFlags: 0

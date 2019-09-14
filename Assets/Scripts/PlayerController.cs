@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        processMovement = false;
         pCurrentMoveSpeed = playerManager.pWalkSpeed;
     }
 
@@ -59,9 +60,9 @@ public class PlayerController : MonoBehaviour
 
     void PlayerInputs()
     {
-        //TODO: Move to GameManager
         if (Input.GetKeyUp(KeyCode.Return))
         {
+            processMovement = true;
             timeManager.StartCountDownTimer(gameManager.levelTime);
             Debug.Log("Time has started!");
         }

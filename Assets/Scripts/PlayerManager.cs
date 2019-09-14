@@ -6,12 +6,14 @@ public class PlayerManager : MonoBehaviour
 {
     [Space]
     [Header("Player Stats:")]
-    public float secondsCanRun = 2;
     public float runCooldownSeconds = 4;
-    public float pRunSpeed = 16;
-    public float pWalkSpeed = 8;
+    public float pRunSpeed;
 
+
+    // Upgradable Stats
     public float eatSpeed = 3;
+    public float pWalkSpeed = 8;
+    public float secondsCanRun = 2;
 
     public int greyPickUps;
     public int orangePickUps;
@@ -22,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        pRunSpeed = pWalkSpeed * 2;
     }
 
     public void FreezePlayer()
