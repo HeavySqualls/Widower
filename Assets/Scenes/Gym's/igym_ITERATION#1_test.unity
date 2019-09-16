@@ -187,6 +187,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8809668671460646251, guid: 75711b58321b5904bb0219711fc7b94e,
+        type: 3}
+      propertyPath: isGamePad
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75711b58321b5904bb0219711fc7b94e, type: 3}
 --- !u!1 &705507993

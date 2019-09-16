@@ -224,9 +224,11 @@ MonoBehaviour:
   isRunning: 0
   canRun: 1
   isInteracting: 0
-  interactedController: {fileID: 0}
+  isEating: 0
   runTime: 0
   pCurrentMoveSpeed: 0
+  isGamePad: 0
+  interactedController: {fileID: 0}
 --- !u!1 &8809668672203173277
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +685,7 @@ MonoBehaviour:
   Target: {fileID: 8809668672203173278}
   Player: {fileID: 8809668671460646249}
   smoothSpeed: 0
+  playerController: {fileID: 8809668671460646251}
 --- !u!81 &8809668672896237638
 AudioListener:
   m_ObjectHideFlags: 0

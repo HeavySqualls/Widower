@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
 
     public float smoothSpeed;
-
+    public PlayerController playerController;
     //public Transform Obstruction;
     //float zoomSpeed = 50f;
 
@@ -36,8 +36,17 @@ public class CameraController : MonoBehaviour
 
     void CamControl()
     {
-        mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
-        mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+        if (playerController.isGamePad)
+        {
+            mouseX += Input.GetAxis("Gamepad_X") * rotationSpeed;
+            mouseY -= Input.GetAxis("Gamepad_Y") * rotationSpeed;
+        }
+        else
+        {
+            mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
+            mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+        }
+
         mouseY = Mathf.Clamp(mouseY, -35, 60);
 
         transform.LookAt(Target);
