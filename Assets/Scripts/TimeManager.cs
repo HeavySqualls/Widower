@@ -24,6 +24,7 @@ public class TimeManager : MonoBehaviour
         gameManager = Toolbox.GetInstance().GetGameManager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
+        time.enabled = false;
     }
 
 
@@ -54,6 +55,7 @@ public class TimeManager : MonoBehaviour
 
     public float StartCountDownTimer(float levelTime)
     {
+        time.enabled = true;
         startTime = levelTime;
         countDownTime = true;
 

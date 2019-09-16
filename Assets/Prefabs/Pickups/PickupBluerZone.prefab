@@ -445,11 +445,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed5ef38ea540494c9e6f16a2df13fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTime: 0
-  countDownTime: 0
-  countDownTimeStart: 0
+  timeToRespawn: 2
   eatProgress: {fileID: 1728587484}
   inputCall: {fileID: 1532250102}
+  PickUpObj: {fileID: 3645908543816901037}
+  CanvasObj: {fileID: 395668855}
   cameraTarget: {fileID: 0}
 --- !u!1 &3645908543816901037
 GameObject:

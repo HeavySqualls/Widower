@@ -5,15 +5,18 @@ using UnityEngine.UI;
 
 public class PickupController : MonoBehaviour
 {
-    [SerializeField]
-    private float currentTime;
-    [SerializeField]
     private float countDownTime;
-    [SerializeField]
     private float countDownTimeStart;
+
+    public float timeToRespawn;
+    private float respawnTime;
+    private bool respawning = false;
 
     public Image eatProgress;
     public Text inputCall;
+
+    public GameObject PickUpObj;
+    public GameObject CanvasObj;
 
     private PlayerManager playerManager;
     private PlayerController playerController;
@@ -25,11 +28,11 @@ public class PickupController : MonoBehaviour
     private void Awake()
     {
         playerManager = Toolbox.GetInstance().GetPlayerManager();
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
     }
 
     void Start()
     {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
         pickupID = gameObject.GetComponentInChildren<PickupID>();
         cameraTarget = GameObject.Find("Player").GetComponentInChildren<Camera>();
@@ -41,21 +44,8 @@ public class PickupController : MonoBehaviour
 
     void Update()
     {
-        if (countDownTime > 0)
-        {
-            countDownTime -= Time.deltaTime;
-            inputCall.enabled = false;
-            eatProgress.fillAmount = (countDownTime / countDownTimeStart);
-
-            playerManager.FreezePlayer();
-
-            if (countDownTime <= 0)
-            {
-                playerManager.UnFreezePlayer();
-                pickupID.IncrementStats();
-                Destroy(gameObject);
-            }
-        }
+        EatCountDown();
+        Respawn();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -71,17 +61,71 @@ public class PickupController : MonoBehaviour
     {
         if (other == player)
         {
-            //playerController.InteractableObject == null;
+            playerController.interactedController = null;
             inputCall.enabled = false;
             eatProgress.enabled = false;
         }
     }
 
-    public float StartCountdownTimer(float time)
+    public float StartEatCountdownTimer(float time)
     {
         eatProgress.enabled = true;
         countDownTime = time;
         countDownTimeStart = countDownTime;
         return countDownTime;                               
+    }
+
+    private void EatCountDown()
+    {
+        if (countDownTime > 0)
+        {
+            countDownTime -= Time.deltaTime;
+            inputCall.enabled = false;
+            eatProgress.fillAmount = (countDownTime / countDownTimeStart);
+
+            playerManager.FreezePlayer();
+
+            if (countDownTime <= 0 && !respawning)
+            {
+                playerController.isEating = false;
+                playerManager.UnFreezePlayer();
+                pickupID.IncrementStats();
+                Deactivate();
+                StartRespawnTime(timeToRespawn);
+            }
+        }
+    }
+
+    private float StartRespawnTime(float time)
+    {
+        respawnTime = time;
+        respawning = true;
+        return respawnTime;
+    }
+
+    private void Respawn()
+    {
+        if (respawnTime > 0 && respawning)
+        {
+            respawnTime -= Time.deltaTime;
+
+            if (respawnTime <= 0)
+            {
+                ReActivate();
+                respawning = false;
+            }
+        }
+    }
+
+    void Deactivate()
+    {
+        PickUpObj.SetActive(false);
+        CanvasObj.SetActive(false);
+    }
+
+    void ReActivate()
+    {
+        PickUpObj.SetActive(true);
+        CanvasObj.SetActive(true);
     }
 }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public bool isRunning = false;
     public bool canRun = true;
     public bool isInteracting = false;
+    public bool isEating = false;
     private bool runWindDown = false;
 
     public PickupController interactedController;
@@ -67,10 +68,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Time has started!");
         }
 
-        if (Input.GetKey(KeyCode.E) && isInteracting)
+        if (Input.GetKey(KeyCode.E) && isInteracting && interactedController != null && !isEating)
         {
             Debug.Log("eat!");
-            interactedController.StartCountdownTimer(playerManager.eatSpeed);
+            isEating = true;
+            interactedController.StartEatCountdownTimer(playerManager.eatSpeed);
         }
     }
 
