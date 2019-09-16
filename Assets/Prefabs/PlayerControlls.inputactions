@@ -1,0 +1,71 @@
+{
+    "name": "PlayerControlls",
+    "maps": [
+        {
+            "name": "GamePlay",
+            "id": "481df8a1-fd5a-4ac9-93e1-59e4860a02dd",
+            "actions": [
+                {
+                    "name": "Eat",
+                    "type": "Button",
+                    "id": "93e741b7-f209-44e0-a007-a0da2a30fdf2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "aff1612c-7155-43c4-bc44-cf438b4c1086",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Button",
+                    "id": "fe454c37-5c67-4ab4-b201-8f7fc54ca3cd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ec083973-58a7-4cc3-ab11-69706305b30d",
+                    "path": "<XInputController>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Eat",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "32c82718-e479-423e-892d-930b74a65ea2",
+                    "path": "<XInputController>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7242c71-a7e5-4018-8ea9-360f23069d3d",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

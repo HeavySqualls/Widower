@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,11 +26,14 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     private TimeManager timeManager;
 
+    PlayerControlls controls;
+
     private void Awake()
     {
         playerManager = Toolbox.GetInstance().GetPlayerManager();
         gameManager = Toolbox.GetInstance().GetGameManager();
         timeManager = Toolbox.GetInstance().GetTimer();
+        controls = new PlayerControlls();
     }
 
     void Start()
@@ -61,14 +65,14 @@ public class PlayerController : MonoBehaviour
 
     void PlayerInputs()
     {
-        if (Input.GetKeyUp(KeyCode.Return))
+        if (Input.GetKeyUp(KeyCode.Return) || Input.GetButtonDown("STARTButton"))
         {
             processMovement = true;
             timeManager.StartCountDownTimer(gameManager.levelTime);
             Debug.Log("Time has started!");
         }
 
-        if (Input.GetKey(KeyCode.E) && isInteracting && interactedController != null && !isEating)
+        if (Input.GetKey(KeyCode.E) || Input.GetButtonDown("XButton") && isInteracting && interactedController != null && !isEating)
         {
             Debug.Log("eat!");
             isEating = true;
