@@ -192,6 +192,21 @@ PrefabInstance:
       propertyPath: isGamePad
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8809668672203173278, guid: 75711b58321b5904bb0219711fc7b94e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8809668672884382248, guid: 75711b58321b5904bb0219711fc7b94e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7006424207897396616, guid: 75711b58321b5904bb0219711fc7b94e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75711b58321b5904bb0219711fc7b94e, type: 3}
 --- !u!1 &705507993
