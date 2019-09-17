@@ -36,7 +36,6 @@ public class PickupController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
         pickupID = gameObject.GetComponentInChildren<PickupID>();
         cameraTarget = GameObject.Find("Player").GetComponentInChildren<Camera>();
-
         inputCall.enabled = false;
         eatProgress.enabled = false;
     }

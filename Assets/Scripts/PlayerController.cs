@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,11 +25,15 @@ public class PlayerController : MonoBehaviour
 
     [Space]
     [Header("Player Refrences:")]
+    public Canvas CanvasObj;
+    public Image staminaBar;
+
     public PickupController interactedController;
     private PlayerManager playerManager;
     private GameManager gameManager;
     private TimeManager timeManager;
     private PlayerControlls controls;
+
 
     private void Awake()
     {
@@ -42,6 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         processMovement = false;
         pCurrentMoveSpeed = playerManager.pWalkSpeed;
+        staminaBar.enabled = false;
     }
 
     void Update()
@@ -99,8 +105,6 @@ public class PlayerController : MonoBehaviour
                 interactedController.StartEatCountdownTimer(playerManager.eatSpeed);
             }
         }
-
-
     }
 
     void PlayerMovement()
@@ -120,6 +124,8 @@ public class PlayerController : MonoBehaviour
                     pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pRunSpeed;
                     runTime += 1 / (1 / Time.deltaTime);
                     isRunning = true;
+                    staminaBar.enabled = true;
+                    staminaBar.fillAmount = (runTime / 2);
                 }
 
                 // Stop Running Case - Player let go of key
@@ -179,16 +185,14 @@ public class PlayerController : MonoBehaviour
                     PlayerRunningCoolDown();
                 }
             }
-        }
-        
+        }      
     }
-
-
 
     // ---- RUNNING METHODS ---- //
 
     void PlayerRunningCoolDown()
     {
+        staminaBar.GetComponent<Image>().color = Color.white;
         StartCoroutine(IRunningCooldown());
     }
 
@@ -197,9 +201,11 @@ public class PlayerController : MonoBehaviour
         if (runTime > 0 && runWindDown)
         {
             runTime -= 1 * Time.deltaTime;
+            staminaBar.fillAmount = (runTime / 2);
 
             if (runTime <= 0 || isRunning)
             {
+                staminaBar.enabled = false;
                 runWindDown = false;
             }
 
@@ -207,6 +213,7 @@ public class PlayerController : MonoBehaviour
             {
                 runWindDown = false;
                 runTime = 0;
+                staminaBar.enabled = false;
             }
         }
     }
@@ -216,6 +223,8 @@ public class PlayerController : MonoBehaviour
         canRun = false;
         yield return new WaitForSeconds(Toolbox.GetInstance().GetPlayerManager().runCooldownSeconds);
         canRun = true;
+        staminaBar.GetComponent<Image>().color = Color.yellow;
+        staminaBar.enabled = false;
         Debug.Log("Running Ready!");
     }
 }
