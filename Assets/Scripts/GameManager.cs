@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //get text object from the scene
-        //playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
+        playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
         playerManager = Toolbox.GetInstance().GetPlayerManager();
         currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
     }
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         // tally & present player pick-up
     }
 
-    private void upgradePlayerStats( PlayerManager pm ) //TODO: why are the Stats to be updated
+    private void upgradePlayerStats( PlayerManager pm ) //TODO: why are the Stats to be updated?
     {
         //pm.
     }
