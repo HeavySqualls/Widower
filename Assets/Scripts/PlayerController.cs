@@ -46,8 +46,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         processMovement = false;
-        pCurrentMoveSpeed = playerManager.pWalkSpeed;
         staminaBar.enabled = false;
+        pCurrentMoveSpeed = playerManager.pWalkSpeed;
+
     }
 
     void Update()
