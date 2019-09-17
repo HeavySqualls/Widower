@@ -9,6 +9,7 @@ public class TimeManager : MonoBehaviour
     private float currentTime;
 
     public bool isCountDownTime;
+    private bool isCountDownStarted;
 
     public Text startText;
     public Text time;
@@ -20,7 +21,6 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        //TODO: check to see if this is needed or not
         gameManager = Toolbox.GetInstance().GetGameManager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
@@ -55,10 +55,13 @@ public class TimeManager : MonoBehaviour
 
     public float StartCountDownTimer(float levelTime)
     {
-        time.enabled = true;
-        isCountDownTime = true;
-        startTime = levelTime;
-
+        if (!isCountDownStarted)
+        {
+            time.enabled = true;
+            isCountDownStarted = true;
+            isCountDownTime = true;
+            startTime = levelTime;
+        }
         return startTime;
     }
 
