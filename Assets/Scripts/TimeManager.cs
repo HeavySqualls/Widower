@@ -8,7 +8,8 @@ public class TimeManager : MonoBehaviour
     private float startTime;
     private float currentTime;
 
-    private bool countDownTime = false;
+    public bool isCountDownTime;
+    private bool isCountDownStarted;
 
     public Text startText;
     public Text time;
@@ -20,11 +21,11 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
-        //TODO: check to see if this is needed or not
         gameManager = Toolbox.GetInstance().GetGameManager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
         time.enabled = false;
+        isCountDownTime = false;
     }
 
 
@@ -35,11 +36,10 @@ public class TimeManager : MonoBehaviour
 
     private void TrackTime()
     {
-        if (countDownTime)
+        if (isCountDownTime)
         {
             startText.enabled = false;
-
-            currentTime = startTime - Time.time;
+            currentTime = startTime -= Time.deltaTime;
 
             minutes = ((int)currentTime / 60).ToString();
             seconds = (currentTime % 60).ToString("f1");
@@ -55,16 +55,19 @@ public class TimeManager : MonoBehaviour
 
     public float StartCountDownTimer(float levelTime)
     {
-        time.enabled = true;
-        startTime = levelTime;
-        countDownTime = true;
-
+        if (!isCountDownStarted)
+        {
+            time.enabled = true;
+            isCountDownStarted = true;
+            isCountDownTime = true;
+            startTime = levelTime;
+        }
         return startTime;
     }
 
     public void StopCountDownTimer()
     {
-        countDownTime = false;
+        isCountDownTime = false;
         gameManager.isGameOver = true;
     }
 
