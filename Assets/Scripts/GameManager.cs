@@ -37,7 +37,6 @@ public class GameManager : MonoBehaviour
     public float levelTime = 20;
 
     public bool isGameOver = false;
-    private bool scorePresented = false;//??
 
     public int 
             gameDeathCount,
@@ -47,9 +46,13 @@ public class GameManager : MonoBehaviour
 
     private Text playerStats; //will change the text from the UI
     private PlayerManager playerManager;
+    private GameObject statusPanel;
 
     private void Start()
     {
+        statusPanel = GameObject.Find("StatusPanel");
+        statusPanel.SetActive(false);
+        
         //get text object from the scene
         playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
         playerManager = Toolbox.GetInstance().GetPlayerManager();
@@ -59,19 +62,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (isGameOver && !scorePresented) 
+        if (isGameOver) 
         {
             playerManager.FreezePlayer();
 
-            //DisplayScore();           
+            DisplayScore();           
         }
     }
 
     
     public void DisplayScore()
     {
-        scorePresented = true;//?
-
+    
+        statusPanel.SetActive(true);
+        
         playerStats.text = "Test Stats: "+ "\n"
                            + "Level: " + currentLevel +"\n"
                            + "GreyPickUp: " + playerManager.greyPickUps + "\n" 
@@ -106,8 +110,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(selectedLevel);
     }
-
    
-
 
 }
