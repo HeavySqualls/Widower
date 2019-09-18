@@ -1,23 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerManager : MonoBehaviour
 {
     [Space]
     [Header("Player Stats:")]
-    public float runCooldownSeconds = 4;
-    public float pRunSpeed;
-
-
-    // Upgradable Stats
+    public float playerPoints;
     public float eatSpeed = 3;
-    public float pWalkSpeed = 8;
-    public float secondsCanRun = 2;
-
+    public float pRunSpeed;
+    
+    [Header("Player PickUp:")]
     public int greyPickUps;
     public int orangePickUps;
     public int bluePickUps;
+    
+    public float runCooldownSeconds = 4;
+    public float pWalkSpeed = 8;
+    public float secondsCanRun = 2;
 
     private PlayerController playerController;
 
@@ -29,7 +28,7 @@ public class PlayerManager : MonoBehaviour
 
     public void FreezePlayer()
     {
-        playerController.processMovement = false;
+        playerController.processMovement = false;       
     }
 
     public void UnFreezePlayer()
