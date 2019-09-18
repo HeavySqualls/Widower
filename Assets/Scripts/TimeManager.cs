@@ -68,11 +68,18 @@ public class TimeManager : MonoBehaviour
     public void StopCountDownTimer()
     {
         isCountDownTime = false;
-        gameManager.isGameOver = true;
+        time.enabled = false;
+        gameManager.DisplayScore();
     }
 
     public void ResetTimer()
     {
+        gameManager = Toolbox.GetInstance().GetGameManager();
+        time = GameObject.Find("TimerUI").GetComponent<Text>();
+        startText = GameObject.Find("Start").GetComponent<Text>();
+        time.enabled = false;
+        isCountDownTime = false;
+
         minutes = "0";
         seconds = "0";
     }

@@ -35,4 +35,19 @@ public class PlayerManager : MonoBehaviour
     {
         playerController.processMovement = true;
     }
+
+    public void UpgradeStats()
+    {
+        // grey pick ups 
+        playerPoints += (greyPickUps * 10) + (orangePickUps * 5) + (bluePickUps * 5);
+        eatSpeed += (orangePickUps * 0.30f);
+        pRunSpeed += (bluePickUps * 0.30f);
+    }
+
+    public void ResetPickups()
+    {
+        greyPickUps = 0;
+        orangePickUps = 0;
+        bluePickUps = 0;
+    }
 }

@@ -37,9 +37,10 @@ public class GameManager : MonoBehaviour
     public float levelTime = 20;
 
     public bool isGameOver = false;
+    public bool isGameStart = false;
 
     public int 
-            gameDeathCount,
+            gameDeathCount, // not used at the moment
             numberOfPlayers,//for knowing if it is multi player
             currentLevel; 
     
@@ -52,64 +53,78 @@ public class GameManager : MonoBehaviour
     {
         statusPanel = GameObject.Find("StatusPanel");
         statusPanel.SetActive(false);
-        
+
         //get text object from the scene
-        playerStats = GameObject.Find("PlayerStatsInfoText").GetComponent<Text>();
+        playerStats = statusPanel.GetComponentInChildren<Text>();
         playerManager = Toolbox.GetInstance().GetPlayerManager();
         currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
     }
 
-
-    private void Update()
+    void OnLevelWasLoaded()
     {
-        if (isGameOver) 
-        {
-            playerManager.FreezePlayer();
 
-            DisplayScore();           
-        }
     }
-
     
     public void DisplayScore()
     {
-    
+        isGameOver = true;
+
+        playerManager.UpgradeStats();
+
         statusPanel.SetActive(true);
         
-        playerStats.text = "Test Stats: "+ "\n"
+        playerStats.text = "Level Stats: "+ "\n"
+                           + "\n"
                            + "Level: " + currentLevel +"\n"
-                           + "GreyPickUp: " + playerManager.greyPickUps + "\n" 
-                           + "OrangePickUp: " + playerManager.orangePickUps + "\n" 
+                           + "\n"
+                           + "GreyPickUp: " + playerManager.greyPickUps + "\n"
+                           + "\n"
+                           + "OrangePickUp: " + playerManager.orangePickUps + "\n"
+                           + "\n"
                            + "BluePickUp: " + playerManager.bluePickUps + "\n"
+                           + "\n"
                            + "PlayerTotalPoints: " + playerManager.playerPoints + "\n"
+                           + "\n"
                            + "PlayerEatSpeed: " + playerManager.eatSpeed + "\n"
-                           + "PlayerRunSpeed: " + playerManager.pRunSpeed + "\n";
-                
-
+                           + "\n"
+                           + "PlayerRunSpeed: " + playerManager.pRunSpeed + "\n";                
     }
 
-    
-    public void greyUpgrade( PlayerManager pm ) //may need better naming..
-    {
-        pm.playerPoints += 10;
-    }    
-    public void orangeUpgrade( PlayerManager pm )
-    {
-        pm.playerPoints += 5;
-        pm.eatSpeed += pm.eatSpeed * 0.10f; //increase by 10%
-    }  
-    
-    public void blueUpgrade( PlayerManager pm )
-    {
-        pm.playerPoints += 5;
-        pm.pRunSpeed +=  pm.pRunSpeed * 0.10f; //increase by 10%
-    }
-
-    //change the level by calling game manager 
     public void changeLevel(int selectedLevel)
     {
         SceneManager.LoadScene(selectedLevel);
     }
-   
+
+    public void ResetAndChangeLevel()
+    {
+        playerManager.ResetPickups();
+        isGameOver = false;
+        isGameStart = false;
+        SceneManager.LoadScene(currentLevel); // resets current level for now
+    }
+
+
+
+
+
+    //public void greyUpgrade( PlayerManager pm ) //may need better naming..
+    //{
+    //    pm.playerPoints += 10;
+    //}    
+    //public void orangeUpgrade( PlayerManager pm )
+    //{
+    //    pm.playerPoints += 5;
+    //    pm.eatSpeed += pm.eatSpeed * 0.10f; //increase by 10%
+    //}  
+
+    //public void blueUpgrade( PlayerManager pm )
+    //{
+    //    pm.playerPoints += 5;
+    //    pm.pRunSpeed +=  pm.pRunSpeed * 0.10f; //increase by 10%
+    //}
+
+    //change the level by calling game manager 
+
+
 
 }

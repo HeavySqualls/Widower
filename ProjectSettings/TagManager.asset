@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - TimerUI
+  - Ground
+  - PlayerStatsInfoText
+  - StatusPanel
   layers:
   - Default
   - TransparentFX

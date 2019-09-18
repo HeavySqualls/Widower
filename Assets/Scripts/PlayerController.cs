@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     private PlayerManager playerManager;
     private GameManager gameManager;
     private TimeManager timeManager;
-    private PlayerControlls controls;
 
 
     private void Awake()
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour
         playerManager = Toolbox.GetInstance().GetPlayerManager();
         gameManager = Toolbox.GetInstance().GetGameManager();
         timeManager = Toolbox.GetInstance().GetTimer();
-        controls = new PlayerControlls();
     }
 
     void Start()
@@ -91,11 +89,17 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyUp(KeyCode.Return))
+            if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameOver == true)
+            {
+                gameManager.ResetAndChangeLevel();
+            }
+            else if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameStart == false)
             {
                 processMovement = true;
                 timeManager.StartCountDownTimer(gameManager.levelTime);
-                Debug.Log("Time has started!");
+                //Debug.Log("Time has started!");
+                //timeManager.ResetTimer(); <<< ----- Cannot have this here!!
+                gameManager.isGameStart = true;
             }
 
             if (Input.GetKey(KeyCode.E) && isInteracting && interactedController != null && !isEating)
@@ -162,6 +166,8 @@ public class PlayerController : MonoBehaviour
                     pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pRunSpeed;
                     runTime += 1 / (1 / Time.deltaTime);
                     isRunning = true;
+                    staminaBar.enabled = true;
+                    staminaBar.fillAmount = (runTime / 2);
                 }
 
                 // Stop Running Case - Player let go of key
