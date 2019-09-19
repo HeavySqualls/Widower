@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [Space]
     [Header("Player States:")]
-    public bool processMovement = true;
+    public bool processMovement = false;
     public bool isRunning = false;
     public bool canRun = true;
     public bool isInteracting = false;
@@ -97,8 +97,7 @@ public class PlayerController : MonoBehaviour
             {
                 processMovement = true;
                 timeManager.StartCountDownTimer(gameManager.levelTime);
-                //Debug.Log("Time has started!");
-                //timeManager.ResetTimer(); <<< ----- Cannot have this here!!
+
                 gameManager.isGameStart = true;
             }
 

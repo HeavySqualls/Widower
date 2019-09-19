@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PickupController : MonoBehaviour
 {
-    private float countDownTime;
+    private float eatTime;
     private float countDownTimeStart;
 
     public float timeToRespawn;
@@ -69,22 +69,22 @@ public class PickupController : MonoBehaviour
     public float StartEatCountdownTimer(float time)
     {
         eatProgress.enabled = true;
-        countDownTime = time;
-        countDownTimeStart = countDownTime;
-        return countDownTime;                               
+        eatTime = time;
+        countDownTimeStart = eatTime;
+        return eatTime;                               
     }
 
     private void EatCountDown()
     {
-        if (countDownTime > 0)
+        if (eatTime > 0)
         {
-            countDownTime -= Time.deltaTime;
+            eatTime -= Time.deltaTime;
             inputCall.enabled = false;
-            eatProgress.fillAmount = (countDownTime / countDownTimeStart);
+            eatProgress.fillAmount = (eatTime / countDownTimeStart);
 
             playerManager.FreezePlayer();
 
-            if (countDownTime <= 0 && !respawning)
+            if (eatTime <= 0 && !respawning)
             {
                 playerController.isEating = false;
                 playerManager.UnFreezePlayer();

@@ -57,6 +57,7 @@ public class TimeManager : MonoBehaviour
     {
         if (!isCountDownStarted)
         {
+            Debug.Log("Time has started!");
             time.enabled = true;
             isCountDownStarted = true;
             isCountDownTime = true;
@@ -69,6 +70,7 @@ public class TimeManager : MonoBehaviour
     {
         isCountDownTime = false;
         time.enabled = false;
+        isCountDownStarted = false;
         gameManager.DisplayScore();
     }
 

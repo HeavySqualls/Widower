@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
     [Space]
     [Header("Player Stats:")]
     public float playerPoints;
-    public float eatSpeed = 3;
+    public float eatSpeed = 10;
     public float pRunSpeed;
     
     [Header("Player PickUp:")]
@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     public float pWalkSpeed = 8;
     public float secondsCanRun = 2;
 
-    private PlayerController playerController;
+    public PlayerController playerController;
 
     private void Start()
     {
@@ -40,8 +40,9 @@ public class PlayerManager : MonoBehaviour
     {
         // grey pick ups 
         playerPoints += (greyPickUps * 10) + (orangePickUps * 5) + (bluePickUps * 5);
-        eatSpeed += (orangePickUps * 0.30f);
-        pRunSpeed += (bluePickUps * 0.30f);
+        eatSpeed += (orangePickUps * 0.3f);
+        Debug.Log("Eat Speed: " + eatSpeed);
+        pWalkSpeed += (bluePickUps * 0.30f);
     }
 
     public void ResetPickups()
@@ -49,5 +50,11 @@ public class PlayerManager : MonoBehaviour
         greyPickUps = 0;
         orangePickUps = 0;
         bluePickUps = 0;
+    }
+
+    public void ResetPlayer()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        pRunSpeed = pWalkSpeed * 2;
     }
 }

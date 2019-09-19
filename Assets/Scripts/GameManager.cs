@@ -22,8 +22,6 @@
  */
 
 
-
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,6 +47,27 @@ public class GameManager : MonoBehaviour
     private PlayerManager playerManager;
     private GameObject statusPanel;
 
+    void OnEnable()
+    {
+        //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon 
+        //as this script is enabled.
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        //Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as 
+        //this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Toolbox.GetInstance().GetTimer().ResetTimer();
+        Toolbox.GetInstance().GetPlayerManager().ResetPlayer();
+        ResetGameManager();
+    }
+
     private void Start()
     {
         statusPanel = GameObject.Find("StatusPanel");
@@ -58,11 +77,6 @@ public class GameManager : MonoBehaviour
         playerStats = statusPanel.GetComponentInChildren<Text>();
         playerManager = Toolbox.GetInstance().GetPlayerManager();
         currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
-    }
-
-    void OnLevelWasLoaded()
-    {
-
     }
     
     public void DisplayScore()
@@ -87,7 +101,7 @@ public class GameManager : MonoBehaviour
                            + "\n"
                            + "PlayerEatSpeed: " + playerManager.eatSpeed + "\n"
                            + "\n"
-                           + "PlayerRunSpeed: " + playerManager.pRunSpeed + "\n";                
+                           + "PlayerRunSpeed: " + playerManager.pWalkSpeed + "\n";                
     }
 
     public void changeLevel(int selectedLevel)
@@ -103,28 +117,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel); // resets current level for now
     }
 
+    private void ResetGameManager()
+    {
+        statusPanel = GameObject.Find("StatusPanel");
+        playerStats = statusPanel.GetComponentInChildren<Text>();
 
+        //get text object from the scene
 
-
-
-    //public void greyUpgrade( PlayerManager pm ) //may need better naming..
-    //{
-    //    pm.playerPoints += 10;
-    //}    
-    //public void orangeUpgrade( PlayerManager pm )
-    //{
-    //    pm.playerPoints += 5;
-    //    pm.eatSpeed += pm.eatSpeed * 0.10f; //increase by 10%
-    //}  
-
-    //public void blueUpgrade( PlayerManager pm )
-    //{
-    //    pm.playerPoints += 5;
-    //    pm.pRunSpeed +=  pm.pRunSpeed * 0.10f; //increase by 10%
-    //}
-
-    //change the level by calling game manager 
-
-
-
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
+    }
 }
