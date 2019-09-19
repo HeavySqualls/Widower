@@ -5,10 +5,33 @@ using UnityEngine;
 public class PickupID : MonoBehaviour
 {
     public bool pickupGrey = false;
+    public float hValueGrey = 400f;
+
     public bool pickupOrange = false;
+    public float hValueOrange = 400f;
+
     public bool pickupBlue = false;
+    public float hValueBlue = 50f;
 
     public float pickUpValue;
+
+    public float hValue;
+
+    void Start()
+    {
+        if (pickupGrey)
+        {
+            hValue = hValueGrey;
+        }
+        else if (pickupOrange)
+        {
+            hValue = hValueOrange;
+        }
+        else if (pickupBlue)
+        {
+            hValue = hValueBlue;
+        }
+    }
 
     public void IncrementStats()
     {

@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class PickupController : MonoBehaviour
 {
-    private float eatTime;
-    private float countDownTimeStart;
+    private float eatSpeed;
+    public float maxHealth;
+    private float maxHealthStart;
 
     public float timeToRespawn;
     private float respawnTime;
@@ -69,22 +70,26 @@ public class PickupController : MonoBehaviour
     public float StartEatCountdownTimer(float time)
     {
         eatProgress.enabled = true;
-        eatTime = time;
-        countDownTimeStart = eatTime;
-        return eatTime;                               
+        eatSpeed = time;
+        maxHealth = pickupID.hValue;
+        maxHealthStart = maxHealth;
+
+        return eatSpeed;                               
     }
 
     private void EatCountDown()
     {
-        if (eatTime > 0)
+        if (playerController.isEating && maxHealth > 0)
         {
-            eatTime -= Time.deltaTime;
+            maxHealth -= eatSpeed;
             inputCall.enabled = false;
-            eatProgress.fillAmount = (eatTime / countDownTimeStart);
+
+            //eat time needs to build up instead of down. 
+            eatProgress.fillAmount = (maxHealth / maxHealthStart);
 
             playerManager.FreezePlayer();
 
-            if (eatTime <= 0 && !respawning)
+            if (maxHealth <= 0 && !respawning)
             {
                 playerController.isEating = false;
                 playerManager.UnFreezePlayer();

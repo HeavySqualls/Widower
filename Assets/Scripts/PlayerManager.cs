@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
     [Space]
     [Header("Player Stats:")]
     public float playerPoints;
-    public float eatSpeed = 10;
+    public float eatSpeed = 0.5f;
     public float pRunSpeed;
     
     [Header("Player PickUp:")]
@@ -40,7 +40,7 @@ public class PlayerManager : MonoBehaviour
     {
         // grey pick ups 
         playerPoints += (greyPickUps * 10) + (orangePickUps * 5) + (bluePickUps * 5);
-        eatSpeed += (orangePickUps * 0.3f);
+        eatSpeed += (orangePickUps * 0.25f);
         Debug.Log("Eat Speed: " + eatSpeed);
         pWalkSpeed += (bluePickUps * 0.30f);
     }

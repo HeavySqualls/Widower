@@ -397,7 +397,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5cc517d2eb13aab47abea198fdab12b1, type: 2}
+  - {fileID: 2100000, guid: 264ff002117315b4998ec462eceed6be, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -444,9 +444,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupGrey: 0
+  hValueGrey: 400
   pickupOrange: 0
+  hValueOrange: 400
   pickupBlue: 1
+  hValueBlue: 400
   pickUpValue: 0
+  hValue: 0
 --- !u!1 &3918806016906700091
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +512,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 26b8e364f20d95c4e8dca66bc1911985, type: 2}
+  - {fileID: 2100000, guid: 8e14a7b37ede3ce449927bd52f40a468, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -554,6 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed5ef38ea540494c9e6f16a2df13fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   timeToRespawn: 8
   eatProgress: {fileID: 1886026121}
   inputCall: {fileID: 138224392}
