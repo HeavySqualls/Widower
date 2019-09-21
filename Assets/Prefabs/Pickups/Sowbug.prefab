@@ -323,6 +323,7 @@ GameObject:
   - component: {fileID: 1828448304734028475}
   - component: {fileID: 3652211509817421109}
   - component: {fileID: 3652211509817421114}
+  - component: {fileID: 4976031913291156134}
   m_Layer: 0
   m_Name: Sowbug
   m_TagString: Untagged
@@ -425,6 +426,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4976031913291156134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4723904455455808978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aed5ef38ea540494c9e6f16a2df13fa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToRespawn: 10
+  eatProgress: {fileID: 3979849622934638265, guid: b3946796ff01e9f4f81636c32d4d4e17,
+    type: 3}
+  inputCall: {fileID: 5309441226503727642, guid: 3d99ffdefc5444f4c965ca91a93916bc,
+    type: 3}
+  PickUpObj: {fileID: 1478989550348133593, guid: a5561429b248b4743b1d878ba2dc1e6e,
+    type: 3}
+  CanvasObj: {fileID: 100000, guid: 00718395eefb6084bb25555f962f25c0, type: 3}
+  cameraTarget: {fileID: 0}
 --- !u!1 &5377948430489584749
 GameObject:
   m_ObjectHideFlags: 0
