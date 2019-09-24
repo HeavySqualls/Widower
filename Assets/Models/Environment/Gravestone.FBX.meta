@@ -9,6 +9,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: 'Material #2'
     second: {fileID: 2100000, guid: 41c252a66ef469042acb4f143c6bc174, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gravestone_Gravestone1_AlbedoTransparency
+    second: {fileID: 2800000, guid: 3694491aee3daed458d1b8e98e591c69, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gravestone_Gravestone1_MetallicSmoothness
+    second: {fileID: 2800000, guid: a89b77c0d49481340a4237437bd39cee, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Gravestone_Gravestone1_Normal
+    second: {fileID: 2800000, guid: 447ee779238642442afb81b55fea64b6, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
