@@ -5,25 +5,20 @@ ModelImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 'Material #2'
-    second: {fileID: 2100000, guid: 42f4cc447d234af4bbb80d54a89e8023, type: 2}
-  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tree_DeadTree_AlbedoTransparency
-    second: {fileID: 2800000, guid: 6174bcbe79a44934a9859c874777775c, type: 3}
+    second: {fileID: 2800000, guid: f7cfc7bf7bdd2d14cb443ba6f9990d43, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tree_DeadTree_MetallicSmoothness
-    second: {fileID: 2800000, guid: b453424532514e348aa0b84db17d54ba, type: 3}
+    second: {fileID: 2800000, guid: 05b02af50f1d1b84eb466aa435776753, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Tree_DeadTree_Normal
-    second: {fileID: 2800000, guid: c94a9fec67b7c6d42b6f207d20c0f123, type: 3}
+    second: {fileID: 2800000, guid: 32a97470858e6694f888b3ccfcb6640e, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
