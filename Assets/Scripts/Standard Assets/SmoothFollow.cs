@@ -7,7 +7,7 @@ namespace UnityStandardAssets.Utility
 
 		// The target we are following
 		[SerializeField]
-		public Transform target;
+		private Transform target;
 		// The distance in the x-z plane to the target
 		[SerializeField]
 		private float distance = 10.0f;
@@ -16,11 +16,14 @@ namespace UnityStandardAssets.Utility
 		private float height = 5.0f;
 
 		[SerializeField]
-		private float rotationDamping = 0.2f;
+		private float rotationDamping;
 		[SerializeField]
-		private float heightDamping = 0.0f;
+		private float heightDamping;
 
+		// Use this for initialization
+		void Start() { }
 
+		// Update is called once per frame
 		void LateUpdate()
 		{
 			// Early out if we don't have a target
