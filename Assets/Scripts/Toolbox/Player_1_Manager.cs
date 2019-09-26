@@ -11,6 +11,7 @@ public class Player_1_Manager : MonoBehaviour
     public float p1_runSpeed; // ----------- set in start
     public float p1_eatSpeed = 0.5f;
     public float p1_points; // ------------- used for widow stat check
+    public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
 
     [Space]
     [Header("Player Upgradable Points:")]
@@ -44,19 +45,29 @@ public class Player_1_Manager : MonoBehaviour
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
 
+        SetUpPlayerInManager();
+
+        FreezePlayer();
+
+        p1_statusPanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void SetUpPlayerInManager()
+    {
+        // Player Controller
         p1_Controller = GameObject.Find("Player_1-Prefab").GetComponent<Player_1_Controller>();
         p1_runSpeed = p1_moveSpeed * 2;
 
+        // Player Status Panel
         p1_statusPanel = GameObject.Find("StatusPanel");
+        playerStats = p1_statusPanel.GetComponentInChildren<Text>();
+
+        // Player Re-spawn Point
+        p1_spawnPoint = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
         respawnButton = p1_statusPanel.GetComponentInChildren<Button>();
         respawnButton.onClick.AddListener(RespawnPlayer);
-        playerStats = p1_statusPanel.GetComponentInChildren<Text>();
-        p1_statusPanel.SetActive(false);
-
-        p1_spawnPoint = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void FreezePlayer()
@@ -147,7 +158,7 @@ public class Player_1_Manager : MonoBehaviour
         Instantiate(p1_objectPrefab, p1_spawnPoint.position, p1_spawnPoint.rotation);
         ResetPlayerManager();
 
-        p1_statusPanel.SetActive(true);
+        p1_statusPanel.SetActive(false);
 
         UnFreezePlayer();
     }

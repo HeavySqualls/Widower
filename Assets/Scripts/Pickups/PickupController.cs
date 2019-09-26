@@ -24,10 +24,11 @@ public class PickupController : MonoBehaviour
     [Header("Universal Interaction obj Refs:")]
     private GameObject interactedObj; // Assigned in OnTriggerEnter()
     public Camera cameraTarget;
+    public bool interactObjInRange = false;
 
     [Space]
     [Header("Player 1 Refs:")]
-    private bool isPlayer1 = false;
+    public bool isPlayer1 = false;
     private Player_1_Controller player_1_Controller;
     private Player_1_Manager p1_Manager;
 
@@ -45,6 +46,7 @@ public class PickupController : MonoBehaviour
     void Start()
     {    
         pickupID = gameObject.GetComponentInChildren<PickupID>();
+
         inputCall.enabled = false;
         eatProgress.enabled = false;
     }
@@ -68,6 +70,8 @@ public class PickupController : MonoBehaviour
 
             inputCall.enabled = true;
             player_1_Controller.InteractableObject(gameObject.GetComponent<PickupController>());
+
+            interactObjInRange = true;
         }
         //else if (other.GetComponentInParent<Player_2_Controller>())
         //{
@@ -79,6 +83,8 @@ public class PickupController : MonoBehaviour
 
         //    inputCall.enabled = true;
         //    player_2_Controller.InteractableObject(gameObject.GetComponent<PickupController>());
+
+        //    interactObjInRange = true;
         //}
     }
 
@@ -94,6 +100,8 @@ public class PickupController : MonoBehaviour
 
             inputCall.enabled = false;
             eatProgress.enabled = false;
+
+            interactObjInRange = false;
         }
         //else if (other.GetComponentInParent<Player_2_Controller>())
         //{
@@ -105,6 +113,8 @@ public class PickupController : MonoBehaviour
 
         //    inputCall.enabled = false;
         //    eatProgress.enabled = false;
+
+        //    interactObjInRange = false;
         //}
     }
 

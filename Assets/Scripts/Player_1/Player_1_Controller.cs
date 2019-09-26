@@ -26,29 +26,26 @@ public class Player_1_Controller : MonoBehaviour
     [Header("Control Options:")]
     public bool isGamePad = false;
 
-
     [Space]
     [Header("Player Refrences:")]
     public Canvas CanvasObj;
     public Image staminaBar;
     public PickupController interactedController;
-    private Player_1_Manager p1_playerManager;
+    private Player_1_Manager p1_Manager;
     private GameManager gameManager;
     private TimeManager timeManager;
 
-
     private void Awake()
     {
-        p1_playerManager = Toolbox.GetInstance().GetPlayer_1_Manager();
+        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         gameManager = Toolbox.GetInstance().GetGameManager();
-        timeManager = Toolbox.GetInstance().GetTimer();
+        //timeManager = Toolbox.GetInstance().GetTimer();
     }
 
     void Start()
     {
-        processMovement = false;
         staminaBar.enabled = false;
-        pCurrentMoveSpeed = p1_playerManager.p1_moveSpeed;
+        pCurrentMoveSpeed = p1_Manager.p1_moveSpeed;
     }
 
     void Update()
@@ -58,66 +55,36 @@ public class Player_1_Controller : MonoBehaviour
         RunWindDown();
     }
 
-    public void InteractableObject(PickupController interObject)
-    {
-        interactedController = interObject;
-
-        if (interObject != null)
-        {
-            isInteracting = true;
-        }
-        else
-        {
-            isInteracting = false;
-        }
-    }
-
     void PlayerInputs()
     {
         if (processInputs)
         {
             if (isGamePad)
             {
-                if (Input.GetButtonDown("STARTButton"))
+                if (Input.GetButtonDown("STARTButton") && gameManager.isGameStart == false)
                 {
-                    processMovement = true;
-                    timeManager.StartCountDownTimer(gameManager.levelTime);
-                    Debug.Log("Time has started!");
-                }
-                else if (Input.GetButtonDown("STARTButton") && gameManager.isGameStart == false)
-                {
-                    processMovement = true;
-                    timeManager.StartCountDownTimer(gameManager.levelTime);
-
-                    gameManager.isGameStart = true;
+                    p1_Manager.isReady = true;
                 }
 
                 if (Input.GetButtonDown("XButton") && isInteracting && interactedController != null && !isEating)
                 {
                     Debug.Log("eat!");
                     isEating = true;
-                    interactedController.StartEatCountdownTimer(p1_playerManager.p1_eatSpeed);
+                    interactedController.StartEatCountdownTimer(p1_Manager.p1_eatSpeed);
                 }
             }
             else
             {
-                if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameOver == true)
+                if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameStart == false)
                 {
-                    gameManager.ResetAndChangeLevel();
-                }
-                else if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameStart == false)
-                {
-                    processMovement = true;
-                    timeManager.StartCountDownTimer(gameManager.levelTime);
-
-                    gameManager.isGameStart = true;
+                    p1_Manager.isReady = true;
                 }
 
                 if (Input.GetKey(KeyCode.E) && isInteracting && interactedController != null && !isEating)
                 {
                     Debug.Log("eat!");
                     isEating = true;
-                    interactedController.StartEatCountdownTimer(p1_playerManager.p1_eatSpeed);
+                    interactedController.StartEatCountdownTimer(p1_Manager.p1_eatSpeed);
                 }
             }
         }       
@@ -206,6 +173,20 @@ public class Player_1_Controller : MonoBehaviour
         }      
     }
 
+    public void InteractableObject(PickupController interObject)
+    {
+        interactedController = interObject;
+
+        if (interObject != null)
+        {
+            isInteracting = true;
+        }
+        else
+        {
+            isInteracting = false;
+        }
+    }
+
     // ---- RUNNING METHODS ---- //
 
     void PlayerRunningCoolDown()
@@ -248,6 +229,9 @@ public class Player_1_Controller : MonoBehaviour
 
     public void DestroyInstance_p1()
     {
+        if (interactedController != null)
+            interactedController.interactObjInRange = false;
+
         Destroy(gameObject);
     }
 }
