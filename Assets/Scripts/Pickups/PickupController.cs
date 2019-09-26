@@ -18,9 +18,10 @@ public class PickupController : MonoBehaviour
 
     public GameObject PickUpObj;
     public GameObject CanvasObj;
+    public GameObject p1;
 
     private Player_1_Manager playerManager;
-    private Player_1_Controller playerController;
+    private Player_1_Controller player_1_Controller;
     private BoxCollider player;
     public Camera cameraTarget;
 
@@ -33,10 +34,13 @@ public class PickupController : MonoBehaviour
 
     void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<Player_1_Controller>();
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
+        p1 = GameObject.Find("Player_1-Prefab");
+        cameraTarget = p1.GetComponentInChildren<Camera>();
+        player_1_Controller = p1.GetComponent<Player_1_Controller>();
+        player = p1.GetComponent<BoxCollider>();
+
         pickupID = gameObject.GetComponentInChildren<PickupID>();
-        cameraTarget = GameObject.Find("Player").GetComponentInChildren<Camera>();
+
         inputCall.enabled = false;
         eatProgress.enabled = false;
     }
@@ -53,7 +57,7 @@ public class PickupController : MonoBehaviour
         if (other == player)
         {
             inputCall.enabled = true;
-            playerController.InteractableObject(gameObject.GetComponent<PickupController>());
+            player_1_Controller.InteractableObject(gameObject.GetComponent<PickupController>());
         }
     }
 
@@ -61,7 +65,7 @@ public class PickupController : MonoBehaviour
     {
         if (other == player)
         {
-            playerController.interactedController = null;
+            player_1_Controller.interactedController = null;
             inputCall.enabled = false;
             eatProgress.enabled = false;
         }
@@ -79,7 +83,7 @@ public class PickupController : MonoBehaviour
 
     private void EatCountDown()
     {
-        if (playerController.isEating && maxHealth > 0)
+        if (player_1_Controller.isEating && maxHealth > 0)
         {
             maxHealth -= eatSpeed;
             inputCall.enabled = false;
@@ -91,7 +95,7 @@ public class PickupController : MonoBehaviour
 
             if (maxHealth <= 0 && !respawning)
             {
-                playerController.isEating = false;
+                player_1_Controller.isEating = false;
                 playerManager.UnFreezePlayer();
                 pickupID.IncrementStats();
                 Deactivate();

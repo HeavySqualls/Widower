@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 8809668671460646250}
   - component: {fileID: 8809668671460646251}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_1-Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,12 +468,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   processMovement: 1
+  processInputs: 1
   isRunning: 0
   canRun: 1
   isInteracting: 0
   isEating: 0
-  runTime: 0
-  pCurrentMoveSpeed: 0
   isGamePad: 0
   CanvasObj: {fileID: 3916620783916778156}
   staminaBar: {fileID: 3362264709653383941}
