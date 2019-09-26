@@ -245,4 +245,9 @@ public class Player_1_Controller : MonoBehaviour
         staminaBar.enabled = false;
         Debug.Log("Running Ready!");
     }
+
+    public void DestroyInstance_p1()
+    {
+        Destroy(gameObject);
+    }
 }

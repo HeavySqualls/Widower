@@ -43,6 +43,7 @@ public class Player_1_Manager : MonoBehaviour
     private void Start()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
+
         p1_Controller = GameObject.Find("Player_1-Prefab").GetComponent<Player_1_Controller>();
         p1_runSpeed = p1_moveSpeed * 2;
 
@@ -71,6 +72,8 @@ public class Player_1_Manager : MonoBehaviour
     public void DisplayScore()
     {
         gameManager.isGameOver = true;
+
+        FreezePlayer();
 
         UpgradeStats();
 
@@ -137,11 +140,15 @@ public class Player_1_Manager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        Destroy(p1_objectPrefab);
+        p1_Controller.DestroyInstance_p1();
 
-        //p1_objectPrefab = Resources.Load<GameObject>("Player_1-Prefab");
+        p1_objectPrefab = Resources.Load<GameObject>("Player_1-Prefab");
 
-        //Instantiate(p1_objectPrefab, p1_spawnPoint.position, p1_spawnPoint.rotation);
-        //ResetPlayerManager();
+        Instantiate(p1_objectPrefab, p1_spawnPoint.position, p1_spawnPoint.rotation);
+        ResetPlayerManager();
+
+        p1_statusPanel.SetActive(true);
+
+        UnFreezePlayer();
     }
 }

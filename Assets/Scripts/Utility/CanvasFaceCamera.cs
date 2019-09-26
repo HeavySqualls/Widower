@@ -7,23 +7,25 @@ public class CanvasFaceCamera : MonoBehaviour
     private Camera currentCamera;
     public PickupController pickupController;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
-        AssignCamera();
+        if (pickupController.interactObjInRange)
+        {
+            AssignCamera();
 
-        transform.LookAt(
-            transform.position + 
-            currentCamera.transform.rotation * Vector3.forward, 
-            currentCamera.transform.rotation * Vector3.up
-            );        
+            transform.LookAt(
+                transform.position +
+                currentCamera.transform.rotation * Vector3.forward,
+                currentCamera.transform.rotation * Vector3.up
+                );
+        }      
     }
 
     void AssignCamera()
     {
-        currentCamera = pickupController.cameraTarget;
+        if (pickupController.cameraTarget != null)
+        {
+            currentCamera = pickupController.cameraTarget;
+        }
     }
 }
