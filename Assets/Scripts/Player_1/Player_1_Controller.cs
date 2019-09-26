@@ -4,19 +4,23 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class Player_1_Controller : MonoBehaviour
 {
     [Space]
-    [Header("Player States:")]
+    [Header("Player Status:")]
     public bool processMovement = false;
+    public bool processInputs = true;
+
     public bool isRunning = false;
     public bool canRun = true;
     public bool isInteracting = false;
     public bool isEating = false;
-    [SerializeField] private float runTime;
-    [SerializeField] private float pCurrentMoveSpeed;
     private bool runWindDown = false;
 
+    [Space]
+    [Header("Player States:")]
+    private float runTime;
+    private float pCurrentMoveSpeed;
 
     [Space]
     [Header("Control Options:")]
@@ -28,14 +32,14 @@ public class PlayerController : MonoBehaviour
     public Canvas CanvasObj;
     public Image staminaBar;
     public PickupController interactedController;
-    private PlayerManager playerManager;
+    private Player_1_Manager p1_playerManager;
     private GameManager gameManager;
     private TimeManager timeManager;
 
 
     private void Awake()
     {
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        p1_playerManager = Toolbox.GetInstance().GetPlayer_1_Manager();
         gameManager = Toolbox.GetInstance().GetGameManager();
         timeManager = Toolbox.GetInstance().GetTimer();
     }
@@ -44,7 +48,7 @@ public class PlayerController : MonoBehaviour
     {
         processMovement = false;
         staminaBar.enabled = false;
-        pCurrentMoveSpeed = playerManager.pMoveSpeed;
+        pCurrentMoveSpeed = p1_playerManager.p1_moveSpeed;
     }
 
     void Update()
@@ -70,43 +74,53 @@ public class PlayerController : MonoBehaviour
 
     void PlayerInputs()
     {
-        if (isGamePad)
+        if (processInputs)
         {
-            if (Input.GetButtonDown("STARTButton"))
+            if (isGamePad)
             {
-                processMovement = true;
-                timeManager.StartCountDownTimer(gameManager.levelTime);
-                Debug.Log("Time has started!");
-            }
+                if (Input.GetButtonDown("STARTButton"))
+                {
+                    processMovement = true;
+                    timeManager.StartCountDownTimer(gameManager.levelTime);
+                    Debug.Log("Time has started!");
+                }
+                else if (Input.GetButtonDown("STARTButton") && gameManager.isGameStart == false)
+                {
+                    processMovement = true;
+                    timeManager.StartCountDownTimer(gameManager.levelTime);
 
-            if (Input.GetButtonDown("XButton") && isInteracting && interactedController != null && !isEating)
-            {
-                Debug.Log("eat!");
-                isEating = true;
-                interactedController.StartEatCountdownTimer(playerManager.pEatSpeed);
-            }
-        }
-        else
-        {
-            if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameOver == true)
-            {
-                gameManager.ResetAndChangeLevel();
-            }
-            else if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameStart == false)
-            {
-                processMovement = true;
-                timeManager.StartCountDownTimer(gameManager.levelTime);
+                    gameManager.isGameStart = true;
+                }
 
-                gameManager.isGameStart = true;
+                if (Input.GetButtonDown("XButton") && isInteracting && interactedController != null && !isEating)
+                {
+                    Debug.Log("eat!");
+                    isEating = true;
+                    interactedController.StartEatCountdownTimer(p1_playerManager.p1_eatSpeed);
+                }
             }
-
-            if (Input.GetKey(KeyCode.E) && isInteracting && interactedController != null && !isEating)
+            else
             {
-                Debug.Log("eat!");
-                isEating = true;
-                interactedController.StartEatCountdownTimer(playerManager.pEatSpeed);
+                if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameOver == true)
+                {
+                    gameManager.ResetAndChangeLevel();
+                }
+                else if (Input.GetKeyUp(KeyCode.Return) && gameManager.isGameStart == false)
+                {
+                    processMovement = true;
+                    timeManager.StartCountDownTimer(gameManager.levelTime);
+
+                    gameManager.isGameStart = true;
+                }
+
+                if (Input.GetKey(KeyCode.E) && isInteracting && interactedController != null && !isEating)
+                {
+                    Debug.Log("eat!");
+                    isEating = true;
+                    interactedController.StartEatCountdownTimer(p1_playerManager.p1_eatSpeed);
+                }
             }
-        }
+        }       
     }
 
     void PlayerMovement()
@@ -123,7 +137,7 @@ public class PlayerController : MonoBehaviour
                 // Start Running
                 if (Input.GetButton("Sprint_Gamepad") && pCurrentMoveSpeed != 0 && canRun == true)
                 {
-                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pRunSpeed;
+                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayer_1_Manager().p1_runSpeed;
                     runTime += 1 / (1 / Time.deltaTime);
                     isRunning = true;
                     staminaBar.enabled = true;
@@ -134,17 +148,17 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetButtonUp("Sprint_Gamepad"))
                 {
                     Debug.Log("Player State: Stopped Running");
-                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pMoveSpeed;
+                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayer_1_Manager().p1_moveSpeed;
                     runWindDown = true;
                     Debug.Log("Run wind down!");
                     isRunning = false;
                 }
 
                 // Stop Running Case - Player ran out of stamina
-                if (isRunning == true && runTime > Toolbox.GetInstance().GetPlayerManager().secondsCanRun)
+                if (isRunning == true && runTime > Toolbox.GetInstance().GetPlayer_1_Manager().p1_secondsCanRun)
                 {
                     Debug.Log("Player State: Out of stamina");
-                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pMoveSpeed;
+                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayer_1_Manager().p1_moveSpeed;
                     runTime = 0f;
                     isRunning = false;
                     canRun = false;
@@ -161,7 +175,7 @@ public class PlayerController : MonoBehaviour
                 // Start Running
                 if (Input.GetKey(KeyCode.LeftShift) && pCurrentMoveSpeed != 0 && canRun == true)
                 {
-                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pRunSpeed;
+                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayer_1_Manager().p1_runSpeed;
                     runTime += 1 / (1 / Time.deltaTime);
                     isRunning = true;
                     staminaBar.enabled = true;
@@ -172,17 +186,17 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetKeyUp(KeyCode.LeftShift))
                 {
                     Debug.Log("Player State: Stopped Running");
-                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pMoveSpeed;
+                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayer_1_Manager().p1_moveSpeed;
                     runWindDown = true;
                     Debug.Log("Run wind down!");
                     isRunning = false;
                 }
 
                 // Stop Running Case - Player ran out of stamina
-                if (isRunning == true && runTime > Toolbox.GetInstance().GetPlayerManager().secondsCanRun)
+                if (isRunning == true && runTime > Toolbox.GetInstance().GetPlayer_1_Manager().p1_secondsCanRun)
                 {
                     Debug.Log("Player State: Out of stamina");
-                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayerManager().pMoveSpeed;
+                    pCurrentMoveSpeed = Toolbox.GetInstance().GetPlayer_1_Manager().p1_moveSpeed;
                     runTime = 0f;
                     isRunning = false;
                     canRun = false;
@@ -225,7 +239,7 @@ public class PlayerController : MonoBehaviour
     public IEnumerator IRunningCooldown()
     {
         canRun = false;
-        yield return new WaitForSeconds(Toolbox.GetInstance().GetPlayerManager().runCooldownSeconds);
+        yield return new WaitForSeconds(Toolbox.GetInstance().GetPlayer_1_Manager().p1_runCooldownSeconds);
         canRun = true;
         staminaBar.GetComponent<Image>().color = Color.yellow;
         staminaBar.enabled = false;

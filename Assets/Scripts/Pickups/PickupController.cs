@@ -19,8 +19,8 @@ public class PickupController : MonoBehaviour
     public GameObject PickUpObj;
     public GameObject CanvasObj;
 
-    private PlayerManager playerManager;
-    private PlayerController playerController;
+    private Player_1_Manager playerManager;
+    private Player_1_Controller playerController;
     private BoxCollider player;
     public Camera cameraTarget;
 
@@ -28,12 +28,12 @@ public class PickupController : MonoBehaviour
 
     private void Awake()
     {
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        playerManager = Toolbox.GetInstance().GetPlayer_1_Manager();
     }
 
     void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerController = GameObject.Find("Player").GetComponent<Player_1_Controller>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<BoxCollider>();
         pickupID = gameObject.GetComponentInChildren<PickupID>();
         cameraTarget = GameObject.Find("Player").GetComponentInChildren<Camera>();

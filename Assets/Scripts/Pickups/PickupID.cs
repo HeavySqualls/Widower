@@ -52,18 +52,18 @@ public class PickupID : MonoBehaviour
     public void AddGreyStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayerManager().pointPickups += 1;
+        Toolbox.GetInstance().GetPlayer_1_Manager().p1_pointPickups += 1;
     }
 
     public void AddOrangeStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayerManager().eatPickups += 1;
+        Toolbox.GetInstance().GetPlayer_1_Manager().p1_eatPickups += 1;
     }
 
     public void AddBlueStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayerManager().movePickups += 1;
+        Toolbox.GetInstance().GetPlayer_1_Manager().p1_movePickups += 1;
     }
 }

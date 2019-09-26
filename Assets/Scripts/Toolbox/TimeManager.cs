@@ -5,25 +5,27 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
+    [Space]
+    [Header("Time Stats:")]
+    public string minutes;
+    public string seconds;
     private float startTime;
     private float currentTime;
 
+    [Space]
+    [Header("Time Status:")]
     public bool isCountDownTime;
     private bool isCountDownStarted;
 
+    [Space]
+    [Header("Time References:")]
     public Text startText;
     public Text time;
-
-    public string minutes;
-    public string seconds;
-
-    private GameManager gameManager;
-    private PlayerManager playerManager;
+    private Player_1_Manager playerManager;
 
     void Start()
     {
-        gameManager = Toolbox.GetInstance().GetGameManager();
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        playerManager = Toolbox.GetInstance().GetPlayer_1_Manager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
         time.enabled = false;
@@ -78,8 +80,7 @@ public class TimeManager : MonoBehaviour
 
     public void ResetTimer()
     {
-        gameManager = Toolbox.GetInstance().GetGameManager();
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        playerManager = Toolbox.GetInstance().GetPlayer_1_Manager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
         time.enabled = false;

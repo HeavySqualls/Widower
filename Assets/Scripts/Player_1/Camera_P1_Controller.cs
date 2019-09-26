@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class Camera_P1_Controller : MonoBehaviour
 {
     float rotationSpeed = 1;
     public Transform Target, Player;
@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
 
 
     public float smoothSpeed;
-    public PlayerController playerController;
+    public Player_1_Controller playerController;
     //public Transform Obstruction;
     //float zoomSpeed = 50f;
 
