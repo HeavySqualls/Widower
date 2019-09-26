@@ -25,14 +25,29 @@ public class PlayerManager : MonoBehaviour
     public int movePickups;
 
     [Space]
+    [Header("Player Score:")]
+    private Text playerStats; //will change the text from the UI
+    private GameObject statusPanel;
+    private Button respawnButton;
+
+
+
+    [Space]
     [Header("Player References:")]
     private PlayerController playerController;
-    private Text playerStats; //will change the text from the UI
+    private GameManager gameManager;
 
     private void Start()
     {
+        gameManager = Toolbox.GetInstance().GetGameManager();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         pRunSpeed = pMoveSpeed * 2;
+
+        statusPanel = GameObject.Find("StatusPanel");
+        respawnButton = statusPanel.GetComponentInChildren<Button>();
+        playerStats = statusPanel.GetComponentInChildren<Text>();
+        respawnButton.onClick.AddListener(RespawnPlayer);
+        statusPanel.SetActive(false);
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -48,16 +63,42 @@ public class PlayerManager : MonoBehaviour
         playerController.processMovement = true;
     }
 
+    public void DisplayScore()
+    {
+        gameManager.isGameOver = true;
+
+        UpgradeStats();
+
+        statusPanel.SetActive(true);
+
+        playerStats.text = "Level Stats: " + "\n"
+                           + "\n"
+                           + "Level: " + gameManager.currentLevel + "\n"
+                           + "\n"
+                           + "Total Point-bugs Eaten: " + "\n"
+                           + pointPickups + "\n"
+                           + "Points Aquired: " + "\n"
+                           + pPoints + " + " + pointsToAdd + "\n"
+                           + "\n"
+                           + "Total Eat-bugs Eaten: " + "\n"
+                           + pointPickups + "\n"
+                           + "Eating Speed Aquired: " + "\n"
+                           + pEatSpeed + " + " + eatSpeedToAdd + "\n"
+                           + "\n"
+                           + "Total Move-bugs eaten: " + "\n"
+                           + pointPickups + "\n"
+                           + "Move Speed Aquired: " + "\n"
+                           + pMoveSpeed + " + " + moveSpeedToAdd + "\n";
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void UpgradeStats()
     {
         pointsToAdd = (pointPickups * 10) + (eatPickups * 5) + (movePickups * 5);
         eatSpeedToAdd = (eatPickups * 0.25f);
         moveSpeedToAdd = (movePickups * 0.30f);
-
-        // Add these in a respawn method before calling ResetPickups()
-        //pPoints += pointsToAdd;
-        //pEatSpeed += eatSpeedToAdd;
-        //pMoveSpeed += moveSpeedToAdd;
     }
 
     public void ResetPickups()
@@ -71,9 +112,26 @@ public class PlayerManager : MonoBehaviour
         moveSpeedToAdd = 0;
     }
 
-    public void ResetPlayer()
+    public void ResetPlayerManager()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         pRunSpeed = pMoveSpeed * 2;
+
+        statusPanel = GameObject.Find("StatusPanel");
+        playerStats = statusPanel.GetComponentInChildren<Text>();
+    }
+
+    private void RespawnPlayer()
+    {
+        print("Player Respawned");
+
+        pPoints += pointsToAdd;
+        pEatSpeed += eatSpeedToAdd;
+        pMoveSpeed += moveSpeedToAdd;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        //Instantiate Player
     }
 }

@@ -17,11 +17,13 @@ public class TimeManager : MonoBehaviour
     public string minutes;
     public string seconds;
 
-    public GameManager gameManager;
+    private GameManager gameManager;
+    private PlayerManager playerManager;
 
     void Start()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
         time.enabled = false;
@@ -71,12 +73,13 @@ public class TimeManager : MonoBehaviour
         isCountDownTime = false;
         time.enabled = false;
         isCountDownStarted = false;
-        gameManager.DisplayScore();
+        playerManager.DisplayScore();
     }
 
     public void ResetTimer()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("Start").GetComponent<Text>();
         time.enabled = false;
