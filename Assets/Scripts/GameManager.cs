@@ -1,27 +1,4 @@
-﻿/**
- *                                    GAME_MANAGER TASK
- * 
-- [x]  Present end screen (enable end screen canvas) with breakdown of players round
-    - [x]  how many bugs and what kind (Color bugs for now)
-    - [x]  what level played
-    - [x]  display player stats and the amount they are increasing for next round
-- [x]  Give instructions to player manager to upgrade player stats
-- [x]  Handle game reset with level change in mind
-    - [x]  level change would look like GM giving the instruction to SceneManager to change to "x" level
- */
-
-/**
- *
- * 
- * - Grey pick ups rewards the player with 10 points per unit
- * - Orange pick ups rewards the player with 5 points + 10% eating speed per unit
- * - Blue pick ups rewards the player with 5 points + 10% running speed per unit
- * 
- * at the moment "running speed" is walking speed *2, so we could either increase walking speed by 10% 
- * or have running speed be its own defined variable.
- */
-
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -32,32 +9,27 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     
-    public float levelTime = 20;
+    public float levelTime = 5;
 
     public bool isGameOver = false;
     public bool isGameStart = false;
 
-    public int 
-            gameDeathCount, // not used at the moment
-            numberOfPlayers,//for knowing if it is multi player
-            currentLevel; 
-    
+    public int gameDeathCount; // not used at the moment
+    public int numberOfPlayers; //for knowing if it is multi player
+    public int currentLevel;
 
     private Text playerStats; //will change the text from the UI
     private PlayerManager playerManager;
     private GameObject statusPanel;
+    private Button respawnButton;
 
     void OnEnable()
     {
-        //Tell our 'OnLevelFinishedLoading' function to start listening for a scene change as soon 
-        //as this script is enabled.
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
-        //Tell our 'OnLevelFinishedLoading' function to stop listening for a scene change as soon as 
-        //this script is disabled. Remember to always have an unsubscription for every delegate you subscribe to!
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -68,17 +40,28 @@ public class GameManager : MonoBehaviour
         ResetGameManager();
     }
 
-    private void Start()
+    private void Start() // references to scene objects must also be made in ResetGameManager() below
     {
         statusPanel = GameObject.Find("StatusPanel");
+        respawnButton = statusPanel.GetComponentInChildren<Button>();
+        respawnButton.onClick.AddListener(RespawnPlayer);
         statusPanel.SetActive(false);
 
         //get text object from the scene
         playerStats = statusPanel.GetComponentInChildren<Text>();
         playerManager = Toolbox.GetInstance().GetPlayerManager();
-        currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
-    
+
+    private void ResetGameManager()
+    {
+        statusPanel = GameObject.Find("StatusPanel");
+        playerStats = statusPanel.GetComponentInChildren<Text>();
+
+        playerManager = Toolbox.GetInstance().GetPlayerManager();
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
+
     public void DisplayScore()
     {
         isGameOver = true;
@@ -86,22 +69,28 @@ public class GameManager : MonoBehaviour
         playerManager.UpgradeStats();
 
         statusPanel.SetActive(true);
-        
-        playerStats.text = "Level Stats: "+ "\n"
+
+        playerStats.text = "Level Stats: " + "\n"
                            + "\n"
-                           + "Level: " + currentLevel +"\n"
+                           + "Level: " + currentLevel + "\n"
                            + "\n"
-                           + "GreyPickUp: " + playerManager.greyPickUps + "\n"
+                           + "Total Point-bugs Eaten: " + "\n" 
+                           + playerManager.pointPickups + "\n"
+                           + "Points Aquired: " + "\n" 
+                           + playerManager.pPoints + " + " + playerManager.pointsToAdd + "\n"
                            + "\n"
-                           + "OrangePickUp: " + playerManager.orangePickUps + "\n"
+                           + "Total Eat-bugs Eaten: " + "\n" 
+                           + playerManager.pointPickups + "\n"
+                           + "Eating Speed Aquired: " + "\n" 
+                           + playerManager.pEatSpeed + " + " + playerManager.eatSpeedToAdd + "\n"
                            + "\n"
-                           + "BluePickUp: " + playerManager.bluePickUps + "\n"
-                           + "\n"
-                           + "PlayerTotalPoints: " + playerManager.playerPoints + "\n"
-                           + "\n"
-                           + "PlayerEatSpeed: " + playerManager.eatSpeed + "\n"
-                           + "\n"
-                           + "PlayerRunSpeed: " + playerManager.pWalkSpeed + "\n";                
+                           + "Total Move-bugs eaten: " + "\n" 
+                           + playerManager.pointPickups + "\n"
+                           + "Move Speed Aquired: " + "\n" 
+                           + playerManager.pMoveSpeed + " + " + playerManager.moveSpeedToAdd + "\n";
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void changeLevel(int selectedLevel)
@@ -117,14 +106,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(currentLevel); // resets current level for now
     }
 
-    private void ResetGameManager()
+    private void RespawnPlayer()
     {
-        statusPanel = GameObject.Find("StatusPanel");
-        playerStats = statusPanel.GetComponentInChildren<Text>();
-
-        //get text object from the scene
-
-        playerManager = Toolbox.GetInstance().GetPlayerManager();
-        currentLevel = SceneManager.GetActiveScene().buildIndex; // you'll need to specify in build setting
+        print("woohoo!");
     }
 }

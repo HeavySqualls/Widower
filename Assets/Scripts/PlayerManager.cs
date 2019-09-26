@@ -1,29 +1,41 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
-    [Space]
     [Header("Player Stats:")]
-    public float playerPoints;
-    public float eatSpeed = 0.5f;
-    public float pRunSpeed;
-    
-    [Header("Player PickUp:")]
-    public int greyPickUps;
-    public int orangePickUps;
-    public int bluePickUps;
-    
+    public float pMoveSpeed = 8;
     public float runCooldownSeconds = 4;
-    public float pWalkSpeed = 8;
     public float secondsCanRun = 2;
+    public float pRunSpeed; // ----------- set in start
+    public float pEatSpeed = 0.5f;
+    public float pPoints; // ------------- used for widow stat check
 
-    public PlayerController playerController;
+    [Space]
+    [Header("Player Upgradable Points:")]
+    public float pointsToAdd;
+    public float eatSpeedToAdd;
+    public float moveSpeedToAdd;
+
+    [Space]
+    [Header("Player PickUp:")]
+    public int pointPickups;
+    public int eatPickups;
+    public int movePickups;
+
+    [Space]
+    [Header("Player References:")]
+    private PlayerController playerController;
+    private Text playerStats; //will change the text from the UI
 
     private void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        pRunSpeed = pWalkSpeed * 2;
+        pRunSpeed = pMoveSpeed * 2;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void FreezePlayer()
@@ -38,23 +50,30 @@ public class PlayerManager : MonoBehaviour
 
     public void UpgradeStats()
     {
-        // grey pick ups 
-        playerPoints += (greyPickUps * 10) + (orangePickUps * 5) + (bluePickUps * 5);
-        eatSpeed += (orangePickUps * 0.25f);
-        Debug.Log("Eat Speed: " + eatSpeed);
-        pWalkSpeed += (bluePickUps * 0.30f);
+        pointsToAdd = (pointPickups * 10) + (eatPickups * 5) + (movePickups * 5);
+        eatSpeedToAdd = (eatPickups * 0.25f);
+        moveSpeedToAdd = (movePickups * 0.30f);
+
+        // Add these in a respawn method before calling ResetPickups()
+        //pPoints += pointsToAdd;
+        //pEatSpeed += eatSpeedToAdd;
+        //pMoveSpeed += moveSpeedToAdd;
     }
 
     public void ResetPickups()
     {
-        greyPickUps = 0;
-        orangePickUps = 0;
-        bluePickUps = 0;
+        pointPickups = 0;
+        eatPickups = 0;
+        movePickups = 0;
+
+        pointsToAdd = 0;
+        eatSpeedToAdd = 0;
+        moveSpeedToAdd = 0;
     }
 
     public void ResetPlayer()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        pRunSpeed = pWalkSpeed * 2;
+        pRunSpeed = pMoveSpeed * 2;
     }
 }
