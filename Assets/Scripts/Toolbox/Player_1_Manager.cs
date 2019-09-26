@@ -34,12 +34,13 @@ public class Player_1_Manager : MonoBehaviour
     [Space]
     [Header("Player Spawn:")]
     private Transform p1_spawnPoint;
+    private GameObject p1_objectPrefab;
+    private GameObject currentPlayer;
 
     [Space]
     [Header("Player References:")]
     private Player_1_Controller p1_Controller;
     private GameManager gameManager;
-    private GameObject p1_objectPrefab;
 
     private void Start()
     {
@@ -57,7 +58,8 @@ public class Player_1_Manager : MonoBehaviour
     private void SetUpPlayerInManager()
     {
         // Player Controller
-        p1_Controller = GameObject.Find("Player_1-Prefab").GetComponent<Player_1_Controller>();
+        currentPlayer = GameObject.FindGameObjectWithTag("Player");
+        p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
         p1_runSpeed = p1_moveSpeed * 2;
 
         // Player Status Panel
@@ -65,6 +67,7 @@ public class Player_1_Manager : MonoBehaviour
         playerStats = p1_statusPanel.GetComponentInChildren<Text>();
 
         // Player Re-spawn Point
+        p1_objectPrefab = Resources.Load<GameObject>("Player_1-Prefab");
         p1_spawnPoint = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
         respawnButton = p1_statusPanel.GetComponentInChildren<Button>();
         respawnButton.onClick.AddListener(RespawnPlayer);
@@ -82,7 +85,7 @@ public class Player_1_Manager : MonoBehaviour
 
     public void DisplayScore()
     {
-        gameManager.isGameOver = true;
+        //gameManager.isGameOver = true;
 
         FreezePlayer();
 
@@ -133,11 +136,8 @@ public class Player_1_Manager : MonoBehaviour
 
     public void ResetPlayerManager()
     {
-        p1_Controller = GameObject.Find("Player_1-Prefab").GetComponent<Player_1_Controller>();
-        p1_runSpeed = p1_moveSpeed * 2;
-
-        p1_statusPanel = GameObject.Find("StatusPanel");
-        playerStats = p1_statusPanel.GetComponentInChildren<Text>();
+        currentPlayer = GameObject.FindGameObjectWithTag("Player");
+        p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
     }
 
     private void RespawnPlayer()
@@ -151,12 +151,18 @@ public class Player_1_Manager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        p1_Controller.DestroyInstance_p1();
+        if (p1_Controller.interactedController != null)
+            p1_Controller.interactedController.interactObjInRange = false;
 
-        p1_objectPrefab = Resources.Load<GameObject>("Player_1-Prefab");
+        Destroy(currentPlayer);
 
-        Instantiate(p1_objectPrefab, p1_spawnPoint.position, p1_spawnPoint.rotation);
-        ResetPlayerManager();
+        if (currentPlayer == null)
+        {
+            Instantiate(p1_objectPrefab, p1_spawnPoint.position, p1_spawnPoint.rotation);
+            currentPlayer = GameObject.FindGameObjectWithTag("Player");
+            p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
+            //ResetPlayerManager();
+        }
 
         p1_statusPanel.SetActive(false);
 
