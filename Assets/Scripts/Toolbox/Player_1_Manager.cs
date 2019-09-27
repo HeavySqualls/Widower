@@ -18,6 +18,7 @@ public class Player_1_Manager : MonoBehaviour
     public float p1_pointsToAdd;
     public float p1_eatSpeedToAdd;
     public float p1_moveSpeedToAdd;
+    private string deathCause;
 
     [Space]
     [Header("Player PickUp:")]
@@ -50,31 +51,29 @@ public class Player_1_Manager : MonoBehaviour
     {
         FreezePlayer();
 
-        TallyPickups();
+        if (!p1_Controller.predatorKilledPlayer)
+        {
+            deathCause = "Death By Widow";
+            TallyPickups();
+        }
+        else
+        {
+            deathCause = "Death By Predator";
+            ResetPickups();
+        }
+
 
         p1_Controller.statusPanel.SetActive(true);
 
-        p1_Controller.playerStats.text = "Level Stats: " + "\n"
-                           + "\n"
-                           + "Level: " + gameManager.currentLevel + "\n"
-                           + "\n"
-                           + "Total Point-bugs Eaten: " + "\n"
-                           + p1_pointPickups + "\n"
-                           + "Points Aquired: " + "\n"
-                           + p1_points + " + " + p1_pointsToAdd + "\n"
-                           + "\n"
-                           + "Total Eat-bugs Eaten: " + "\n"
-                           + p1_pointPickups + "\n"
-                           + "Eating Speed Aquired: " + "\n"
-                           + p1_eatSpeed + " + " + p1_eatSpeedToAdd + "\n"
-                           + "\n"
-                           + "Total Move-bugs eaten: " + "\n"
-                           + p1_pointPickups + "\n"
-                           + "Move Speed Aquired: " + "\n"
-                           + p1_moveSpeed + " + " + p1_moveSpeedToAdd + "\n";
+        p1_Controller.level.text = gameManager.currentLevel.ToString();
+        p1_Controller.death.text = deathCause;
+        p1_Controller.points.text = p1_points + " + " + p1_pointsToAdd;
+        p1_Controller.eatSpeed.text = p1_eatSpeed + " + " + p1_eatSpeedToAdd;
+        p1_Controller.moveSpeed.text = p1_moveSpeed + " + " + p1_moveSpeedToAdd;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        p1_Controller.predatorKilledPlayer = false;
     }
 
     public void TallyPickups()

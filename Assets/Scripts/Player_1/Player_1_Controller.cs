@@ -14,6 +14,7 @@ public class Player_1_Controller : MonoBehaviour
     public bool canRun = true;
     public bool isInteracting = false;
     public bool isEating = false;
+    public bool predatorKilledPlayer = false;
     private bool runWindDown = false;
 
     [Space]
@@ -28,7 +29,11 @@ public class Player_1_Controller : MonoBehaviour
     [Space]
     [Header("Player Score:")]
     public GameObject statusPanel;
-    public Text playerStats;
+    public Text level;
+    public Text death;
+    public Text points;
+    public Text eatSpeed;
+    public Text moveSpeed;
     public Button respawnButton;
 
     [Space]
