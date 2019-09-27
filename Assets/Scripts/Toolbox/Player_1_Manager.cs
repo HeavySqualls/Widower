@@ -24,17 +24,6 @@ public class Player_1_Manager : MonoBehaviour
     public int p1_pointPickups;
     public int p1_eatPickups;
     public int p1_movePickups;
-
-    [Space]
-    [Header("Player Score:")]
-    private GameObject p1_statusPanel;
-    private Text playerStats;
-    private Button respawnButton;
-
-    [Space]
-    [Header("Player Spawn:")]
-    private Transform p1_spawnPoint;
-    private GameObject p1_objectPrefab;
     private GameObject currentPlayer;
 
     [Space]
@@ -46,54 +35,26 @@ public class Player_1_Manager : MonoBehaviour
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
 
-        SetUpPlayerInManager();
-
-        FreezePlayer();
-
-        p1_statusPanel.SetActive(false);
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    private void SetUpPlayerInManager()
-    {
-        // Player Controller
         currentPlayer = GameObject.FindGameObjectWithTag("Player");
         p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
         p1_runSpeed = p1_moveSpeed * 2;
 
-        // Player Status Panel
-        p1_statusPanel = GameObject.Find("StatusPanel");
-        playerStats = p1_statusPanel.GetComponentInChildren<Text>();
+        FreezePlayer();
 
-        // Player Re-spawn Point
-        p1_objectPrefab = Resources.Load<GameObject>("Player_1-Prefab");
-        p1_spawnPoint = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
-        respawnButton = p1_statusPanel.GetComponentInChildren<Button>();
-        respawnButton.onClick.AddListener(RespawnPlayer);
-    }
-
-    public void FreezePlayer()
-    {
-        p1_Controller.processMovement = false;       
-    }
-
-    public void UnFreezePlayer()
-    {
-        p1_Controller.processMovement = true;
+        p1_Controller.statusPanel.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void DisplayScore()
     {
-        //gameManager.isGameOver = true;
-
         FreezePlayer();
 
-        UpgradeStats();
+        TallyPickups();
 
-        p1_statusPanel.SetActive(true);
+        p1_Controller.statusPanel.SetActive(true);
 
-        playerStats.text = "Level Stats: " + "\n"
+        p1_Controller.playerStats.text = "Level Stats: " + "\n"
                            + "\n"
                            + "Level: " + gameManager.currentLevel + "\n"
                            + "\n"
@@ -116,7 +77,7 @@ public class Player_1_Manager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    public void UpgradeStats()
+    public void TallyPickups()
     {
         p1_pointsToAdd = (p1_pointPickups * 10) + (p1_eatPickups * 5) + (p1_movePickups * 5);
         p1_eatSpeedToAdd = (p1_eatPickups * 0.25f);
@@ -134,38 +95,22 @@ public class Player_1_Manager : MonoBehaviour
         p1_moveSpeedToAdd = 0;
     }
 
-    public void ResetPlayerManager()
+    public void AddPoints()
     {
-        currentPlayer = GameObject.FindGameObjectWithTag("Player");
-        p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
-    }
-
-    private void RespawnPlayer()
-    {
-        print("Player 1 Respawned");
-
         p1_points += p1_pointsToAdd;
         p1_eatSpeed += p1_eatSpeedToAdd;
         p1_moveSpeed += p1_moveSpeedToAdd;
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        ResetPickups();
+    }
 
-        if (p1_Controller.interactedController != null)
-            p1_Controller.interactedController.interactObjInRange = false;
+    public void FreezePlayer()
+    {
+        p1_Controller.processMovement = false;
+    }
 
-        Destroy(currentPlayer);
-
-        if (currentPlayer == null)
-        {
-            Instantiate(p1_objectPrefab, p1_spawnPoint.position, p1_spawnPoint.rotation);
-            currentPlayer = GameObject.FindGameObjectWithTag("Player");
-            p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
-            //ResetPlayerManager();
-        }
-
-        p1_statusPanel.SetActive(false);
-
-        UnFreezePlayer();
+    public void UnFreezePlayer()
+    {
+        p1_Controller.processMovement = true;
     }
 }

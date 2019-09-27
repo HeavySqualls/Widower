@@ -10,7 +10,6 @@ public class Player_1_Controller : MonoBehaviour
     [Header("Player Status:")]
     public bool processMovement = false;
     public bool processInputs = true;
-
     public bool isRunning = false;
     public bool canRun = true;
     public bool isInteracting = false;
@@ -27,25 +26,41 @@ public class Player_1_Controller : MonoBehaviour
     public bool isGamePad = false;
 
     [Space]
+    [Header("Player Score:")]
+    public GameObject statusPanel;
+    public Text playerStats;
+    public Button respawnButton;
+
+    [Space]
+    [Header("Player Spawn:")]
+    private float spawnDelay = 3f;
+    public GameObject playerCamera;
+    private Transform cameraAnchor;
+    private Transform playerSpawnAnchor;
+
+    [Space]
     [Header("Player Refrences:")]
     public Canvas CanvasObj;
     public Image staminaBar;
     public PickupController interactedController;
+    public GameObject playerModel;
     private Player_1_Manager p1_Manager;
     private GameManager gameManager;
-    private TimeManager timeManager;
 
     private void Awake()
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         gameManager = Toolbox.GetInstance().GetGameManager();
-        //timeManager = Toolbox.GetInstance().GetTimer();
     }
 
     void Start()
     {
         staminaBar.enabled = false;
         pCurrentMoveSpeed = p1_Manager.p1_moveSpeed;
+
+        cameraAnchor = GameObject.FindGameObjectWithTag("CameraAnchorPoint").transform;
+        playerSpawnAnchor = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
+        respawnButton.onClick.AddListener(PlayerRespawn);
     }
 
     void Update()
@@ -227,11 +242,48 @@ public class Player_1_Controller : MonoBehaviour
         Debug.Log("Running Ready!");
     }
 
-    public void DestroyInstance_p1()
+    public IEnumerator ISpawnCooldown()
+    {
+        // Hide the player model & respawn button
+        playerModel.SetActive(false);
+        respawnButton.gameObject.SetActive(false);
+
+        // Move player camera to overhead camera anchor
+        gameObject.transform.position = playerSpawnAnchor.transform.position;
+        gameObject.transform.rotation = playerSpawnAnchor.transform.rotation;
+
+        // Move player game object to spawn point 
+        playerCamera.transform.parent = cameraAnchor.transform;
+        playerCamera.transform.position = cameraAnchor.position;
+        playerCamera.transform.rotation = cameraAnchor.rotation;
+
+        yield return new WaitForSeconds(spawnDelay);
+
+        // Move player camera back to player 
+        playerCamera.transform.parent = gameObject.transform;
+        playerCamera.transform.position = gameObject.transform.position;
+        playerCamera.transform.rotation = gameObject.transform.rotation;
+
+        // Enable model & disable stats panel
+        playerModel.SetActive(true);
+        respawnButton.gameObject.SetActive(true);
+        statusPanel.SetActive(false);
+
+        // Give control back to player
+        processMovement = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        print("Player 1 Respawned");
+    }
+
+    public void PlayerRespawn()
     {
         if (interactedController != null)
             interactedController.interactObjInRange = false;
 
-        Destroy(gameObject);
+        p1_Manager.AddPoints();
+
+        StartCoroutine(ISpawnCooldown());
     }
 }

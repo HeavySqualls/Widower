@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         //Toolbox.GetInstance().GetTimer().ResetTimer();
-        Toolbox.GetInstance().GetPlayer_1_Manager().ResetPlayerManager();
+        //Toolbox.GetInstance().GetPlayer_1_Manager().ResetPlayerManager();
         ResetGameManager();
     }
 
