@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1669647196211030707}
   - component: {fileID: 2699411625563382367}
   - component: {fileID: 980382222008127581}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Movement Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2681456236818066255}
   - component: {fileID: 3959519548374700351}
   - component: {fileID: 1488418626261576850}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PointsInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 4673087873866309660}
   - component: {fileID: 6368512284841263505}
   - component: {fileID: 7655072411592212490}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StaminaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 970668736118442000}
   - component: {fileID: 6189733209768332358}
   - component: {fileID: 1085225206175862058}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 1600154530546309202}
   - component: {fileID: 1600154530546309200}
   - component: {fileID: 1600154530546309203}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   - component: {fileID: 1600154530575416828}
   - component: {fileID: 1600154530575416831}
   - component: {fileID: 1600154530575416830}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: StatusPanel
   m_TagString: StatusPanel
   m_Icon: {fileID: 0}
@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 8273059630006241699}
   - component: {fileID: 7699212849792773244}
   - component: {fileID: 6973599757715372031}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 4634113564653181885}
   - component: {fileID: 32215125218062612}
   - component: {fileID: 7681755601813970904}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 3170467282560565200}
   - component: {fileID: 860804820194976823}
   - component: {fileID: 944025579045166991}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   - component: {fileID: 881988970494763279}
   - component: {fileID: 8221104505773648083}
   - component: {fileID: 5150094549336240397}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Points Aquired
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3815641054173976904}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: StatsInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 6311937239653572369}
   - component: {fileID: 8819310593486845704}
   - component: {fileID: 8773598027736833668}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: RespawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -981,7 +981,7 @@ GameObject:
   - component: {fileID: 4528181166471943782}
   - component: {fileID: 4528181166471943783}
   - component: {fileID: 4528181166471943776}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Body
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   - component: {fileID: 4528181167034577189}
   - component: {fileID: 4528181167034577178}
   - component: {fileID: 4528181167034577179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 4528181167396557095}
   - component: {fileID: 4528181167396557092}
   - component: {fileID: 4528181167396557093}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1216,7 @@ GameObject:
   - component: {fileID: 4528181167404223304}
   - component: {fileID: 4528181167404223310}
   - component: {fileID: 4528181167404223305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1230,11 +1230,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4528181167404223306}
-  m_LocalRotation: {x: 0.17364816, y: -0, z: -0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 2.3796, z: -5.87}
-  m_LocalScale: {x: 1, y: 0.48784703, z: 0.93215287}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4941977373344472728}
+  m_Father: {fileID: 5143077418372192830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!20 &4528181167404223304
@@ -1315,7 +1315,7 @@ GameObject:
   - component: {fileID: 4528181167497343780}
   - component: {fileID: 4528181167497343769}
   - component: {fileID: 4528181167497343770}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,7 +1393,7 @@ GameObject:
   - component: {fileID: 4528181167761546329}
   - component: {fileID: 4528181167761546334}
   - component: {fileID: 4528181167761546335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Leg3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1474,7 +1474,7 @@ GameObject:
   - component: {fileID: 4941977373026461122}
   - component: {fileID: 4941977373026461125}
   - component: {fileID: 8249517292286634555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerPrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1526,7 +1526,8 @@ MonoBehaviour:
   eatSpeed: {fileID: 7681755601813970904}
   moveSpeed: {fileID: 4786712139981012472}
   respawnButton: {fileID: 8773598027736833668}
-  playerCamera: {fileID: 4941977373344472731}
+  playerCamera: {fileID: 4528181167404223306}
+  playerCamAnchor: {fileID: 5143077418372192830}
   CanvasObj: {fileID: 8273059630006241699}
   staminaBar: {fileID: 7655072411592212490}
   interactedController: {fileID: 0}
@@ -1593,7 +1594,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4941977373344472728}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1607,14 +1608,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4941977373344472731}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.15947391, y: -0, z: -0, w: 0.98720217}
+  m_LocalPosition: {x: 0, y: 2, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4528181167404223311}
+  - {fileID: 5143077418372192830}
   m_Father: {fileID: 4941977373026461121}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -18.353, y: 0, z: 0}
 --- !u!1 &4941977374041009807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,7 +1625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4941977374041009804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1650,6 +1651,37 @@ Transform:
   m_Father: {fileID: 4941977373026461121}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5030599132289004865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5143077418372192830}
+  m_Layer: 8
+  m_Name: playerCamAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5143077418372192830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030599132289004865}
+  m_LocalRotation: {x: 0.17364818, y: -0, z: -0, w: 0.98480785}
+  m_LocalPosition: {x: 0, y: 2.3796, z: -5.87}
+  m_LocalScale: {x: 1, y: 0.4878471, z: 0.93215287}
+  m_Children:
+  - {fileID: 4528181167404223311}
+  m_Father: {fileID: 4941977373344472728}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5336854511460499499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1661,7 +1693,7 @@ GameObject:
   - component: {fileID: 1172007708339959595}
   - component: {fileID: 5890853029223926677}
   - component: {fileID: 8671283210062299181}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Death
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1739,7 +1771,7 @@ GameObject:
   - component: {fileID: 2134518052593745066}
   - component: {fileID: 390544281587543185}
   - component: {fileID: 1318269752840185556}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: DeathInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1816,7 +1848,7 @@ GameObject:
   - component: {fileID: 6631183801263137965}
   - component: {fileID: 8760251759224857692}
   - component: {fileID: 4786712139981012472}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: MoveInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1925,7 @@ GameObject:
   - component: {fileID: 8569773278012134354}
   - component: {fileID: 7284913463773515826}
   - component: {fileID: 6349021230502641064}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1970,7 +2002,7 @@ GameObject:
   - component: {fileID: 561492768945169788}
   - component: {fileID: 6696534106035897700}
   - component: {fileID: 8755241242647957836}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: LevelInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2047,7 +2079,7 @@ GameObject:
   - component: {fileID: 3236412392660773272}
   - component: {fileID: 2808459658078414730}
   - component: {fileID: 4571359884453185626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StaminaBarBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2121,7 +2153,7 @@ GameObject:
   - component: {fileID: 7833520946988958833}
   - component: {fileID: 3636969630309521944}
   - component: {fileID: 2854469462803004436}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Eat Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

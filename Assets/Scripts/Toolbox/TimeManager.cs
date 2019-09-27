@@ -19,7 +19,7 @@ public class TimeManager : MonoBehaviour
 
     [Space]
     [Header("Time References:")]
-    public Text startText;
+    public GameObject startText;
     public Text time;
     private Player_1_Manager p1_Manager;
     //private Player_2_Manager p2_Manager;
@@ -30,7 +30,7 @@ public class TimeManager : MonoBehaviour
         //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
         time = GameObject.Find("TimerUI").GetComponent<Text>();
-        startText = GameObject.Find("Start").GetComponent<Text>();
+        startText = GameObject.Find("StartPrompt");
 
         time.enabled = false;
         isCountDownTime = false;
@@ -46,7 +46,7 @@ public class TimeManager : MonoBehaviour
     {
         if (isCountDownTime)
         {
-            startText.enabled = false;
+            startText.SetActive(false);
             currentTime = startTime -= Time.deltaTime;
 
             minutes = ((int)currentTime / 60).ToString();
@@ -92,7 +92,7 @@ public class TimeManager : MonoBehaviour
         //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
         time = GameObject.Find("TimerUI").GetComponent<Text>();
-        startText = GameObject.Find("Start").GetComponent<Text>();
+        startText = GameObject.Find("StartPrompt");
         time.enabled = false;
         isCountDownTime = false;
 
