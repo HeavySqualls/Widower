@@ -10,7 +10,7 @@ public class OnPlayerHitWidow : WidowInteractable
         {
             print("Widow hit player 1");
             Toolbox.GetInstance().GetPlayer_1_Manager().DisplayScore();
-            widow.isEating = true;
+            widow.GoEating();
         }      
     }
 }
