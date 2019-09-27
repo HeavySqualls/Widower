@@ -40,6 +40,7 @@ public class Player_1_Controller : MonoBehaviour
     [Header("Player Spawn:")]
     private float spawnDelay = 3f;
     public GameObject playerCamera;
+    public Transform playerCamAnchor;
     private Transform cameraAnchor;
     private Transform playerSpawnAnchor;
 
@@ -265,9 +266,9 @@ public class Player_1_Controller : MonoBehaviour
         yield return new WaitForSeconds(spawnDelay);
 
         // Move player camera back to player 
-        playerCamera.transform.parent = gameObject.transform;
-        playerCamera.transform.position = gameObject.transform.position;
-        playerCamera.transform.rotation = gameObject.transform.rotation;
+        playerCamera.transform.parent = playerCamAnchor;
+        playerCamera.transform.position = playerCamAnchor.position;
+        playerCamera.transform.rotation = playerCamAnchor.rotation;
 
         // Enable model & disable stats panel
         playerModel.SetActive(true);
