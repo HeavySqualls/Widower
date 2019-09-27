@@ -19,7 +19,7 @@ public class Toolbox : MonoBehaviour
 
     private TimeManager timeManager;
     private GameManager gameManager;
-    private PlayerManager playerManager;
+    private Player_1_Manager p1_playerManager;
 
     void Awake()
     {
@@ -35,10 +35,10 @@ public class Toolbox : MonoBehaviour
 
         timeManager = gameObject.AddComponent<TimeManager>();
         gameManager = gameObject.AddComponent<GameManager>();
-        playerManager = gameObject.AddComponent<PlayerManager>();
+        p1_playerManager = gameObject.AddComponent<Player_1_Manager>();
     }
 
-    public TimeManager GetTimer()
+    public TimeManager GetTimeManager()
     {
         return timeManager;
     }
@@ -48,8 +48,8 @@ public class Toolbox : MonoBehaviour
         return gameManager;
     }
 
-    public PlayerManager GetPlayerManager()
+    public Player_1_Manager GetPlayer_1_Manager()
     {
-        return playerManager;
+        return p1_playerManager;
     }
 }

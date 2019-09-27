@@ -353,8 +353,9 @@ GameObject:
   - component: {fileID: 8809668671460646254}
   - component: {fileID: 8809668671460646250}
   - component: {fileID: 8809668671460646251}
+  - component: {fileID: 4587471092862449416}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player_1-Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -468,16 +469,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   processMovement: 1
+  processInputs: 1
   isRunning: 0
   canRun: 1
   isInteracting: 0
   isEating: 0
-  runTime: 0
-  pCurrentMoveSpeed: 0
   isGamePad: 0
   CanvasObj: {fileID: 3916620783916778156}
   staminaBar: {fileID: 3362264709653383941}
   interactedController: {fileID: 0}
+--- !u!114 &4587471092862449416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8809668671460646253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68af8134b4ee06f45b0093ba25cdfd93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8809668672203173277
 GameObject:
   m_ObjectHideFlags: 0
@@ -488,7 +500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8809668672203173278}
   - component: {fileID: 8809668672203173279}
-  - component: {fileID: 265526404554528704}
   m_Layer: 0
   m_Name: Target
   m_TagString: Player
@@ -549,21 +560,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &265526404554528704
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8809668672203173277}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b796155823e1c64e844f6ee3b8a4e89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 8809668671460646249}
-  useDamping: 1
-  damping: 0.2
 --- !u!1 &8809668672586667861
 GameObject:
   m_ObjectHideFlags: 0

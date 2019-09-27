@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - PlayerStatsInfoText
   - StatusPanel
+  - Player1_SpawnPoint
+  - CameraAnchorPoint
   layers:
   - Default
   - TransparentFX
