@@ -253,6 +253,7 @@ public class Player_1_Controller : MonoBehaviour
         // Hide the player model & respawn button
         playerModel.SetActive(false);
         respawnButton.gameObject.SetActive(false);
+        isInteracting = false;
 
         // Move player camera to overhead camera anchor
         gameObject.transform.position = playerSpawnAnchor.transform.position;

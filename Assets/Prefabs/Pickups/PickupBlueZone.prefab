@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 57560859}
   - component: {fileID: 57560861}
   - component: {fileID: 57560860}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatingProgressBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 138224391}
   - component: {fileID: 138224393}
   - component: {fileID: 138224392}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 357371054}
   - component: {fileID: 357371053}
   - component: {fileID: 1655405634}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PickupUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 1886026120}
   - component: {fileID: 1886026122}
   - component: {fileID: 1886026121}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatingProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,9 +349,9 @@ GameObject:
   - component: {fileID: 3918806016354670529}
   - component: {fileID: 3918806016354670557}
   - component: {fileID: 3918806016354670556}
-  - component: {fileID: 3918806016354670559}
   - component: {fileID: 3918806016354670558}
-  m_Layer: 0
+  - component: {fileID: 6819964396279087716}
+  m_Layer: 8
   m_Name: PickupBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,19 +418,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3918806016354670559
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3918806016354670528}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3918806016354670558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +438,19 @@ MonoBehaviour:
   hValueBlue: 400
   pickUpValue: 0
   hValue: 0
+--- !u!65 &6819964396279087716
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918806016354670528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3918806016906700091
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 3918806016906700086}
   - component: {fileID: 3918806016906700089}
   - component: {fileID: 3918806016906700088}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickupBlueZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -559,9 +559,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
-  timeToRespawn: 8
   eatProgress: {fileID: 1886026121}
   inputCall: {fileID: 138224392}
-  PickUpObj: {fileID: 3918806016354670528}
   CanvasObj: {fileID: 3918806016354670528}
+  timeToRespawn: 8
   cameraTarget: {fileID: 0}
+  interactObjInRange: 0
+  isPlayer1: 0
+  PickUpObj: {fileID: 3918806016354670528}

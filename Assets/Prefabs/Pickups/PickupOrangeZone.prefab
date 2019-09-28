@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 234318290}
   - component: {fileID: 234318289}
   - component: {fileID: 5361042459707597397}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PickupUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 415414815}
   - component: {fileID: 415414816}
   - component: {fileID: 415414817}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatingProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 1171486668}
   - component: {fileID: 1171486667}
   - component: {fileID: 1171486666}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 2090502304}
   - component: {fileID: 2090502306}
   - component: {fileID: 2090502305}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatingProgressBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 2611404314363061206}
   - component: {fileID: 2611404314363061207}
   - component: {fileID: 2611404314363061208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickupOrangeZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,12 +445,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aed5ef38ea540494c9e6f16a2df13fa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToRespawn: 5
+  maxHealth: 0
   eatProgress: {fileID: 415414817}
   inputCall: {fileID: 1171486666}
-  PickUpObj: {fileID: 2611404314890648448}
   CanvasObj: {fileID: 234318287}
+  timeToRespawn: 5
   cameraTarget: {fileID: 0}
+  interactObjInRange: 0
+  isPlayer1: 0
+  PickUpObj: {fileID: 2611404314890648448}
 --- !u!1 &2611404314890648448
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,9 +465,9 @@ GameObject:
   - component: {fileID: 2611404314890648452}
   - component: {fileID: 2611404314890648453}
   - component: {fileID: 2611404314890648450}
-  - component: {fileID: 2611404314890648451}
   - component: {fileID: 2611404314890648455}
-  m_Layer: 0
+  - component: {fileID: 2251753868803945051}
+  m_Layer: 8
   m_Name: PickupOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -531,19 +534,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &2611404314890648451
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2611404314890648448}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2611404314890648455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +547,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupGrey: 0
+  hValueGrey: 400
   pickupOrange: 1
+  hValueOrange: 400
   pickupBlue: 0
+  hValueBlue: 50
   pickUpValue: 0
+  hValue: 0
+--- !u!65 &2251753868803945051
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2611404314890648448}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
