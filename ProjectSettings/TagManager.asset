@@ -11,6 +11,8 @@ TagManager:
   - StatusPanel
   - Player1_SpawnPoint
   - CameraAnchorPoint
+  - PatrolEnd
+  - PredatorSpawner
   layers:
   - Default
   - TransparentFX

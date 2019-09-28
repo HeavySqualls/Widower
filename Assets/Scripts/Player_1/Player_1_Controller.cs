@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class Player_1_Controller : MonoBehaviour
 {
-    [Space]
     [Header("Player Status:")]
     public bool processMovement = false;
     public bool processInputs = true;

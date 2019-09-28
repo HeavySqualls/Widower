@@ -8,31 +8,29 @@ public class WidowController : MonoBehaviour
     enum State { Patrolling, Eating};
     State currentState;
 
+    [Space]
+    [Header("Widow States:")]
     public bool isEating = false;
     private bool isCoolDown = false;
     private bool isMoving = false;
-    private bool isOnFloor = false;
 
-    private float cooldownTime = 2f;
-
+    [Space]
+    [Header("Widow Patrolling:")]
     public Transform[] waypoints;
-    int currentTarget;
 
-    public NavMeshAgent agent;
+    [Space]
+    [Header("Widow Eating:")]
+    private float cooldownTime = 3f;
 
-    private void Awake()
-    {
-        agent = GetComponent<NavMeshAgent>();
-        agent.autoBraking = false;
-    }
+    [Space]
+    [Header("Widow References:")]
+    private NavMeshAgent agent;
 
     private void Start()
     {
-
-
+        agent = GetComponent<NavMeshAgent>();
+        agent.autoBraking = false;
         this.currentState = State.Patrolling;
-
-
     }
 
     private void Update()
@@ -46,22 +44,31 @@ public class WidowController : MonoBehaviour
         }
     }
 
+
+    // ------ STATES ------ //
+
+
     public void Patrolling()
     {
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
             GoToNextPoint();
-        }
-        
+        }       
     }
 
     private void GoToNextPoint()
     {
-        if (waypoints.Length == 0) return;
+        if (waypoints.Length == 0)
+        {
+            print("No waypoints set");
+            return;
+        }
 
-        agent.destination = waypoints[currentTarget].position;
+        int randomDest = Random.Range(0, waypoints.Length);
 
-        currentTarget = (currentTarget + 1) % waypoints.Length;
+        agent.destination = waypoints[randomDest].position;
+
+        //currentTarget = (currentTarget + 1) % waypoints.Length; --- for patrolling in a specific order
     }
 
     public void Eating()
@@ -72,6 +79,10 @@ public class WidowController : MonoBehaviour
             isCoolDown = true;
         }
     }
+
+
+    // ------ STATE INDUCING METHODS ------ //
+
 
     public void GoPatrolling()
     {
@@ -84,6 +95,10 @@ public class WidowController : MonoBehaviour
         this.currentState = State.Eating;
     }
 
+
+    // ------ METHODS ------ //
+
+
     public void OnCollisionEnter(Collision other)
     {
         OnPlayerHitWidow playerThatHitUs = other.gameObject.GetComponent<OnPlayerHitWidow>();
@@ -94,42 +109,15 @@ public class WidowController : MonoBehaviour
         }
     }
 
-    //private void Patrol()
-    //{
-    //    if (Vector3.Distance(waypoints[currentTarget].transform.position, gameObject.transform.position) <= 0)
-    //    {
-    //        currentTarget++;
-
-    //        if (currentTarget >= waypoints.Length)
-    //        {
-    //            currentWP = waypoints[0];
-    //        }
-    //    }
-
-    //    thisAgent.SetDestination(waypoints[currentTarget].transform.position);
-
-    //    if (thisAgent.pathStatus == NavMeshPathStatus.PathComplete)
-    //    {
-    //        isMoving = false;
-    //    }
-    //}
-
     private IEnumerator WidowEatCooldown()
     {
+        agent.isStopped = true;
+
         yield return new WaitForSeconds(cooldownTime);
 
         isEating = false;
         isCoolDown = false;
+        agent.isStopped = false;
         GoPatrolling();
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if ((other.tag == "Ground") && (isOnFloor == false))
-        {
-            agent.enabled = false;
-            agent.enabled = true;
-            isOnFloor = true;
-        }
     }
 }
