@@ -1419,12 +1419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &521152733 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1600154530575416825, guid: 1e2331d506768f74e8b736b5c120da44,
-    type: 3}
-  m_PrefabInstance: {fileID: 521152727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &525063676 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5032742283976689878, guid: dafff833fb3fb4547b20a790eaec96b5,
@@ -4058,6 +4052,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981696879}
   m_Mesh: {fileID: 1011589495}
+--- !u!1 &994031848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2011844796074121359, guid: 7f72a5ef500ada0488362487222e0bbf,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879536476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &995229652 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6101886571243034350, guid: 20e0b3b72739ada4db213090fd22fbcd,
@@ -4728,7 +4728,7 @@ PrefabInstance:
         type: 3}
       propertyPath: statusPanel
       value: 
-      objectReference: {fileID: 521152733}
+      objectReference: {fileID: 994031848}
     - target: {fileID: 8556323386513716150, guid: 20e0b3b72739ada4db213090fd22fbcd,
         type: 3}
       propertyPath: level
