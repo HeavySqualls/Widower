@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 395668858}
   - component: {fileID: 395668857}
   - component: {fileID: 6120717997275698347}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: PickupUICanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1532250104}
   - component: {fileID: 1532250103}
   - component: {fileID: 1532250102}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 1728587482}
   - component: {fileID: 1728587483}
   - component: {fileID: 1728587484}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatingProgress
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 1794870978}
   - component: {fileID: 1794870980}
   - component: {fileID: 1794870979}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: EatingProgressBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 3645908543295879675}
   - component: {fileID: 3645908543295879674}
   - component: {fileID: 3645908543295879669}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PickupGreyZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,12 +446,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 0
-  timeToRespawn: 2
   eatProgress: {fileID: 1728587484}
   inputCall: {fileID: 1532250102}
-  PickUpObj: {fileID: 3645908543816901037}
   CanvasObj: {fileID: 395668855}
+  timeToRespawn: 2
   cameraTarget: {fileID: 0}
+  interactObjInRange: 0
+  isPlayer1: 0
+  PickUpObj: {fileID: 3645908543816901037}
 --- !u!1 &3645908543816901037
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,9 +465,9 @@ GameObject:
   - component: {fileID: 3645908543816901033}
   - component: {fileID: 3645908543816901032}
   - component: {fileID: 3645908543816901039}
-  - component: {fileID: 3645908543816901038}
   - component: {fileID: 3645908543816901034}
-  m_Layer: 0
+  - component: {fileID: 3212548616023921957}
+  m_Layer: 8
   m_Name: PickupGrey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -532,19 +534,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &3645908543816901038
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3645908543816901037}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3645908543816901034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,3 +554,16 @@ MonoBehaviour:
   hValueBlue: 400
   pickUpValue: 0
   hValue: 0
+--- !u!65 &3212548616023921957
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645908543816901037}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
