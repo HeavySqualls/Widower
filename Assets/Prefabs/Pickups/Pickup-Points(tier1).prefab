@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 3645908543295879674}
   - component: {fileID: 3645908543295879669}
   m_Layer: 8
-  m_Name: PickupGreyZone
+  m_Name: Pickup-Points(tier1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,12 +546,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce94eab58d89a44d92017c5c673efff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupGrey: 1
-  hValueGrey: 400
-  pickupOrange: 0
-  hValueOrange: 400
-  pickupBlue: 0
-  hValueBlue: 400
+  pickupPoints: 1
+  healthPoints: 400
+  scoreValPoints: 1
+  pickupEatSpeed: 0
+  healthEatSpeed: 400
+  scoreValEatSpeed: 1
+  pickupMoveSpeed: 0
+  healthMoveSpeed: 50
+  scoreValMoveSpeed: 1
   pickUpValue: 0
   hValue: 0
 --- !u!65 &3212548616023921957

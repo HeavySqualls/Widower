@@ -17,13 +17,14 @@ public class PredatorController : MonoBehaviour
 
     [Space]
     [Header("Predator Attacking:")]
+    public float attackingSpeed = 10f;
     public float cooldownTime = 2f;
     private Transform target;
     private bool isAttacking = false;
 
     [Space]
     [Header("Predator References:")]
-    private PredatorSpawner spawner;
+    public PredatorSpawner spawner;
     private NavMeshAgent agent;
 
     private void Start()
@@ -69,7 +70,7 @@ public class PredatorController : MonoBehaviour
         {
             print("Predator Attacking");
             agent.destination = target.position;
-            agent.speed = 13f;
+            agent.speed = attackingSpeed;
 
             if (!agent.pathPending && agent.remainingDistance < 1f)
             {

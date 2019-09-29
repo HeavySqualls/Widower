@@ -30,7 +30,7 @@ public class WidowController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
-        this.currentState = State.Patrolling;
+        this.currentState = State.Eating;
     }
 
     private void Update()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player_1_Manager : MonoBehaviour
 {
     [Header("Player Stats:")]
+    private int playerLevel = 0;
     public float p1_moveSpeed = 8;
     public float p1_runCooldownSeconds = 4;
     public float p1_secondsCanRun = 2;
@@ -65,7 +66,7 @@ public class Player_1_Manager : MonoBehaviour
 
         p1_Controller.statusPanel.SetActive(true);
 
-        p1_Controller.level.text = gameManager.currentLevel.ToString();
+        p1_Controller.level.text = playerLevel.ToString();
         p1_Controller.death.text = deathCause;
         p1_Controller.points.text = p1_points + " + " + p1_pointsToAdd;
         p1_Controller.eatSpeed.text = p1_eatSpeed + " + " + p1_eatSpeedToAdd;
@@ -78,6 +79,7 @@ public class Player_1_Manager : MonoBehaviour
 
     public void TallyPickups()
     {
+        playerLevel += 1;
         p1_pointsToAdd = (p1_pointPickups * 10) + (p1_eatPickups * 5) + (p1_movePickups * 5);
         p1_eatSpeedToAdd = (p1_eatPickups * 0.25f);
         p1_moveSpeedToAdd = (p1_movePickups * 0.30f);

@@ -26,7 +26,7 @@ public class PredatorSpawner : MonoBehaviour
     public Transform[] spawnLocations;
 
     [Tooltip("Drop in predator prefab type here.")]
-    public GameObject predator1Prefab;
+    public GameObject predatorPrefab;
 
     private GameObject currentSpawned;
 
@@ -62,7 +62,7 @@ public class PredatorSpawner : MonoBehaviour
         Transform target = spawnLocations[randomSpawnSpot];
 
         currentSpawned = Instantiate(
-            predator1Prefab, 
+            predatorPrefab, 
             spawnLocations[randomSpawnSpot].position, 
             spawnLocations[randomSpawnSpot].rotation, 
             target

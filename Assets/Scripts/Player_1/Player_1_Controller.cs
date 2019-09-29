@@ -253,6 +253,9 @@ public class Player_1_Controller : MonoBehaviour
         playerModel.SetActive(false);
         respawnButton.gameObject.SetActive(false);
         isInteracting = false;
+        isEating = false;
+        runTime = 0f;
+        staminaBar.fillAmount = 0f;
 
         // Move player camera to overhead camera anchor
         gameObject.transform.position = playerSpawnAnchor.transform.position;

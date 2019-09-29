@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PickupID : MonoBehaviour
 {
-    public bool pickupGrey = false;
-    public float hValueGrey = 400f;
+    public bool pickupPoints = false;
+    public float healthPoints = 400f;
+    public int scoreValPoints = 1;
 
-    public bool pickupOrange = false;
-    public float hValueOrange = 400f;
+    public bool pickupEatSpeed = false;
+    public float healthEatSpeed = 400f;
+    public int scoreValEatSpeed = 1;
 
-    public bool pickupBlue = false;
-    public float hValueBlue = 50f;
+    public bool pickupMoveSpeed = false;
+    public float healthMoveSpeed = 50f;
+    public int scoreValMoveSpeed = 1;
 
     public float pickUpValue;
 
@@ -19,31 +22,31 @@ public class PickupID : MonoBehaviour
 
     void Start()
     {
-        if (pickupGrey)
+        if (pickupPoints)
         {
-            hValue = hValueGrey;
+            hValue = healthPoints;
         }
-        else if (pickupOrange)
+        else if (pickupEatSpeed)
         {
-            hValue = hValueOrange;
+            hValue = healthEatSpeed;
         }
-        else if (pickupBlue)
+        else if (pickupMoveSpeed)
         {
-            hValue = hValueBlue;
+            hValue = healthMoveSpeed;
         }
     }
 
     public void IncrementStats()
     {
-        if (pickupGrey)
+        if (pickupPoints)
         {
             AddGreyStats();
         }
-        else if (pickupOrange)
+        else if (pickupEatSpeed)
         {
             AddOrangeStats();
         }
-        else if (pickupBlue)
+        else if (pickupMoveSpeed)
         {
             AddBlueStats();
         }
@@ -52,18 +55,18 @@ public class PickupID : MonoBehaviour
     public void AddGreyStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayer_1_Manager().p1_pointPickups += 1;
+        Toolbox.GetInstance().GetPlayer_1_Manager().p1_pointPickups += scoreValPoints;
     }
 
     public void AddOrangeStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayer_1_Manager().p1_eatPickups += 1;
+        Toolbox.GetInstance().GetPlayer_1_Manager().p1_eatPickups += scoreValEatSpeed;
     }
 
     public void AddBlueStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayer_1_Manager().p1_movePickups += 1;
+        Toolbox.GetInstance().GetPlayer_1_Manager().p1_movePickups += scoreValMoveSpeed;
     }
 }
