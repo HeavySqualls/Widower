@@ -96,6 +96,8 @@ public class PickupController : MonoBehaviour
             p1_Manager = null;
             interactedObj = null;
             cameraTarget = null;
+            //other.GetComponent<Player_1_Controller>().interactedController = null;
+            other.GetComponent<Player_1_Controller>().isInteracting = false;
             player_1_Controller = null;
 
             inputCall.enabled = false;
