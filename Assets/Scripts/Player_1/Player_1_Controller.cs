@@ -49,7 +49,7 @@ public class Player_1_Controller : MonoBehaviour
     public Image staminaBar;
     public PickupController interactedController;
     public GameObject playerModel;
-    private Player_1_Manager p1_Manager;
+    public Player_1_Manager p1_Manager;
     private GameManager gameManager;
 
     private void Awake()

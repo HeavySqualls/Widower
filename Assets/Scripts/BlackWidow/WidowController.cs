@@ -10,6 +10,8 @@ public class WidowController : MonoBehaviour
 
     [Space]
     [Header("Widow States:")]
+
+    public int scoreToBeat = 10;
     public bool isEating = false;
     private bool isCoolDown = false;
     private bool isMoving = false;
@@ -30,7 +32,7 @@ public class WidowController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
-        this.currentState = State.Eating;
+        this.currentState = State.Patrolling;
     }
 
     private void Update()

@@ -129,6 +129,16 @@ public class PredatorController : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player_1_Controller>())
+        {
+            target = null;
+            isAttacking = false;
+            this.currentState = State.Patrolling;
+        }
+    }
+
     private IEnumerator PredatorEatCooldown()
     {
         agent.isStopped = true;

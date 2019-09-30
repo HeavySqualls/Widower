@@ -76,4 +76,10 @@ public class GameManager : MonoBehaviour
             isGameStart = true;
         }
     }
+
+    public void EndGame()
+    {
+        Time.timeScale = 0;
+        print("Game Over");
+    }
 }
