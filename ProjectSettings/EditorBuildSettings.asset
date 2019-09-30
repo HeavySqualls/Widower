@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Working_Art_Scene.unity
     guid: fbb621c16e739c943b083edd0f938035
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Tim_Test_Scene 2Mostly Flat.unity
     guid: 54396c6d1780bf04397aa0662ac1276b
   m_configObjects: {}
