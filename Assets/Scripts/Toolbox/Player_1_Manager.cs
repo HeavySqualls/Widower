@@ -31,11 +31,13 @@ public class Player_1_Manager : MonoBehaviour
     [Space]
     [Header("Player References:")]
     private Player_1_Controller p1_Controller;
+    private WidowController widowController;
     private GameManager gameManager;
 
     private void Start()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
+        widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player");
         p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
@@ -56,6 +58,12 @@ public class Player_1_Manager : MonoBehaviour
         {
             deathCause = "Death By Widow";
             TallyPickups();
+
+            if ((p1_points + p1_pointsToAdd) >= widowController.scoreToBeat)
+            {
+                print("Player 1 wins!");
+                gameManager.EndGame();
+            }
         }
         else
         {

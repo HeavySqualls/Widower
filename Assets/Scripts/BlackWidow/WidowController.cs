@@ -11,7 +11,7 @@ public class WidowController : MonoBehaviour
     [Space]
     [Header("Widow States:")]
 
-    public int scoreToBeat = 10;
+    public int scoreToBeat = 100;
     public bool isEating = false;
     private bool isCoolDown = false;
     private bool isMoving = false;

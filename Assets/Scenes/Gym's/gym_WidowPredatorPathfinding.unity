@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11612,6 +11612,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 163419881942037079, guid: ed224922f9c25ad4c82ef09f3bb67fb5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Widow
+      objectReference: {fileID: 0}
     - target: {fileID: 558765072929283391, guid: ed224922f9c25ad4c82ef09f3bb67fb5,
         type: 3}
       propertyPath: m_AgentTypeID
@@ -11656,6 +11661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 163419881942037078, guid: ed224922f9c25ad4c82ef09f3bb67fb5,
+        type: 3}
+      propertyPath: scoreToBeat
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed224922f9c25ad4c82ef09f3bb67fb5, type: 3}
