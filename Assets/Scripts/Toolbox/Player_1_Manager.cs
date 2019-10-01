@@ -30,6 +30,7 @@ public class Player_1_Manager : MonoBehaviour
 
     [Space]
     [Header("Player References:")]
+    private Camera_1_Controller camController;
     private Player_1_Controller p1_Controller;
     private WidowController widowController;
     private GameManager gameManager;
@@ -41,6 +42,7 @@ public class Player_1_Manager : MonoBehaviour
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player");
         p1_Controller = currentPlayer.GetComponent<Player_1_Controller>();
+        camController = currentPlayer.GetComponentInChildren<Camera_1_Controller>();
         p1_runSpeed = p1_moveSpeed * 2;
 
         FreezePlayer();
@@ -116,10 +118,12 @@ public class Player_1_Manager : MonoBehaviour
     public void FreezePlayer()
     {
         p1_Controller.processMovement = false;
+        camController.isCameraMovement = false;
     }
 
     public void UnFreezePlayer()
     {
         p1_Controller.processMovement = true;
+        camController.isCameraMovement = true;
     }
 }

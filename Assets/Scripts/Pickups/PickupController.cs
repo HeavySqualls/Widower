@@ -129,6 +129,15 @@ public class PickupController : MonoBehaviour
         return eatSpeed;                               
     }
 
+    public void StopEatCountdownTimer()
+    {
+        eatProgress.enabled = false;
+        eatSpeed = 0;
+        maxHealth = pickupID.hValue;
+        maxHealthStart = maxHealth;
+        p1_Manager.UnFreezePlayer();
+    }
+
     private void EatCountDown()
     {
         if (isPlayer1)
@@ -202,11 +211,15 @@ public class PickupController : MonoBehaviour
     {
         PickUpObj.SetActive(false);
         CanvasObj.SetActive(false);
+        interactedObj.GetComponent<Player_1_Controller>().interactedController = null;
+        interactedObj = null;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
     void ReActivate()
     {
         PickUpObj.SetActive(true);
         CanvasObj.SetActive(true);
+        gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 }

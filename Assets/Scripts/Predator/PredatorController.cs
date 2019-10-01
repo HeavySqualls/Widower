@@ -68,7 +68,6 @@ public class PredatorController : MonoBehaviour
         // Once at the required position, move to Dead state. 
         if (isAttacking)
         {
-            print("Predator Attacking");
             agent.destination = target.position;
             agent.speed = attackingSpeed;
 
@@ -103,6 +102,7 @@ public class PredatorController : MonoBehaviour
 
     public void OnAttacking()
     {
+        print("Predator Attacking");
         StartCoroutine(PredatorEatCooldown());
     }
 

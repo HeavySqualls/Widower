@@ -8,6 +8,7 @@ public class Camera_1_Controller : MonoBehaviour
     public Transform Target, Player;
     float mouseX, mouseY;
 
+    public bool isCameraMovement = true;
 
     public float smoothSpeed;
     public Player_1_Controller playerController;
@@ -34,29 +35,32 @@ public class Camera_1_Controller : MonoBehaviour
 
     void CamControl()
     {
-        if (playerController.isGamePad)
+        if (isCameraMovement)
         {
-            mouseX += Input.GetAxis("Gamepad_X") * rotationSpeed;
-            mouseY -= Input.GetAxis("Gamepad_Y") * rotationSpeed;
-        }
-        else
-        {
-            mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
-            mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
-        }
+            if (playerController.isGamePad)
+            {
+                mouseX += Input.GetAxis("Gamepad_X") * rotationSpeed;
+                mouseY -= Input.GetAxis("Gamepad_Y") * rotationSpeed;
+            }
+            else
+            {
+                mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
+                mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
+            }
 
-        mouseY = Mathf.Clamp(mouseY, -35, 60);
+            mouseY = Mathf.Clamp(mouseY, -35, 60);
 
-        transform.LookAt(Target);
+            transform.LookAt(Target);
 
-        if (Input.GetKey(KeyCode.CapsLock))
-        {
-            Target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
-        }
-        else
-        {
-            Player.rotation = Quaternion.Euler(0, mouseX, 0);
-        }
+            if (Input.GetKey(KeyCode.CapsLock))
+            {
+                Target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+            }
+            else
+            {
+                Player.rotation = Quaternion.Euler(0, mouseX, 0);
+            }
+        }        
     }
 
     //void ViewObstructed()
