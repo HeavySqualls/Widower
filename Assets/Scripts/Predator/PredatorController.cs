@@ -121,7 +121,7 @@ public class PredatorController : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Player_1_Controller>())
+        if (other.gameObject.GetComponent<Player_Controller>())
         {
             target = other.gameObject.transform;
             isAttacking = true;
@@ -131,7 +131,7 @@ public class PredatorController : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<Player_1_Controller>())
+        if (other.gameObject.GetComponent<Player_Controller>())
         {
             target = null;
             isAttacking = false;

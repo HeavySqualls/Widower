@@ -29,7 +29,7 @@ public class PickupController : MonoBehaviour
     [Space]
     [Header("Player 1 Refs:")]
     public bool isPlayer1 = false;
-    private Player_1_Controller player_1_Controller;
+    private Player_Controller player_1_Controller;
     private Player_1_Manager p1_Manager;
 
     [Space]
@@ -60,13 +60,13 @@ public class PickupController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<Player_1_Controller>()) //|| )
+        if (other.GetComponentInParent<Player_Controller>()) //|| )
         {
             isPlayer1 = true;
             p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
             interactedObj = other.gameObject;
             cameraTarget = other.GetComponentInChildren<Camera>();
-            player_1_Controller = other.GetComponent<Player_1_Controller>();
+            player_1_Controller = other.GetComponent<Player_Controller>();
 
             inputCall.enabled = true;
             player_1_Controller.InteractableObject(gameObject.GetComponent<PickupController>());
@@ -90,13 +90,13 @@ public class PickupController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponentInParent<Player_1_Controller>()) //|| other.GetComponentInParent<Player_2_Controller>())
+        if (other.GetComponentInParent<Player_Controller>()) //|| other.GetComponentInParent<Player_2_Controller>())
         {
             isPlayer1 = false;
             p1_Manager = null;
             interactedObj = null;
             cameraTarget = null;
-            other.GetComponent<Player_1_Controller>().isInteracting = false;
+            other.GetComponent<Player_Controller>().isInteracting = false;
             player_1_Controller = null;
 
             inputCall.enabled = false;
@@ -211,7 +211,7 @@ public class PickupController : MonoBehaviour
     {
         PickUpObj.SetActive(false);
         CanvasObj.SetActive(false);
-        interactedObj.GetComponent<Player_1_Controller>().interactedController = null;
+        interactedObj.GetComponent<Player_Controller>().interactedController = null;
         interactedObj = null;
         gameObject.GetComponent<BoxCollider>().enabled = false;
     }
