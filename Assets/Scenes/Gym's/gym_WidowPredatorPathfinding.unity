@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12371,7 +12371,7 @@ PrefabInstance:
     - target: {fileID: 8903613858563641067, guid: 4c5a46e8915d5f549bcdfa46155c043b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5.64
       objectReference: {fileID: 0}
     - target: {fileID: 8903613858563641067, guid: 4c5a46e8915d5f549bcdfa46155c043b,
         type: 3}
@@ -12381,7 +12381,7 @@ PrefabInstance:
     - target: {fileID: 8903613858563641067, guid: 4c5a46e8915d5f549bcdfa46155c043b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.09
       objectReference: {fileID: 0}
     - target: {fileID: 8903613858563641067, guid: 4c5a46e8915d5f549bcdfa46155c043b,
         type: 3}
@@ -12451,6 +12451,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.height
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
+        type: 3}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
+        type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 2871
       objectReference: {fileID: 0}
     - target: {fileID: 4941977373026461121, guid: 1e2331d506768f74e8b736b5c120da44,
         type: 3}
@@ -12526,26 +12546,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PlaneDistance
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
-        type: 3}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
-        type: 3}
-      propertyPath: m_Depth
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4528181167404223304, guid: 1e2331d506768f74e8b736b5c120da44,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 2871
       objectReference: {fileID: 0}
     - target: {fileID: 3170467282560565200, guid: 1e2331d506768f74e8b736b5c120da44,
         type: 3}

@@ -17,6 +17,7 @@ TagManager:
   - Widow
   - Player2
   - Player1
+  - StartPrompt
   layers:
   - Default
   - TransparentFX

@@ -43,8 +43,8 @@ public class Player_1_Manager : MonoBehaviour
         currentPlayer = GameObject.FindGameObjectWithTag("Player1");
         pController = currentPlayer.GetComponent<Player_Controller>();
         camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
-        runSpeed = moveSpeed * 2;
 
+        runSpeed = moveSpeed * 2;
         FreezePlayer();
 
         pController.statusPanel.SetActive(false);
