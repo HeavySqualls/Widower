@@ -122,6 +122,7 @@ public class Player_Controller : MonoBehaviour
                     isEating = false;
                     interactedController.StopEatCountdownTimer();
                     interactedController = null;
+                    isInteracting = false;
                 }
             }
             else

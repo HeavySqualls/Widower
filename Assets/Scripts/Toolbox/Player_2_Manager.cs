@@ -38,7 +38,7 @@ public class Player_2_Manager : MonoBehaviour
     private void Start()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
-        widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
+        //widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player2");
         pController = currentPlayer.GetComponent<Player_Controller>();
@@ -63,7 +63,7 @@ public class Player_2_Manager : MonoBehaviour
 
             if ((points + pointsToAdd) >= widowController.scoreToBeat)
             {
-                print("Player 1 wins!");
+                print("Player 2 wins!");
                 gameManager.EndGame();
             }
         }

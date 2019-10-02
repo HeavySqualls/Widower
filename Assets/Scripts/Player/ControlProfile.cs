@@ -32,11 +32,11 @@ public class ControlProfile : MonoBehaviour
         // Gamepad
         Horizontal_Gamepad = "Horizontal_Gamepad";
         Vertical_Gamepad = "Vertical_Gamepad";
-        X_Gamepad = "X_Gamepad";
-        Y_Gamepad = "Y_Gamepad";
+        X_Gamepad = "Gamepad_X";
+        Y_Gamepad = "Gamepad_Y";
         Gamepad_Start = "STARTButton";
         X_Button = "XButton";
-        O_Button = "OButton";
+        O_Button = "BButton";
         Sprint_Gamepad = "Sprint_Gamepad";
 
         // Keyboard
@@ -56,11 +56,11 @@ public class ControlProfile : MonoBehaviour
         // Gamepad
         Horizontal_Gamepad = "Horizontal_Gamepad2";
         Vertical_Gamepad = "Vertical_Gamepad2";
-        X_Gamepad = "X_Gamepad2";
-        Y_Gamepad = "Y_Gamepad2";
+        X_Gamepad = "Gamepad_X2";
+        Y_Gamepad = "Gamepad_Y2";
         Gamepad_Start = "STARTButton2";
         X_Button = "XButton2";
-        O_Button = "OButton2";
+        O_Button = "BButton2";
         Sprint_Gamepad = "Sprint_Gamepad2";
 
         // Keyboard
