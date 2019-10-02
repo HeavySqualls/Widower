@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 2611404314363061207}
   - component: {fileID: 2611404314363061208}
   m_Layer: 8
-  m_Name: PickupOrangeZone
+  m_Name: Pickup-EatSpeed(tier2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -546,12 +546,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cce94eab58d89a44d92017c5c673efff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupGrey: 0
-  hValueGrey: 400
-  pickupOrange: 1
-  hValueOrange: 400
-  pickupBlue: 0
-  hValueBlue: 50
+  pickupPoints: 0
+  healthPoints: 400
+  scoreValPoints: 1
+  pickupEatSpeed: 1
+  healthEatSpeed: 550
+  scoreValEatSpeed: 2
+  pickupMoveSpeed: 0
+  healthMoveSpeed: 50
+  scoreValMoveSpeed: 1
   pickUpValue: 0
   hValue: 0
 --- !u!65 &2251753868803945051

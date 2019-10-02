@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
 
 public class PredatorController : MonoBehaviour
@@ -16,10 +17,14 @@ public class PredatorController : MonoBehaviour
 
     [Space]
     [Header("Predator Attacking:")]
+    public float attackingSpeed = 10f;
+    public float cooldownTime = 2f;
+    private Transform target;
+    private bool isAttacking = false;
 
     [Space]
     [Header("Predator References:")]
-    private PredatorSpawner spawner;
+    public PredatorSpawner spawner;
     private NavMeshAgent agent;
 
     private void Start()
@@ -61,6 +66,18 @@ public class PredatorController : MonoBehaviour
     {
         // Move the unit rapidly to the players position. 
         // Once at the required position, move to Dead state. 
+        if (isAttacking)
+        {
+            agent.destination = target.position;
+            agent.speed = attackingSpeed;
+
+            if (!agent.pathPending && agent.remainingDistance < 1f)
+            {
+                print("Predator Stopped Attacking");
+                StartCoroutine(PredatorEatCooldown());
+                isAttacking = false;
+            }
+        }
     }
 
     private void LeftArea()
@@ -85,7 +102,8 @@ public class PredatorController : MonoBehaviour
 
     public void OnAttacking()
     {
-
+        print("Predator Attacking");
+        StartCoroutine(PredatorEatCooldown());
     }
 
     // ------ METHODS ------ //
@@ -99,5 +117,37 @@ public class PredatorController : MonoBehaviour
         {
             playerThatHitUs.OnPredatorHit(other, this);
         }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player_Controller>())
+        {
+            target = other.gameObject.transform;
+            isAttacking = true;
+            this.currentState = State.Attacking;
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.GetComponent<Player_Controller>())
+        {
+            target = null;
+            isAttacking = false;
+            this.currentState = State.Patrolling;
+        }
+    }
+
+    private IEnumerator PredatorEatCooldown()
+    {
+        agent.isStopped = true;
+        print("Predator Cooldown Start");
+
+        yield return new WaitForSeconds(cooldownTime);
+
+        print("Predator Cooldown End");
+        agent.isStopped = false;
+        this.currentState = State.Patrolling;
     }
 }

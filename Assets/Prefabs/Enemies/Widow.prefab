@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 7923191800901694865}
   m_Layer: 8
   m_Name: Widow
-  m_TagString: Untagged
+  m_TagString: Widow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,6 +613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989d5da581e462843a81957f4bf0a63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreToBeat: 10
   isEating: 0
   waypoints:
   - {fileID: 0}
@@ -621,7 +622,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  agent: {fileID: 7923191800901694865}
 --- !u!54 &7923191800901694866
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -13,6 +13,11 @@ TagManager:
   - CameraAnchorPoint
   - PatrolEnd
   - PredatorSpawner
+  - PredatorSpawner2
+  - Widow
+  - Player2
+  - Player1
+  - StartPrompt
   layers:
   - Default
   - TransparentFX
@@ -24,8 +29,8 @@ TagManager:
   - 
   - Bugs
   - Player
-  - 
-  - 
+  - Player_1_UI
+  - Player_2_UI
   - 
   - 
   - 
