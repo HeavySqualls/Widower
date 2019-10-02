@@ -52,7 +52,7 @@ public class Player_Controller : MonoBehaviour
     public GameObject playerModel;
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
-    private dynamic playerManager;
+    public dynamic playerManager;
     private GameManager gameManager;
     public ControlProfile controlProfile;
 

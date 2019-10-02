@@ -8,8 +8,8 @@ public class OnPlayerHitWidow : WidowInteractable
     {
         if (hit.gameObject.GetComponent<Player_Controller>() && !widow.isEating)// || hit.gameObject.GetComponent<Player_2_Controller>() )
         {
-            print("Widow hit player 1");
-            Toolbox.GetInstance().GetPlayer_1_Manager().DisplayScore();
+            //print("Widow hit " + hit.gameObject.GetComponent<Player_Controller>().playerManager);
+            hit.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
             widow.GoEating();
         }      
     }

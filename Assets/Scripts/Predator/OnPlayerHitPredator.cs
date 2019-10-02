@@ -9,10 +9,9 @@ public class OnPlayerHitPredator : PredatorInteractable
         // respawn player, remove aquired stats without adding them 
         if (hit.gameObject.GetComponent<Player_Controller>())// || hit.gameObject.GetComponent<Player_2_Controller>() )
         {
-            print("Predator hit player 1");
+            //print("Predator hit " + +hit.gameObject.GetComponent<Player_Controller>().playerManager);
             hit.gameObject.GetComponent<Player_Controller>().predatorKilledPlayer = true;
-            Toolbox.GetInstance().GetPlayer_1_Manager().DisplayScore();
-
+            hit.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
         }
     }
 }
