@@ -76,7 +76,6 @@ public class PickupController : MonoBehaviour
     private void Interacted()
     {
         // Pickup is sitting in its interacted state
-        print("interacted");
     }
 
     private void GettingEaten()

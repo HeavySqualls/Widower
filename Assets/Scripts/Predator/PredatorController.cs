@@ -64,19 +64,15 @@ public class PredatorController : MonoBehaviour
 
     private void Attacking()
     {
-        // Move the unit rapidly to the players position. 
-        // Once at the required position, move to Dead state. 
-        if (isAttacking)
-        {
-            agent.destination = target.position;
-            agent.speed = attackingSpeed;
 
-            if (!agent.pathPending && agent.remainingDistance < 1f)
-            {
-                print("Predator Stopped Attacking");
-                StartCoroutine(PredatorEatCooldown());
-                isAttacking = false;
-            }
+        agent.destination = target.position;
+        agent.speed = attackingSpeed;
+
+        if (!agent.pathPending && agent.remainingDistance < 1f)
+        {
+            print("Predator Stopped Attacking");
+            StartCoroutine(PredatorEatCooldown());
+            //isAttacking = false;
         }
     }
 
@@ -124,7 +120,7 @@ public class PredatorController : MonoBehaviour
         if (other.gameObject.GetComponent<Player_Controller>())
         {
             target = other.gameObject.transform;
-            isAttacking = true;
+            //isAttacking = true;
             this.currentState = State.Attacking;
         }
     }
@@ -134,7 +130,7 @@ public class PredatorController : MonoBehaviour
         if (other.gameObject.GetComponent<Player_Controller>())
         {
             target = null;
-            isAttacking = false;
+            //isAttacking = false;
             this.currentState = State.Patrolling;
         }
     }
