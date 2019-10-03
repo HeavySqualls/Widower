@@ -50,34 +50,37 @@ public class Player_Controller : MonoBehaviour
     public Image staminaBar;
     public PickupController interactedController;
     public GameObject playerModel;
+    private GameManager gameManager;
+
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
     public dynamic playerManager;
-    private GameManager gameManager;
     public ControlProfile controlProfile;
 
     private void Awake()
     {
+        gameManager = Toolbox.GetInstance().GetGameManager();
+
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-        gameManager = Toolbox.GetInstance().GetGameManager();
+
         controlProfile = this.gameObject.AddComponent<ControlProfile>();
 
         if (isPlayer1)
         {
             // have a variable that is assigned to the player 1 manager 
             playerManager = p1_Manager;
-            controlProfile.ControlProfile1();
 
             // set controller profile to player 1
+            controlProfile.ControlProfile1();
         }
         else // is player 2
         {
             // have a variable that is assigned to the player 2 manager
             playerManager = p2_Manager;
-            controlProfile.ControlProfile2();
 
             // set controller profile to player 1
+            controlProfile.ControlProfile2();
         }
     }
 
@@ -113,14 +116,14 @@ public class Player_Controller : MonoBehaviour
                 {
                     Debug.Log("eat!");
                     isEating = true;
-                    interactedController.StartEatCountdownTimer(playerManager.eatSpeed);
+                    interactedController.GoGettingEaten(playerManager.eatSpeed);
                 }
 
                 if (Input.GetButtonDown(controlProfile.O_Button) && isInteracting && interactedController != null && isEating)
                 {
                     Debug.Log("Stop Eating!");
                     isEating = false;
-                    interactedController.StopEatCountdownTimer();
+                    interactedController.StopGettingEaten();
                     interactedController = null;
                     isInteracting = false;
                 }
@@ -136,14 +139,15 @@ public class Player_Controller : MonoBehaviour
                 {
                     Debug.Log("eat!");
                     isEating = true;
-                    interactedController.StartEatCountdownTimer(playerManager.eatSpeed);
+                    interactedController.GoGettingEaten(playerManager.eatSpeed);
                 }
 
                 if (Input.GetKeyUp(controlProfile.QuitEat_Key) && isInteracting && interactedController != null && isEating)
                 {
                     Debug.Log("Stop Eating!");
                     isEating = false;
-                    interactedController.StopEatCountdownTimer();
+
+                    interactedController.StopGettingEaten();
                     interactedController = null;
                 }
             }

@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class PickupController : MonoBehaviour
 {
+    enum State { Idle, Interacted, GettingEaten, Respawn};
+    State currentState;
+
     [Space]
     [Header("Countdown Vars")]
     public float maxHealth;
@@ -17,8 +20,6 @@ public class PickupController : MonoBehaviour
     public float timeToRespawn;
     private float respawnTime;
     private bool respawning = false;
-    private bool isOccupied = false;
-    private bool isBeingEaten = false;
 
     [Space]
     [Header("Universal Interaction obj Refs:")]
@@ -37,7 +38,9 @@ public class PickupController : MonoBehaviour
     private PickupID pickupID;
 
     void Start()
-    {    
+    {
+        this.currentState = State.Idle;
+
         pickupID = GetComponentInChildren<PickupID>();
         myBoxCollider = GetComponent<BoxCollider>();
 
@@ -48,125 +51,159 @@ public class PickupController : MonoBehaviour
 
     void Update()
     {
-        if (player_Controller != null)
+        switch (this.currentState)
         {
-            EatCountDown();
-            Respawn();
+            case State.Idle: this.Idle();
+                break;
+            case State.Interacted: this.Interacted();
+                break;
+            case State.GettingEaten: this.GettingEaten();
+                break;
+            case State.Respawn: this.Respawn();
+                break;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    // ------ STATES ------ //
+
+
+    private void Idle()
     {
-        if (other.GetComponentInParent<Player_Controller>() && !isOccupied)
+        // Pickup is sitting in its idle state
+    }
+
+    private void Interacted()
+    {
+        // Pickup is sitting in its interacted state
+        print("interacted");
+    }
+
+    private void GettingEaten()
+    {
+        maxHealth -= eatSpeed;
+
+        eatProgress.fillAmount = (maxHealth / maxHealthStart);
+
+        player_Controller.playerManager.FreezePlayer();
+
+        if (maxHealth <= 0)
         {
-            interactedObj = other.gameObject;
-            player_Controller = interactedObj.GetComponent<Player_Controller>();
-            cameraTarget = other.GetComponentInChildren<Camera>();
+            player_Controller.isEating = false;
+            player_Controller.playerManager.UnFreezePlayer();
 
-            inputCall.enabled = true;
-            player_Controller.InteractableObject(this);
+            pickupID.IncrementStats();
 
-            interactObjInRange = true;
-            isOccupied = true;
+            Deactivate();
+
+            GoRespawn(timeToRespawn);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void Respawn()
     {
-        if (other.GetComponentInParent<Player_Controller>())
+        respawnTime -= Time.deltaTime;
+
+        if (respawnTime <= 0)
         {
-            if (isBeingEaten)
-            {
-                player_Controller.isEating = false;
-                player_Controller.isInteracting = false;
-
-                StopEatCountdownTimer();
-            }
-            else
-            {
-                player_Controller = null;
-                interactedObj = null;
-
-                inputCall.enabled = false;
-                eatProgress.enabled = false;
-                cameraTarget = null;
-
-                interactObjInRange = false;
-                isOccupied = false;
-            }
+            ReActivate();
+            respawning = false;
+            this.currentState = State.Idle;
         }
     }
 
-    public float StartEatCountdownTimer(float time)
+
+    // ------ STATE INDUCING METHODS ------ //
+
+
+    public void GoIdle()
     {
-        isBeingEaten = true;
-        eatProgress.enabled = true;
-        eatSpeed = time;
-        maxHealth = pickupID.hValue;
-        maxHealthStart = maxHealth;
-
-        return eatSpeed;                               
-    }
-
-    public void StopEatCountdownTimer()
-    {
-        player_Controller.playerManager.UnFreezePlayer();
-
-        if (!interactObjInRange)
-        {
-            player_Controller = null;
-            interactedObj = null;
-        }
-
         eatProgress.enabled = false;
         eatSpeed = 0;
         maxHealth = pickupID.hValue;
         maxHealthStart = maxHealth;
 
-        isOccupied = false;
-        isBeingEaten = false;
+        inputCall.enabled = false;
+        cameraTarget = null;
+        interactObjInRange = false;
+        player_Controller = null;
+        interactedObj = null;
+
+        this.currentState = State.Idle;
     }
 
-    private void EatCountDown()
+    public void GoInteracted()
     {
-        if (player_Controller.isEating && maxHealth > 0 && isBeingEaten)
-        {
-            maxHealth -= eatSpeed;
-            inputCall.enabled = false;
+        inputCall.enabled = true;
+        interactObjInRange = true;
 
-            eatProgress.fillAmount = (maxHealth / maxHealthStart); //TODO: Eat time needs to build up instead of down. 
+        player_Controller.InteractableObject(this);
 
-            player_Controller.playerManager.FreezePlayer();
-
-            if (maxHealth <= 0 && !respawning)
-            {
-                player_Controller.isEating = false;
-                player_Controller.playerManager.UnFreezePlayer();
-                pickupID.IncrementStats();
-                Deactivate();
-                StartRespawnTime(timeToRespawn);
-            }
-        } 
+        this.currentState = State.Interacted;
     }
 
-    private float StartRespawnTime(float time)
+    public float GoGettingEaten(float time)
+    {
+        inputCall.enabled = false;
+        eatProgress.enabled = true;
+
+        eatSpeed = time;
+        maxHealth = pickupID.hValue;
+        maxHealthStart = maxHealth;
+
+        this.currentState = State.GettingEaten;
+
+        return eatSpeed;
+    }
+
+    public void StopGettingEaten()
+    {
+        if (interactObjInRange)
+        {
+            player_Controller.playerManager.UnFreezePlayer();
+        }
+
+        GoIdle();
+    }
+
+    public float GoRespawn(float time)
     {
         respawnTime = time;
         respawning = true;
+        this.currentState = State.Respawn;
         return respawnTime;
     }
 
-    private void Respawn()
-    {
-        if (respawnTime > 0 && respawning)
-        {
-            respawnTime -= Time.deltaTime;
 
-            if (respawnTime <= 0)
-            {
-                ReActivate();
-                respawning = false;
-            }
+    // ------ METHODS ------ //
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponentInParent<Player_Controller>() && this.currentState == State.Idle)
+        {
+            // Assign references to the player in trigger zone
+            interactedObj = other.gameObject;
+            player_Controller = interactedObj.GetComponent<Player_Controller>();
+            cameraTarget = other.GetComponentInChildren<Camera>();
+
+            // Set up for interaction state
+            GoInteracted();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponentInParent<Player_Controller>() && this.currentState == State.Interacted)
+        {
+            GoIdle();
+        }
+        else if (other.GetComponentInParent<Player_Controller>() && this.currentState == State.GettingEaten)
+        {
+            player_Controller.isEating = false;
+            player_Controller.isInteracting = false;
+
+            StopGettingEaten();
         }
     }
 
@@ -177,7 +214,6 @@ public class PickupController : MonoBehaviour
         player_Controller.interactedController = null;
         interactedObj = null;
         myBoxCollider.enabled = false;
-        isOccupied = false;
     }
 
     void ReActivate()
