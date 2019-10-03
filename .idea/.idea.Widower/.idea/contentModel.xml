@@ -4,27 +4,71 @@
     <e p="C:\Users\Uns1t\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Uns1t\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Widower.1944940010.00" t="ExcludeRecursive" />
     <e p="C:\Users\Uns1t\Desktop\Folder\unity_projects\Widower" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="NavMeshComponents" t="Include">
+          <e p="Editor" t="Include">
+            <e p="NavMeshComponentsGUIUtility.cs" t="Include" />
+            <e p="NavMeshLinkEditor.cs" t="Include" />
+            <e p="NavMeshModifierEditor.cs" t="Include" />
+            <e p="NavMeshModifierVolumeEditor.cs" t="Include" />
+            <e p="NavMeshSurfaceEditor.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="NavMeshLink.cs" t="Include" />
+            <e p="NavMeshModifier.cs" t="Include" />
+            <e p="NavMeshModifierVolume.cs" t="Include" />
+            <e p="NavMeshSurface.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Prefabs" t="Include">
+          <e p="PlayerControlls.cs" t="Include" />
+        </e>
         <e p="Scripts" t="Include">
-          <e p="CameraController.cs" t="Include" />
-          <e p="CanvasFaceCamera.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
-          <e p="LookAt.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
-          <e p="PickupController.cs" t="Include" />
-          <e p="PickupID.cs" t="Include" />
-          <e p="PlayerController.cs" t="Include" />
-          <e p="PlayerManager.cs" t="Include" />
-          <e p="SmoothFollowPosition.cs" t="Include" />
-          <e p="Standard Assets" t="Include">
+          <e p="BlackWidow" t="Include">
+            <e p="OnPlayerHitWidow.cs" t="Include" />
+            <e p="WidowController.cs" t="Include" />
+            <e p="WidowInteractable.cs" t="Include" />
+          </e>
+          <e p="GrapplingHook" t="Include">
+            <e p="GrapplingHookCannon.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
+            <e p="ReachTargetInTime.cs" t="Include" />
+            <e p="ReachTargetInTimeSpawner.cs" t="Include" />
+          </e>
+          <e p="Pickups" t="Include">
+            <e p="PickupController.cs" t="Include" />
+            <e p="PickupID.cs" t="Include" />
+          </e>
+          <e p="Player_1" t="Include">
+            <e p="Camera_1_Controller.cs" t="Include" />
+            <e p="Player_1_Controller.cs" t="Include" />
+          </e>
+          <e p="Predator" t="Include">
+            <e p="OnPlayerHitPredator.cs" t="Include" />
+            <e p="PredatorController.cs" t="Include" />
+            <e p="PredatorInteractable.cs" t="Include" />
+            <e p="PredatorSpawner.cs" t="Include" />
+          </e>
+          <e p="Scene" t="Include">
+            <e p="MainMenu.cs" t="Include" />
+          </e>
+          <e p="Toolbox" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="Player_1_Manager.cs" t="Include" />
+            <e p="TimeManager.cs" t="Include" />
+            <e p="Toolbox.cs" t="Include" />
+          </e>
+          <e p="Utility" t="Include">
+            <e p="CanvasFaceCamera.cs" t="Include" />
             <e p="DragRigidbody.cs" t="Include" />
             <e p="FollowTarget.cs" t="Include" />
+            <e p="LookAt.cs" t="Include" />
             <e p="ParticleSystemDestroyer.cs" t="Include" />
             <e p="SmoothFollow.cs" t="Include" />
+            <e p="SmoothFollowPosition.cs" t="Include" />
           </e>
-          <e p="TimeManager.cs" t="Include" />
-          <e p="Toolbox.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Examples &amp; Extras" t="Include">
