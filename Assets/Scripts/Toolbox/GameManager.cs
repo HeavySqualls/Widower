@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
 
     private Player_1_Manager p1_Manager;
-    //private Player_2_Manager p2_Manager;
+    private Player_2_Manager p2_Manager;
 
     void OnEnable()
     {
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     private void Start() // references to scene objects must also be made in ResetGameManager() below
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }

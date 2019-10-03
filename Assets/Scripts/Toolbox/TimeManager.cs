@@ -22,15 +22,15 @@ public class TimeManager : MonoBehaviour
     public GameObject startText;
     public Text time;
     private Player_1_Manager p1_Manager;
-    //private Player_2_Manager p2_Manager;
+    private Player_2_Manager p2_Manager;
 
     void Start()
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
-        time = GameObject.Find("TimerUI").GetComponent<Text>();
-        startText = GameObject.Find("StartPrompt");
+        time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
+        startText = GameObject.FindGameObjectWithTag("StartPrompt");
 
         time.enabled = false;
         isCountDownTime = false;
@@ -81,7 +81,7 @@ public class TimeManager : MonoBehaviour
         isCountDownStarted = false;
 
         p1_Manager.UnFreezePlayer();
-        //p2_Manager.UnFreezePlayer();
+        p2_Manager.UnFreezePlayer();
 
         Toolbox.GetInstance().GetGameManager().isGameStart = true;
     }
@@ -89,7 +89,7 @@ public class TimeManager : MonoBehaviour
     public void ResetTimer()
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
         time = GameObject.Find("TimerUI").GetComponent<Text>();
         startText = GameObject.Find("StartPrompt");
