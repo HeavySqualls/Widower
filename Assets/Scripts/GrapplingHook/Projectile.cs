@@ -17,10 +17,11 @@ public class Projectile : MonoBehaviour
     private bool hasBall;
     private bool receiveBall;
 
-    public float targetDistance;
-    public float distanceBetweenObjects;
+    public bool isCollided; 
+   // public float targetDistance;
+   // public float distanceBetweenObjects;
 
-    private GameObject player;
+    private GameObject player; //TODO fix this code to destroy the ball
 
     // Start is called before the first frame update
     void Awake()
@@ -30,9 +31,11 @@ public class Projectile : MonoBehaviour
         
         rb = GetComponent<Rigidbody>();
         hasBall = true;
-        
-        player = GameObject.Find("Player");
+
+        isCollided = false;
+        player = GameObject.Find("PlayerPrefab");
     
+        
     }
 
     // Update is called once per frame
@@ -68,7 +71,7 @@ public class Projectile : MonoBehaviour
             }
         }
 
-        float currentDistance = Vector3.Distance(cannonTransform.position, transform.position);
+       // float currentDistance = Vector3.Distance(cannonTransform.position, transform.position);
         
         if ( player.transform.position == transform.position)
         {
@@ -88,19 +91,24 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if (player.name == other.gameObject.name)
+        {
+            
+            Destroy(gameObject);
+        }
+
+
         //stick the ball to the wall
         rb.isKinematic = true;
         rb.useGravity = false;
-        
-       //calculate the ball 
 
-       distanceBetweenObjects = Vector3.Distance(cannonTransform.position, transform.position);
+        isCollided = true;
 
-       targetDistance = (distanceBetweenObjects * 90) / 100;
-       
-       
-       
+        //calculate the ball 
 
+        //distanceBetweenObjects = Vector3.Distance(cannonTransform.position, transform.position);
+
+        //targetDistance = (distanceBetweenObjects * 90) / 100;
 
 
     }

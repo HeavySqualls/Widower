@@ -35,7 +35,6 @@
             <e p="GrapplingHookCannon.cs" t="Include" />
             <e p="Projectile.cs" t="Include" />
             <e p="ReachTargetInTime.cs" t="Include" />
-            <e p="ReachTargetInTimeSpawner.cs" t="Include" />
           </e>
           <e p="Pickups" t="Include">
             <e p="PickupController.cs" t="Include" />

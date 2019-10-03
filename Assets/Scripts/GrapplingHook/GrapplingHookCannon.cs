@@ -7,17 +7,33 @@ using UnityEngine.SceneManagement;
 public class GrapplingHookCannon : MonoBehaviour
 {
 
-    private GameObject projectile;
+    
+    private GameObject projectilePrefab;
     //private Rigidbody rb;
     public float speed = 105f;
+
+
+    private GameObject player;
+
+    private GameObject currentProjectile;
+
+    public float reachingTime = 0.5f;//for player to reach the ball
+
+    public bool attachToTargetWhenReached;
     
     // Start is called before the first frame update
     private void Awake()
     {
         
         //assign my prefab from the assets folder
-        projectile = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
-        //rb = projectile.GetComponent<Rigidbody>();
+        projectilePrefab = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
+
+
+        player = GameObject.Find("PlayerPrefab");
+        //player.AddComponent<ReachTargetInTimeSpawner>();
+
+
+
 
     }
 
@@ -33,7 +49,7 @@ public class GrapplingHookCannon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M))
         {
 
-            Instantiate(projectile, transform);
+            currentProjectile = Instantiate(projectilePrefab, transform);
 
 //            GameObject newProjectile = Instantiate(projectile, transform);
 //            newProjectile.transform.parent = null;
@@ -50,10 +66,10 @@ public class GrapplingHookCannon : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M) && currentProjectile.GetComponent<Projectile>().isCollided)
         {
-            
-            
+            ReachTargetInTime reachTargetInTime = player.AddComponent<ReachTargetInTime>();
+            reachTargetInTime.SetInitialValue(currentProjectile.transform, reachingTime, attachToTargetWhenReached);
             
             
         }
