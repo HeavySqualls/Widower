@@ -63,7 +63,7 @@ public class Player_2_Manager : MonoBehaviour
 
             if ((points + pointsToAdd) >= widowController.scoreToBeat)
             {
-                print("Player 1 wins!");
+                print("Player 2 wins!");
                 gameManager.EndGame();
             }
         }

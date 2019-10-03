@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
-    float rotationSpeed = 1;
+    float rotationSpeed = 2;
     public Transform Target, Player;
     float mouseX, mouseY;
 
