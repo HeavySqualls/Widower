@@ -14,6 +14,7 @@ public class ControlProfile : MonoBehaviour
     public string X_Button;
     public string O_Button;
     public string Sprint_Gamepad;
+    public string Respawn_Gamepad;
 
     // KEYBOARD
 
@@ -25,6 +26,7 @@ public class ControlProfile : MonoBehaviour
     public string Sprint_Key;
     public string Eat_Key;
     public string QuitEat_Key;
+    public string Respawn_Key;
 
 
     public void ControlProfile1()
@@ -38,6 +40,7 @@ public class ControlProfile : MonoBehaviour
         X_Button = "XButton";
         O_Button = "BButton";
         Sprint_Gamepad = "Sprint_Gamepad";
+        Respawn_Gamepad = "YButton";
 
         // Keyboard
         Horizontal = "Horizontal";
@@ -48,6 +51,7 @@ public class ControlProfile : MonoBehaviour
         Sprint_Key = "left shift";
         Eat_Key = "e";
         QuitEat_Key = "q";
+        Respawn_Key = "space";
     }
 
 
@@ -62,6 +66,7 @@ public class ControlProfile : MonoBehaviour
         X_Button = "XButton2";
         O_Button = "BButton2";
         Sprint_Gamepad = "Sprint_Gamepad2";
+        Respawn_Gamepad = "YButton2";
 
         // Keyboard
         Horizontal = "Horizontal2";
@@ -72,5 +77,6 @@ public class ControlProfile : MonoBehaviour
         Sprint_Key = "right shift";
         Eat_Key = "end";
         QuitEat_Key = "delete";
+        Respawn_Key = "page down";
     }
 }

@@ -127,6 +127,11 @@ public class Player_Controller : MonoBehaviour
                     interactedController = null;
                     isInteracting = false;
                 }
+
+                if (Input.GetButtonDown(controlProfile.Respawn_Gamepad) && statusPanel.activeSelf == true)
+                {
+                    PlayerRespawn();
+                }
             }
             else
             {
@@ -149,6 +154,11 @@ public class Player_Controller : MonoBehaviour
 
                     interactedController.StopGettingEaten();
                     interactedController = null;
+                }
+
+                if (Input.GetKeyUp(controlProfile.Respawn_Key) && statusPanel.activeSelf == true)
+                {
+                    PlayerRespawn();
                 }
             }
         }       
