@@ -38,7 +38,7 @@ public class Player_1_Manager : MonoBehaviour
     private void Start()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
-        //widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
+        widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player1");
         pController = currentPlayer.GetComponent<Player_Controller>();
