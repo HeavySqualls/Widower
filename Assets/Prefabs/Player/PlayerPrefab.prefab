@@ -306,6 +306,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Player Level: '
+--- !u!1 &1565545121358466882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6625612758416905736}
+  m_Layer: 9
+  m_Name: ShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6625612758416905736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565545121358466882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.66, z: 4.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4528181167404223311}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600154530546309197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1233,7 +1263,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6625612758416905736}
   m_Father: {fileID: 5143077418372192830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
@@ -1520,6 +1551,10 @@ MonoBehaviour:
   isEating: 0
   predatorKilledPlayer: 0
   isGamePad: 0
+  isPlayer1: 1
+  reachingTime: 1
+  attachedToTarget: 0
+  shootPosition: {fileID: 6625612758416905736}
   statusPanel: {fileID: 1600154530575416825}
   level: {fileID: 8755241242647957836}
   death: {fileID: 1318269752840185556}
@@ -1533,7 +1568,7 @@ MonoBehaviour:
   staminaBar: {fileID: 7655072411592212490}
   interactedController: {fileID: 0}
   playerModel: {fileID: 4941977374041009807}
-  p1_Manager: {fileID: 0}
+  controlProfile: {fileID: 0}
 --- !u!54 &4941977373026461123
 Rigidbody:
   m_ObjectHideFlags: 0

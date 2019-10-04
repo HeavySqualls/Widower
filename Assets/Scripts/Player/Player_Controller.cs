@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -25,6 +26,15 @@ public class Player_Controller : MonoBehaviour
     [Header("Control Options:")]
     public bool isGamePad = false;
     public bool isPlayer1 = true;
+
+    [Space]
+    [Header("Hook Shot:")]
+    public float reachingTime = 0.5f;
+    public bool attachedToTarget;
+    public Transform shootPosition;
+    private GameObject currentShot;
+    private GameObject projectilePrefab;
+    private ReachTargetInTime reachTargetInTime;
 
     [Space]
     [Header("Player Score:")]
@@ -60,6 +70,8 @@ public class Player_Controller : MonoBehaviour
     private void Awake()
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
+
+        projectilePrefab = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
 
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
@@ -132,6 +144,21 @@ public class Player_Controller : MonoBehaviour
                 {
                     PlayerRespawn();
                 }
+
+                // Shoot projectile when button pressed down
+                if (Input.GetButtonDown(controlProfile.Hookshot_Gamepad) && currentShot == null)
+                {
+                    currentShot = Instantiate(projectilePrefab, shootPosition);
+                    currentShot.GetComponent<Projectile>().player = this.gameObject;
+                }
+
+                // go to projectile when button raised up
+                if (Input.GetButtonUp(controlProfile.Hookshot_Gamepad) && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime)
+                {
+                    reachTargetInTime = this.gameObject.AddComponent<ReachTargetInTime>();
+
+                    reachTargetInTime.SetInitialValue(currentShot.transform, reachingTime, attachedToTarget);
+                }
             }
             else
             {
@@ -156,9 +183,25 @@ public class Player_Controller : MonoBehaviour
                     interactedController = null;
                 }
 
+                // Shoot projectile when button pressed down
                 if (Input.GetKeyUp(controlProfile.Respawn_Key) && statusPanel.activeSelf == true)
                 {
                     PlayerRespawn();
+                }
+
+                if (Input.GetKeyDown(controlProfile.Hookshot_Key) && currentShot == null)
+                {
+                    print("shooot");
+                    currentShot = Instantiate(projectilePrefab, shootPosition);
+                    currentShot.GetComponent<Projectile>().player = this.gameObject;
+                }
+
+                // go to projectile when button raised up
+                if (Input.GetKeyUp(controlProfile.Hookshot_Key) && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime && currentShot != null)
+                {
+                    print("release");
+                    reachTargetInTime = this.gameObject.AddComponent<ReachTargetInTime>();
+                    reachTargetInTime.SetInitialValue(currentShot.transform, reachingTime, attachedToTarget);
                 }
             }
         }       
