@@ -35,6 +35,7 @@ public class PickupController : MonoBehaviour
     [Header("Self Refs:")]
     public GameObject PickUpObj;
     private BoxCollider myBoxCollider;
+    private SphereCollider triggerZoneCollider;
     private PickupID pickupID;
 
     void Start()
@@ -42,7 +43,8 @@ public class PickupController : MonoBehaviour
         this.currentState = State.Idle;
 
         pickupID = GetComponentInChildren<PickupID>();
-        myBoxCollider = GetComponent<BoxCollider>();
+        myBoxCollider = GetComponentInChildren<BoxCollider>();
+        triggerZoneCollider = GetComponent<SphereCollider>();
 
         inputCall.enabled = false;
         eatProgress.enabled = false;
@@ -107,6 +109,7 @@ public class PickupController : MonoBehaviour
         {
             ReActivate();
             respawning = false;
+            triggerZoneCollider.enabled = true;
             this.currentState = State.Idle;
         }
     }
@@ -150,6 +153,9 @@ public class PickupController : MonoBehaviour
         maxHealth = pickupID.hValue;
         maxHealthStart = maxHealth;
 
+        triggerZoneCollider.enabled = false;
+        myBoxCollider.enabled = false;
+
         this.currentState = State.GettingEaten;
 
         return eatSpeed;
@@ -162,6 +168,8 @@ public class PickupController : MonoBehaviour
             player_Controller.playerManager.UnFreezePlayer();
         }
 
+        myBoxCollider.enabled = true;
+        triggerZoneCollider.enabled = true;
         GoIdle();
     }
 
@@ -179,7 +187,7 @@ public class PickupController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponentInParent<Player_Controller>() && this.currentState == State.Idle)
+        if (other.GetComponent<Player_Controller>() && this.currentState == State.Idle)
         {
             // Assign references to the player in trigger zone
             interactedObj = other.gameObject;
@@ -193,11 +201,13 @@ public class PickupController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponentInParent<Player_Controller>() && this.currentState == State.Interacted)
+        if (other.GetComponent<Player_Controller>() && this.currentState == State.Interacted)
         {
+            player_Controller.isEating = false;
+            player_Controller.isInteracting = false;
             GoIdle();
         }
-        else if (other.GetComponentInParent<Player_Controller>() && this.currentState == State.GettingEaten)
+        else if (other.GetComponent<Player_Controller>() && this.currentState == State.GettingEaten)
         {
             player_Controller.isEating = false;
             player_Controller.isInteracting = false;
