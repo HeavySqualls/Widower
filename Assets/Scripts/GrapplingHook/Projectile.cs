@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
+//using System.Numerics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Vector3 = UnityEngine.Vector3;
@@ -66,6 +66,8 @@ public class Projectile : MonoBehaviour
             print("targetDistance: ");
             Destroy(gameObject);
         }
+
+        Destroy(gameObject, 5);
     }
 
     private void OnCollisionEnter(Collision other)
@@ -78,7 +80,7 @@ public class Projectile : MonoBehaviour
         //stick the ball to the wall
         rb.isKinematic = true;
         rb.useGravity = false;
-
+        transform.rotation = Quaternion.identity;
         isCollided = true;
     }
 }

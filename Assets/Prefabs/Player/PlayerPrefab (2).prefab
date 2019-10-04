@@ -244,7 +244,6 @@ GameObject:
   m_Component:
   - component: {fileID: 129979157618810981}
   - component: {fileID: 129979157618810978}
-  - component: {fileID: 129979157618810980}
   m_Layer: 10
   m_Name: Player_2_Camera
   m_TagString: MainCamera
@@ -309,23 +308,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &129979157618810980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129979157618810976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e54afef13370ff448a726f1da1b28788, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 8903613860118525362}
-  Player: {fileID: 8903613858563641067}
-  isCameraMovement: 1
-  smoothSpeed: 0
-  playerController: {fileID: 8903613858563641066}
 --- !u!1 &129979157632645642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2031,6 +2013,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8903613858563641067}
   - component: {fileID: 8903613858563641066}
+  - component: {fileID: 6173257009412758270}
   - component: {fileID: 8903613858563641065}
   - component: {fileID: 8903613858563641064}
   - component: {fileID: 8903613858563641071}
@@ -2080,6 +2063,10 @@ MonoBehaviour:
   isEating: 0
   predatorKilledPlayer: 0
   isGamePad: 0
+  isPlayer1: 1
+  reachingTime: 0.5
+  attachedToTarget: 0
+  shootPosition: {fileID: 0}
   statusPanel: {fileID: 2967440649458095827}
   level: {fileID: 5087464598237182566}
   death: {fileID: 3265669133085347326}
@@ -2093,7 +2080,20 @@ MonoBehaviour:
   staminaBar: {fileID: 6135824990613023520}
   interactedController: {fileID: 0}
   playerModel: {fileID: 8903613859690415525}
-  p1_Manager: {fileID: 0}
+  controlProfile: {fileID: 0}
+--- !u!114 &6173257009412758270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8903613858563641070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54afef13370ff448a726f1da1b28788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCameraMovement: 1
 --- !u!54 &8903613858563641065
 Rigidbody:
   m_ObjectHideFlags: 0
