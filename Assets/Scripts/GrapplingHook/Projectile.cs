@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
    // public float targetDistance;
    // public float distanceBetweenObjects;
 
-    private GameObject player; //TODO fix this code to destroy the ball
+    public GameObject player; //TODO fix this code to destroy the ball
 
     // Start is called before the first frame update
     void Awake()
@@ -33,7 +33,7 @@ public class Projectile : MonoBehaviour
         hasBall = true;
 
         isCollided = false;
-        player = GameObject.Find("PlayerPrefab");
+        //player = transform
     
         
     }
@@ -93,7 +93,7 @@ public class Projectile : MonoBehaviour
     {
         if (player.name == other.gameObject.name)
         {
-            
+            print("#####################");
             Destroy(gameObject);
         }
 

@@ -40,9 +40,10 @@
             <e p="PickupController.cs" t="Include" />
             <e p="PickupID.cs" t="Include" />
           </e>
-          <e p="Player_1" t="Include">
-            <e p="Camera_1_Controller.cs" t="Include" />
-            <e p="Player_1_Controller.cs" t="Include" />
+          <e p="Player" t="Include">
+            <e p="Camera_Controller.cs" t="Include" />
+            <e p="ControlProfile.cs" t="Include" />
+            <e p="Player_Controller.cs" t="Include" />
           </e>
           <e p="Predator" t="Include">
             <e p="OnPlayerHitPredator.cs" t="Include" />
@@ -56,6 +57,7 @@
           <e p="Toolbox" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="Player_1_Manager.cs" t="Include" />
+            <e p="Player_2_Manager.cs" t="Include" />
             <e p="TimeManager.cs" t="Include" />
             <e p="Toolbox.cs" t="Include" />
           </e>
