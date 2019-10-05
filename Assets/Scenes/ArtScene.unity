@@ -105,21 +105,21 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
-    agentHeight: 2
+    agentRadius: 1
+    agentHeight: 3
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.33333334
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a1c1865f0e7630248b30b1fbcdb7394a, type: 2}
 --- !u!1001 &27663362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -131,6 +131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rocks_and_Stalagmites
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365325270996230225, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 779010501418078786, guid: dafff833fb3fb4547b20a790eaec96b5,
         type: 3}
@@ -317,6 +322,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75.649994
       objectReference: {fileID: 0}
+    - target: {fileID: 5032742283976689878, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 12398104758078210, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489866400872191884, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782758322148144441, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673673127218134929, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2046655115480125559, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dafff833fb3fb4547b20a790eaec96b5, type: 3}
 --- !u!1001 &36280982
@@ -491,7 +526,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19390
+  m_Name: pb_Mesh20408
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -660,6 +695,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_with_Mushrrom_Platforms_and_Nest
       objectReference: {fileID: 0}
+    - target: {fileID: 3568666885541645057, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6480735433458643210, guid: 118a864c029ed3e4f9c161a239250791,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -730,6 +770,61 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.13320999
       objectReference: {fileID: 0}
+    - target: {fileID: 8865422592133158013, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835177601089724923, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8627956706341206558, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464936314227862, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464937257279747, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464936233225615, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464936728916522, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464935759147613, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464936005444542, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464935221021022, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5192464935227220499, guid: 118a864c029ed3e4f9c161a239250791,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 118a864c029ed3e4f9c161a239250791, type: 3}
 --- !u!1001 &79695046
@@ -743,6 +838,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grass
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: bfa2b421d52ee7c4c91975ef1550f653,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055828277386185867, guid: bfa2b421d52ee7c4c91975ef1550f653,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558160535789110, guid: bfa2b421d52ee7c4c91975ef1550f653,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bfa2b421d52ee7c4c91975ef1550f653,
         type: 3}
@@ -824,6 +934,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e835514e2d9044f46b04aa84cac8bb22, type: 2}
+    - target: {fileID: 2018022177237836241, guid: bfa2b421d52ee7c4c91975ef1550f653,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2530895045393947740, guid: bfa2b421d52ee7c4c91975ef1550f653,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfa2b421d52ee7c4c91975ef1550f653, type: 3}
 --- !u!1 &102544412 stripped
@@ -863,6 +983,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom_01_Scaledx10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5168351196307287403, guid: e049f77dbba4c6b4c99592859b540d98,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8206391810319884152, guid: e049f77dbba4c6b4c99592859b540d98,
         type: 3}
@@ -934,6 +1059,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.111391
       objectReference: {fileID: 0}
+    - target: {fileID: 6346376123557528106, guid: e049f77dbba4c6b4c99592859b540d98,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e049f77dbba4c6b4c99592859b540d98, type: 3}
 --- !u!1 &109180828
@@ -984,7 +1114,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19374
+  m_Name: pb_Mesh20392
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1159,6 +1289,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocks_and_Stalagmites (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4365325270996230225, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 779010501418078786, guid: dafff833fb3fb4547b20a790eaec96b5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1329,6 +1464,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 227.933
       objectReference: {fileID: 0}
+    - target: {fileID: 5032742283976689878, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1614716955771553406, guid: dafff833fb3fb4547b20a790eaec96b5,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1439,6 +1579,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -65.965004
       objectReference: {fileID: 0}
+    - target: {fileID: 12398104758078210, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489866400872191884, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6782758322148144441, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1673673127218134929, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2046655115480125559, guid: dafff833fb3fb4547b20a790eaec96b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dafff833fb3fb4547b20a790eaec96b5, type: 3}
 --- !u!1001 &254067094
@@ -1452,6 +1617,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mushroom_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8186083513957759900, guid: 0878a98d7e4e47c4495f2c5c23fea4dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5170579106277149071, guid: 0878a98d7e4e47c4495f2c5c23fea4dc,
         type: 3}
@@ -1889,7 +2059,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431744195}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mushrooms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2167,6 +2337,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterfallCliffs (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2322,7 +2507,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19126
+  m_Name: pb_Mesh20142
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3275,7 +3460,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566456302}
   - component: {fileID: 566456301}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TerrainGroup_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3371,7 +3556,7 @@ GameObject:
   - component: {fileID: 588478527}
   - component: {fileID: 588478526}
   - component: {fileID: 588478525}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4168,40 +4353,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom_03 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: bbb0b0f50a1163f408b1ef6e14211560,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -333.14
+      value: -363.6
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.245
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 285.77
+      value: 255.7
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.24755017
+      value: 0.6238931
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.05259426
+      value: 0.13048099
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.96688914
+      value: -0.7702722
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.032839913
+      value: 0.020318247
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
@@ -4211,17 +4401,17 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.72700006
+      value: 13.083
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -45.478
+      value: -78.90401
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -173.32301
+      value: -187.76
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
@@ -4369,7 +4559,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 655807223}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cliffs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4407,40 +4597,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform Mushroom1
       objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.173962
+      value: -19.28
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 37.500736
+      value: 23.39
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.888851
+      value: -1.24
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.09138176
+      value: -0.057573885
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9572283
+      value: -0.96765023
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.23729426
+      value: -0.14580786
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.13803904
+      value: -0.19768274
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
@@ -4450,17 +4645,17 @@ PrefabInstance:
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -25.408
+      value: -15.036
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -199.91199
+      value: -204.426
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 15.439001
+      value: 10.082001
       objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
@@ -4477,6 +4672,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.27680996
       objectReference: {fileID: 0}
+    - target: {fileID: 5369163719864876064, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb56871d1c09da3429da936cebdb2ff4, type: 3}
 --- !u!1 &698435068
@@ -4488,7 +4688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 698435069}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4854,7 +5054,7 @@ GameObject:
   - component: {fileID: 770540769}
   - component: {fileID: 770540768}
   - component: {fileID: 770540767}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5296,7 +5496,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18904
+  m_Name: pb_Mesh19918
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5559,7 +5759,7 @@ GameObject:
   - component: {fileID: 838559752}
   - component: {fileID: 838559751}
   - component: {fileID: 838559750}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arch (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8828,7 +9028,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19326
+  m_Name: pb_Mesh20344
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9152,7 +9352,7 @@ GameObject:
   - component: {fileID: 904911693}
   - component: {fileID: 904911692}
   - component: {fileID: 904911694}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Terrain_0_0_b4c955cc-f7c6-49de-b354-06ac2c2de4e8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9251,7 +9451,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 939473736}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9303,6 +9503,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterfallCliffs (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
         type: 3}
@@ -9408,6 +9623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatformMushroom1Skin2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: bbb0b0f50a1163f408b1ef6e14211560,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: bbb0b0f50a1163f408b1ef6e14211560,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9511,7 +9731,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19222
+  m_Name: pb_Mesh20240
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9712,6 +9932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom_04 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8186083513957759900, guid: 0878a98d7e4e47c4495f2c5c23fea4dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5170579106277149071, guid: 0878a98d7e4e47c4495f2c5c23fea4dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9838,7 +10063,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19314
+  m_Name: pb_Mesh20332
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10078,7 +10303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1064696256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: InnerWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10222,7 +10447,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19282
+  m_Name: pb_Mesh20300
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10379,6 +10604,12 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1172885581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1923296404464945022, guid: 56044d76672ca1646863d69a0c49979c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2653703110921418078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1210466994
 GameObject:
   m_ObjectHideFlags: 0
@@ -10749,7 +10980,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19000
+  m_Name: pb_Mesh20014
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10917,6 +11148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Web_01_small
+      objectReference: {fileID: 0}
+    - target: {fileID: 408854656874503662, guid: fc7b6384a744964498e6d04674a10fa2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3744693595027943421, guid: fc7b6384a744964498e6d04674a10fa2,
         type: 3}
@@ -11164,7 +11400,7 @@ GameObject:
   - component: {fileID: 1359566832}
   - component: {fileID: 1359566831}
   - component: {fileID: 1359566830}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11592,6 +11828,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grass Small
       objectReference: {fileID: 0}
+    - target: {fileID: 2048768781658638761, guid: eeb17f1b16c693042a43b0e4e04b4970,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3041593871373614010, guid: eeb17f1b16c693042a43b0e4e04b4970,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11667,6 +11908,26 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 52a10068aa25c2143b511e653d60a2b9, type: 2}
+    - target: {fileID: 7054980578902907947, guid: eeb17f1b16c693042a43b0e4e04b4970,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4085166466898562710, guid: eeb17f1b16c693042a43b0e4e04b4970,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3724240573085545220, guid: eeb17f1b16c693042a43b0e4e04b4970,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308623674999320945, guid: eeb17f1b16c693042a43b0e4e04b4970,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeb17f1b16c693042a43b0e4e04b4970, type: 3}
 --- !u!1 &1370728104 stripped
@@ -11966,10 +12227,16 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0.1015625, y: 0.03125, z: 0.02734375, w: -0.03125}
+  m_BoundingSphereOverride: {x: 7, y: 6, z: -8, w: 5}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1422070006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3877664987253397516, guid: 9d855dee011272549b77931187ee4320,
+    type: 3}
+  m_PrefabInstance: {fileID: 6113183485879205310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1479832964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2611404314363061204, guid: 1da710ab54f44b846a082f4de78443ec,
@@ -11982,7 +12249,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18972
+  m_Name: pb_Mesh19986
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12145,7 +12412,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19234
+  m_Name: pb_Mesh20252
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -12314,6 +12581,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom_Group
       objectReference: {fileID: 0}
+    - target: {fileID: 1322757337021739406, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8987993864870755038, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6310042095840261258, guid: 1a86569006058554aa071f9ba38429cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12396,6 +12673,66 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 202839781152909219, guid: e7bb3ed0d93d14e4abbf9b6225d3a4fd,
         type: 3}
+    - target: {fileID: 1009934374553662008, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009934373615679471, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009934373298441196, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 856169320210177190, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 856169320194700814, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5682493877526246686, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383138337153559241, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462207562710627303, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462207562659944783, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7009162850872304989, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090430660175677963, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812775314403688678, guid: 1a86569006058554aa071f9ba38429cc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a86569006058554aa071f9ba38429cc, type: 3}
 --- !u!4 &1536192110 stripped
@@ -12417,7 +12754,7 @@ GameObject:
   - component: {fileID: 1550735636}
   - component: {fileID: 1550735635}
   - component: {fileID: 1550735634}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13090,7 +13427,7 @@ GameObject:
   - component: {fileID: 1620158058}
   - component: {fileID: 1620158057}
   - component: {fileID: 1620158056}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arch (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16360,7 +16697,7 @@ GameObject:
   - component: {fileID: 1632088256}
   - component: {fileID: 1632088255}
   - component: {fileID: 1632088254}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19429,7 +19766,7 @@ GameObject:
   - component: {fileID: 1649473313}
   - component: {fileID: 1649473312}
   - component: {fileID: 1649473311}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19858,7 +20195,7 @@ GameObject:
   - component: {fileID: 1662948537}
   - component: {fileID: 1662948536}
   - component: {fileID: 1662948535}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20455,7 +20792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1735561361}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20486,7 +20823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1753392002}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: OuterWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20523,6 +20860,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Web_02_small
+      objectReference: {fileID: 0}
+    - target: {fileID: 6283469841840092166, guid: fa2c8a9ba9cd04c44a47dae564adb8c1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7018868125073720853, guid: fa2c8a9ba9cd04c44a47dae564adb8c1,
         type: 3}
@@ -20704,7 +21046,7 @@ GameObject:
   - component: {fileID: 1796623668}
   - component: {fileID: 1796623667}
   - component: {fileID: 1796623666}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21126,7 +21468,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19210
+  m_Name: pb_Mesh20228
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21370,6 +21712,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterfallCliffs
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21454,7 +21811,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18892
+  m_Name: pb_Mesh19906
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21617,7 +21974,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19198
+  m_Name: pb_Mesh20216
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21813,7 +22170,7 @@ GameObject:
   - component: {fileID: 1850145639}
   - component: {fileID: 1850145638}
   - component: {fileID: 1850145637}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22122,7 +22479,7 @@ GameObject:
   - component: {fileID: 1850153945}
   - component: {fileID: 1850153944}
   - component: {fileID: 1850153943}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arch (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25253,7 +25610,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19176
+  m_Name: pb_Mesh20194
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -25523,6 +25880,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterfallCliffs (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25606,6 +25978,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WaterfallCliffs (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
         type: 3}
@@ -25778,7 +26165,7 @@ GameObject:
   - component: {fileID: 2117479650}
   - component: {fileID: 2117479649}
   - component: {fileID: 2117479648}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26203,7 +26590,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2126392686}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26237,7 +26624,7 @@ GameObject:
   - component: {fileID: 2128214667}
   - component: {fileID: 2128214666}
   - component: {fileID: 2128214665}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arch (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29509,7 +29896,7 @@ PrefabInstance:
     - target: {fileID: 2209686176738437477, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
         type: 3}
       propertyPath: predatorAlive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3004e2eb46668f64f9f36a6ee91a7ab5, type: 3}
@@ -29656,9 +30043,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6937433313009380374, guid: 56044d76672ca1646863d69a0c49979c,
         type: 3}
-      propertyPath: isGamePad
-      value: 1
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1172885581}
+    - target: {fileID: 2040706742732153660, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2040706742732153660, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040706742732153660, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2040706742732153660, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9210035568447675179, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 1919d277d6ed7b644bbe18152eef9bbf, type: 2}
+    - target: {fileID: 2743628814763050612, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac71fe8fa378f2b4fa037696d0cfc966, type: 2}
+    - target: {fileID: 4011792480403255454, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac71fe8fa378f2b4fa037696d0cfc966, type: 2}
+    - target: {fileID: 4011792480403255454, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac71fe8fa378f2b4fa037696d0cfc966, type: 2}
+    - target: {fileID: 1069024140750070253, guid: 56044d76672ca1646863d69a0c49979c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ac71fe8fa378f2b4fa037696d0cfc966, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56044d76672ca1646863d69a0c49979c, type: 3}
 --- !u!1 &3578256829254524792
@@ -30206,6 +30638,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mushroom_04
       objectReference: {fileID: 0}
+    - target: {fileID: 8186083513957759900, guid: 0878a98d7e4e47c4495f2c5c23fea4dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5170579106277149071, guid: 0878a98d7e4e47c4495f2c5c23fea4dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30479,6 +30916,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.792
       objectReference: {fileID: 0}
+    - target: {fileID: 6113183486672791800, guid: 9d855dee011272549b77931187ee4320,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1422070006}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d855dee011272549b77931187ee4320, type: 3}
 --- !u!1001 &6425810097663814730
@@ -30759,12 +31201,12 @@ PrefabInstance:
     - target: {fileID: 8114065157403634705, guid: 175630c336346654a87b06db0dd189c6,
         type: 3}
       propertyPath: m_VoxelSize
-      value: 0.6666667
+      value: 0.41666666
       objectReference: {fileID: 0}
     - target: {fileID: 8114065157403634705, guid: 175630c336346654a87b06db0dd189c6,
         type: 3}
       propertyPath: m_LayerMask.m_Bits
-      value: 55
+      value: 8197
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 175630c336346654a87b06db0dd189c6, type: 3}
