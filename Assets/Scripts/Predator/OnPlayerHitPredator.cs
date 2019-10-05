@@ -6,12 +6,19 @@ public class OnPlayerHitPredator : PredatorInteractable
 {
     public override void OnPredatorHit(Collision hit, PredatorController predator)
     {
-        // respawn player, remove aquired stats without adding them 
-        if (hit.gameObject.GetComponent<Player_Controller>())// || hit.gameObject.GetComponent<Player_2_Controller>() )
+
+
+        if (hit.gameObject.GetComponent<Player_Controller>())
         {
-            //print("Predator hit " + +hit.gameObject.GetComponent<Player_Controller>().playerManager);
-            hit.gameObject.GetComponent<Player_Controller>().predatorKilledPlayer = true;
-            hit.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
+            Player_Controller playerController = hit.gameObject.GetComponent<Player_Controller>();
+
+            if (playerController.isEating == true)
+            {
+                playerController.isEating = false;
+            }
+
+            playerController.predatorKilledPlayer = true;
+            playerController.playerManager.DisplayScore();
         }
     }
 }

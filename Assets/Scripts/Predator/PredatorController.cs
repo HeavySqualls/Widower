@@ -4,7 +4,7 @@ using UnityEngine.AI;
 
 public class PredatorController : MonoBehaviour
 {
-    enum State { Patrolling, Attacking, Dead};
+    enum State { Patrolling, Attacking, Idle, Dead};
     State currentState;
 
     [Space]
@@ -19,8 +19,9 @@ public class PredatorController : MonoBehaviour
     [Header("Predator Attacking:")]
     public float attackingSpeed = 10f;
     public float cooldownTime = 2f;
+    public float deathZone = 2.5f;
     private Transform target;
-    private bool isAttacking = false;
+    private bool isAttacking;
 
     [Space]
     [Header("Predator References:")]
@@ -40,6 +41,8 @@ public class PredatorController : MonoBehaviour
             case State.Patrolling: this.Patrolling();
                 break;
             case State.Attacking: this.Attacking();
+                break;
+            case State.Idle: this.Idle();
                 break;
             case State.Dead: this.LeftArea();
                 break;
@@ -64,20 +67,28 @@ public class PredatorController : MonoBehaviour
 
     private void Attacking()
     {
-        // Move the unit rapidly to the players position. 
-        // Once at the required position, move to Dead state. 
-        if (isAttacking)
-        {
-            agent.destination = target.position;
-            agent.speed = attackingSpeed;
+        agent.destination = target.position;
+        agent.speed = attackingSpeed;
 
-            if (!agent.pathPending && agent.remainingDistance < 1f)
-            {
-                print("Predator Stopped Attacking");
-                StartCoroutine(PredatorEatCooldown());
-                isAttacking = false;
-            }
+        if (!agent.pathPending && agent.remainingDistance < deathZone) // TODO this needs to be adjusted or have a debug line
+        {
+            target.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
+            target.gameObject.GetComponent<Player_Controller>().predatorKilledPlayer = true;
+
+            CoolDown();
+
+            this.currentState = State.Idle;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, deathZone);
+    }
+
+    private void Idle()
+    {
+        // Sit idle and wait for PredatorEatCooldown() to finish
     }
 
     private void LeftArea()
@@ -91,40 +102,26 @@ public class PredatorController : MonoBehaviour
 
     public void OnPatrolling()
     {
-        // Randomly select a start point and move the unit from the start point to its 
-        // childed end point.
-        // If a player unit comes within a certain radius, move to attacking state.
-
         patrolTarget = gameObject.transform.parent.GetChild(0).transform;
 
         this.currentState = State.Patrolling;
     }
 
-    public void OnAttacking()
+    private void CoolDown()
     {
-        print("Predator Attacking");
         StartCoroutine(PredatorEatCooldown());
     }
 
+
+
     // ------ METHODS ------ //
 
-
-    public void OnCollisionEnter(Collision other)
-    {
-        OnPlayerHitPredator playerThatHitUs = other.gameObject.GetComponent<OnPlayerHitPredator>();
-
-        if (playerThatHitUs != null)
-        {
-            playerThatHitUs.OnPredatorHit(other, this);
-        }
-    }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player_Controller>())
         {
             target = other.gameObject.transform;
-            isAttacking = true;
             this.currentState = State.Attacking;
         }
     }
@@ -134,13 +131,13 @@ public class PredatorController : MonoBehaviour
         if (other.gameObject.GetComponent<Player_Controller>())
         {
             target = null;
-            isAttacking = false;
             this.currentState = State.Patrolling;
         }
     }
 
     private IEnumerator PredatorEatCooldown()
     {
+
         agent.isStopped = true;
         print("Predator Cooldown Start");
 

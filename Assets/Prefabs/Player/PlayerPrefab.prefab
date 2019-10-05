@@ -306,6 +306,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Player Level: '
+--- !u!1 &1565545121358466882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6625612758416905736}
+  m_Layer: 9
+  m_Name: ShootPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6625612758416905736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565545121358466882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.66, z: 4.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4528181167404223311}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1600154530546309197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,7 +1287,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4528181167404223311}
   - component: {fileID: 4528181167404223304}
-  - component: {fileID: 4528181167404223310}
   - component: {fileID: 4528181167404223305}
   m_Layer: 9
   m_Name: PlayerCamera
@@ -1276,7 +1305,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6625612758416905736}
   m_Father: {fileID: 5143077418372192830}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
@@ -1323,23 +1353,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &4528181167404223310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4528181167404223306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e54afef13370ff448a726f1da1b28788, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Target: {fileID: 4941977373344472728}
-  Player: {fileID: 4941977373026461121}
-  isCameraMovement: 1
-  smoothSpeed: 0
-  playerController: {fileID: 4941977373026461120}
 --- !u!81 &4528181167404223305
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1514,10 +1527,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4941977373026461121}
   - component: {fileID: 4941977373026461120}
+  - component: {fileID: 7962709143461342190}
   - component: {fileID: 4941977373026461123}
   - component: {fileID: 4941977373026461122}
   - component: {fileID: 4941977373026461125}
-  - component: {fileID: 8249517292286634555}
   m_Layer: 9
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -1563,6 +1576,10 @@ MonoBehaviour:
   isEating: 0
   predatorKilledPlayer: 0
   isGamePad: 0
+  isPlayer1: 1
+  reachingTime: 1
+  attachedToTarget: 0
+  shootPosition: {fileID: 6625612758416905736}
   statusPanel: {fileID: 1600154530575416825}
   level: {fileID: 8755241242647957836}
   death: {fileID: 1318269752840185556}
@@ -1576,7 +1593,20 @@ MonoBehaviour:
   staminaBar: {fileID: 7655072411592212490}
   interactedController: {fileID: 0}
   playerModel: {fileID: 4941977374041009807}
-  p1_Manager: {fileID: 0}
+  controlProfile: {fileID: 0}
+--- !u!114 &7962709143461342190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4941977373026461124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e54afef13370ff448a726f1da1b28788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCameraMovement: 1
 --- !u!54 &4941977373026461123
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1591,7 +1621,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 2
 --- !u!65 &4941977373026461122
 BoxCollider:
@@ -1616,18 +1646,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 68af8134b4ee06f45b0093ba25cdfd93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8249517292286634555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4941977373026461124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebaf22c27e7a26f4abdc9ed5fd2b50ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4941977373344472731

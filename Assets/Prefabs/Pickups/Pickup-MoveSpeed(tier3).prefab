@@ -465,8 +465,8 @@ GameObject:
   - component: {fileID: 3918806016906700084}
   - component: {fileID: 3918806016906700087}
   - component: {fileID: 3918806016906700086}
-  - component: {fileID: 3918806016906700089}
   - component: {fileID: 3918806016906700088}
+  - component: {fileID: 5568223816870146008}
   m_Layer: 8
   m_Name: Pickup-MoveSpeed(tier3)
   m_TagString: Untagged
@@ -536,19 +536,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3918806016906700089
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3918806016906700091}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3918806016906700088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,5 +555,17 @@ MonoBehaviour:
   timeToRespawn: 8
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
-  isPlayer1: 0
   PickUpObj: {fileID: 3918806016354670528}
+--- !u!135 &5568223816870146008
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3918806016906700091}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}

@@ -4,31 +4,27 @@ using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
-    float rotationSpeed = 2;
-    public Transform Target, Player;
-    float mouseX, mouseY;
+    private float rotationSpeed = 1;
+    //public Transform player;
+    private float xRot, yRot;
 
     public bool isCameraMovement = true;
+    private float currentCameraRotX = 0f;
+    private float cameraRotLimit = 32f;
+    private Camera cam;
 
-    public float smoothSpeed;
-    public Player_Controller playerController;
-    //public Transform Obstruction;
-    //float zoomSpeed = 50f;
+    private Player_Controller playerController;
+    private Rigidbody rb;
 
     void Start()
     {
-        //Obstruction = Target;
+        rb = GetComponent<Rigidbody>();
+        cam = GetComponentInChildren<Camera>();
+        playerController = GetComponent<Player_Controller>();
     }
 
     private void Update()
     {
-        //ViewObstructed();
-        //CamControl();
-    }
-
-    private void LateUpdate()
-    {
-        //ViewObstructed();
         CamControl();
     }
 
@@ -37,52 +33,37 @@ public class Camera_Controller : MonoBehaviour
     {
         if (isCameraMovement)
         {
+            // Calculate player rotation 
             if (playerController.isGamePad)
             {
-                mouseX += Input.GetAxis(playerController.controlProfile.X_Gamepad) * rotationSpeed;
-                mouseY -= Input.GetAxis(playerController.controlProfile.Y_Gamepad) * rotationSpeed;
+                xRot = Input.GetAxis(playerController.controlProfile.X_Gamepad)/* * rotationSpeed*/;
+                yRot = Input.GetAxis(playerController.controlProfile.Y_Gamepad)/* * rotationSpeed*/;
             }
             else
             {
-                mouseX += Input.GetAxis(playerController.controlProfile.Mouse_X) * rotationSpeed;
-                mouseY -= Input.GetAxis(playerController.controlProfile.Mouse_Y) * rotationSpeed;
+                xRot = Input.GetAxis(playerController.controlProfile.Mouse_X)/* * rotationSpeed*/;
+                yRot = Input.GetAxis(playerController.controlProfile.Mouse_Y)/* * rotationSpeed*/;
             }
 
-            mouseY = Mathf.Clamp(mouseY, -35, 60);
 
-            transform.LookAt(Target);
+            Vector3 _rotation = new Vector3(0f, xRot, 0f) * rotationSpeed;
 
-            if (Input.GetKey(KeyCode.CapsLock))
+            // Calculate camera rotation
+            float _cameraRotationX = -yRot * rotationSpeed;
+
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(_rotation));
+
+            if (cam != null)
             {
-                Target.rotation = Quaternion.Euler(mouseY, mouseX, 0);
+                // set rotation and clamp it
+                currentCameraRotX -= _cameraRotationX;
+
+                //currentCameraRotX = Mathf.Clamp(currentCameraRotX, +cameraRotLimit, cameraRotLimit);
+                currentCameraRotX = Mathf.Clamp(currentCameraRotX, -cameraRotLimit, cameraRotLimit);
+
+                // apply rotation to the camera
+                cam.transform.localEulerAngles = new Vector3(currentCameraRotX, 0, 0);
             }
-            else
-            {
-                Player.rotation = Quaternion.Euler(0, mouseX, 0);
-            }
-        }        
+        }
     }
-
-    //void ViewObstructed()
-    //{
-    //    RaycastHit hit;
-
-    //    if (Physics.Raycast(transform.position, Target.position - transform.position, out hit, 4.5f))
-    //    {
-    //        if (hit.collider.gameObject.tag != "Player")
-    //        {
-    //            Obstruction = hit.transform;
-    //            //Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
-
-    //            if (Vector3.Distance(Obstruction.position, transform.position) >= 3f && Vector3.Distance(transform.position, Target.position) >= 2.5f)
-    //                transform.Translate(Vector3.forward * zoomSpeed * Time.deltaTime);
-    //        }
-    //        else
-    //        {
-    //            //Obstruction.gameObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
-    //            if (Vector3.Distance(transform.position, Target.position) < 4.5f)
-    //                transform.Translate(Vector3.back * zoomSpeed * Time.deltaTime);
-    //        }
-    //    }
-    //}
 }
