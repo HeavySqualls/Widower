@@ -11,14 +11,14 @@ public class Player_1_Manager : MonoBehaviour
     public float secondsCanRun = 2;
     public float runSpeed; // ----------- set in start
     public float eatSpeed = 0.5f;
-    public float points; // ------------- used for widow stat check
+    public float points = 0f; // ------------- used for widow stat check
     public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
 
     [Space]
     [Header("Player Upgradable Points:")]
-    public float pointsToAdd;
-    public float eatSpeedToAdd;
-    public float moveSpeedToAdd;
+    public float pointsToAdd = 0f;
+    public float eatSpeedToAdd = 0f;
+    public float moveSpeedToAdd = 0f;
     private string deathCause;
 
     [Space]
@@ -32,6 +32,7 @@ public class Player_1_Manager : MonoBehaviour
     [Header("Player References:")]
     public Camera_Controller camController;
     public Player_Controller pController;
+    private Player_UI pUI;
     private WidowController widowController;
     private GameManager gameManager;
 
@@ -42,12 +43,13 @@ public class Player_1_Manager : MonoBehaviour
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player1");
         pController = currentPlayer.GetComponent<Player_Controller>();
+        pUI = currentPlayer.GetComponentInChildren<Player_UI>();
         camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
 
         runSpeed = moveSpeed * 2;
         FreezePlayer();
 
-        pController.statusPanel.SetActive(false);
+        pUI.DisableStatPanel();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -74,13 +76,13 @@ public class Player_1_Manager : MonoBehaviour
         }
 
 
-        pController.statusPanel.SetActive(true);
+        pUI.EnableStatPanel();
 
-        pController.level.text = playerLevel.ToString();
-        pController.death.text = deathCause;
-        pController.points.text = points + " + " + pointsToAdd;
-        pController.eatSpeed.text = eatSpeed + " + " + eatSpeedToAdd;
-        pController.moveSpeed.text = moveSpeed + " + " + moveSpeedToAdd;
+        pUI.level.text = playerLevel.ToString();
+        pUI.death.text = deathCause;
+        pUI.points.text = points + " + " + pointsToAdd;
+        pUI.eatSpeed.text = eatSpeed + " + " + eatSpeedToAdd;
+        pUI.moveSpeed.text = moveSpeed + " + " + moveSpeedToAdd;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -117,12 +119,14 @@ public class Player_1_Manager : MonoBehaviour
 
     public void FreezePlayer()
     {
+        pController.isDead = true;
         pController.processMovement = false;
         camController.isCameraMovement = false;
     }
 
     public void UnFreezePlayer()
     {
+        pController.isDead = false;
         pController.processMovement = true;
         camController.isCameraMovement = true;
     }
