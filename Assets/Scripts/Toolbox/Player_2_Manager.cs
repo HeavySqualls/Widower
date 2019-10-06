@@ -11,6 +11,7 @@ public class Player_2_Manager : MonoBehaviour
     public float eatSpeed = 0.5f;
     public float points = 0; // ------------- used for widow stat check
     public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
+    public bool isRestart = false;
 
     [Space]
     [Header("Player Upgradable Points:")]
@@ -32,11 +33,11 @@ public class Player_2_Manager : MonoBehaviour
     public Player_Controller pController;
     public Player_UI pUI;
     private WidowController widowController;
-    private GameManager gameManager;
+    private GameManager gM;
 
     private void Start()
     {
-        gameManager = Toolbox.GetInstance().GetGameManager();
+        gM = Toolbox.GetInstance().GetGameManager();
         widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player2");
@@ -55,25 +56,16 @@ public class Player_2_Manager : MonoBehaviour
     {
         FreezePlayer();
 
-        if (!pController.predatorKilledPlayer)
-        {
-            deathCause = "Death By Widow";
-            TallyPickups();
-
-            if ((points + pointsToAdd) >= widowController.scoreToBeat)
-            {
-                print("Player 2 wins!");
-                gameManager.EndGame();
-            }
-        }
-        else
-        {
-            deathCause = "Death By Predator";
-            ResetPickups();
-        }
-
+        // Determine who killed player
+        WhoKilledPlayer();
 
         pUI.EnableStatPanel();
+
+        if (gM.isGameOver)
+        {
+            pUI.respawnButtonObject.SetActive(false);
+            pUI.restartButtonObject.SetActive(true);
+        }
 
         pUI.level.text = playerLevel.ToString();
         pUI.death.text = deathCause;
@@ -83,6 +75,20 @@ public class Player_2_Manager : MonoBehaviour
 
         DisplayCursor();
         pController.predatorKilledPlayer = false;
+    }
+
+    private void WhoKilledPlayer()
+    {
+        if (!pController.predatorKilledPlayer)
+        {
+            deathCause = "Death By Widow";
+            TallyPickups();
+        }
+        else
+        {
+            deathCause = "Death By Predator";
+            ResetPickups();
+        }
     }
 
     public void TallyPickups()
@@ -109,6 +115,12 @@ public class Player_2_Manager : MonoBehaviour
         points += pointsToAdd;
         eatSpeed += eatSpeedToAdd;
         moveSpeed += moveSpeedToAdd;
+
+        if (points >= widowController.scoreToBeat)
+        {
+            print("Player 2 wins!");
+            gM.EndRound();
+        }
 
         ResetPickups();
     }

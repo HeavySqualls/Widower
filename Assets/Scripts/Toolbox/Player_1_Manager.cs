@@ -10,6 +10,7 @@ public class Player_1_Manager : MonoBehaviour
     public float eatSpeed = 0.5f;
     public float points = 0f; // ------------- used for widow stat check
     public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
+    public bool isRestart = false;
 
     [Space]
     [Header("Player Upgradable Points:")]
@@ -55,25 +56,16 @@ public class Player_1_Manager : MonoBehaviour
         FreezePlayer();
         pController.isDead = true;
 
-        if (!pController.predatorKilledPlayer)
-        {
-            deathCause = "Death By Widow";
-            TallyPickups();
-
-            if ((points + pointsToAdd) >= widowController.scoreToBeat)
-            {
-                print("Player 1 wins!");
-                gM.EndGame();
-            }
-        }
-        else
-        {
-            deathCause = "Death By Predator";
-            ResetPickups();
-        }
-
+        // Determine who killed player
+        WhoKilledPlayer();
 
         pUI.EnableStatPanel();
+
+        if (gM.isGameOver)
+        {
+            pUI.respawnButtonObject.SetActive(false);
+            pUI.restartButtonObject.SetActive(true); 
+        }
 
         pUI.level.text = playerLevel.ToString();
         pUI.death.text = deathCause;
@@ -83,6 +75,20 @@ public class Player_1_Manager : MonoBehaviour
 
         DisplayCursor();
         pController.predatorKilledPlayer = false;
+    }
+
+    private void WhoKilledPlayer()
+    {
+        if (!pController.predatorKilledPlayer)
+        {
+            deathCause = "Death By Widow";
+            TallyPickups();
+        }
+        else
+        {
+            deathCause = "Death By Predator";
+            ResetPickups();
+        }
     }
 
     public void TallyPickups()
@@ -109,6 +115,13 @@ public class Player_1_Manager : MonoBehaviour
         points += pointsToAdd;
         eatSpeed += eatSpeedToAdd;
         moveSpeed += moveSpeedToAdd;
+
+        // breaks the game for some reason....
+        if (points >= widowController.scoreToBeat)
+        {
+            print("Player 1 wins!");
+            gM.EndRound();
+        }
 
         ResetPickups();
     }

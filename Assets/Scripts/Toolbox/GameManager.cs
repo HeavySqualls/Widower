@@ -59,10 +59,13 @@ public class GameManager : MonoBehaviour
 
     public void ResetAndChangeLevel()
     {
-        p1_Manager.ResetPickups();
-        isGameOver = false;
-        isGameStart = false;
-        SceneManager.LoadScene(currentLevel); // resets current level for now
+        if (p1_Manager.isRestart && p2_Manager.isRestart)
+        {
+            p1_Manager.ResetPickups();
+            isGameOver = false;
+            isGameStart = false;
+            SceneManager.LoadScene(currentLevel); // resets current level for now
+        }
     }
 
     private void StartGame()
@@ -74,9 +77,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void EndGame()
+    public void EndRound()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.25f;
         print("Game Over");
+        isGameOver = true;
+        p1_Manager.DisplayScore();
+        p2_Manager.DisplayScore();
     }
 }

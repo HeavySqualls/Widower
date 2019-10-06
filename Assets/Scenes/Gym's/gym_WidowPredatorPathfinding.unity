@@ -13163,7 +13163,7 @@ PrefabInstance:
     - target: {fileID: 163419881942037078, guid: ed224922f9c25ad4c82ef09f3bb67fb5,
         type: 3}
       propertyPath: scoreToBeat
-      value: 50
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed224922f9c25ad4c82ef09f3bb67fb5, type: 3}

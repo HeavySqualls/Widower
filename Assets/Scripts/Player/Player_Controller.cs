@@ -88,6 +88,8 @@ public class Player_Controller : MonoBehaviour
         pCurrentMoveSpeed = playerManager.moveSpeed;
         pUI.DisableStaminaBar();
 
+        playerManager.isRestart = false;
+
         cameraAnchor = GameObject.FindGameObjectWithTag("CameraAnchorPoint").transform;
         playerSpawnAnchor = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
     }

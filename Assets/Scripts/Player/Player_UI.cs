@@ -21,6 +21,9 @@ public class Player_UI : MonoBehaviour
     public Text eatSpeed;
     public Text moveSpeed;
     public Button respawnButton;
+    public GameObject respawnButtonObject;
+    public Button restartButton;
+    public GameObject restartButtonObject;
 
     [Space]
     [Header("Player UI:")]
@@ -33,6 +36,12 @@ public class Player_UI : MonoBehaviour
     private void Start()
     {
         pCon = GetComponentInParent<Player_Controller>();
+
+        restartButton = restartButtonObject.GetComponent<Button>();
+        restartButton.onClick.AddListener(OKToRestart);
+        restartButtonObject.SetActive(false);
+
+        respawnButton = respawnButtonObject.GetComponent<Button>();
         respawnButton.onClick.AddListener(pCon.PlayerRespawn);
 
         controler.onClick.AddListener(Control_Gamepad);
@@ -60,6 +69,11 @@ public class Player_UI : MonoBehaviour
 
 
     // ---- STAT PANEL ---- //
+
+    public void OKToRestart()
+    {
+        pCon.playerManager.isRestart = true;
+    }
 
     public void EnableStatPanel()
     {
