@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
@@ -81,7 +79,12 @@ public class TimeManager : MonoBehaviour
         isCountDownStarted = false;
 
         p1_Manager.UnFreezePlayer();
+        p1_Manager.pUI.readyPanel.SetActive(false);
+        p1_Manager.HideCursor();
+
         p2_Manager.UnFreezePlayer();
+        p2_Manager.pUI.readyPanel.SetActive(false);
+        p2_Manager.HideCursor();
 
         Toolbox.GetInstance().GetGameManager().isGameStart = true;
     }

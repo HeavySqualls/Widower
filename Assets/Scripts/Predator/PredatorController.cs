@@ -142,7 +142,6 @@ public class PredatorController : MonoBehaviour
 
     private IEnumerator PredatorEatCooldown()
     {
-
         agent.isStopped = true;
         print("Predator Cooldown Start");
 

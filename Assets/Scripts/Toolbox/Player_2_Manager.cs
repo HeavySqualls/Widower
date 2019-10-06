@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+
 public class Player_2_Manager : MonoBehaviour
 {
     [Header("Player Stats:")]
@@ -32,7 +30,7 @@ public class Player_2_Manager : MonoBehaviour
     [Header("Player References:")]
     public Camera_Controller camController;
     public Player_Controller pController;
-    private Player_UI pUI;
+    public Player_UI pUI;
     private WidowController widowController;
     private GameManager gameManager;
 
@@ -50,8 +48,7 @@ public class Player_2_Manager : MonoBehaviour
         FreezePlayer();
 
         pUI.DisableStatPanel();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        pUI.readyPanel.SetActive(false);
     }
 
     public void DisplayScore()
@@ -84,8 +81,7 @@ public class Player_2_Manager : MonoBehaviour
         pUI.eatSpeed.text = eatSpeed + " + " + eatSpeedToAdd;
         pUI.moveSpeed.text = moveSpeed + " + " + moveSpeedToAdd;
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        DisplayCursor();
         pController.predatorKilledPlayer = false;
     }
 
@@ -129,6 +125,18 @@ public class Player_2_Manager : MonoBehaviour
         pController.isDead = false;
         pController.processMovement = true;
         camController.isCameraMovement = true;
+    }
+
+    public void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void DisplayCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }
 

@@ -1,9 +1,5 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {   
@@ -52,6 +48,7 @@ public class GameManager : MonoBehaviour
     private void ResetGameManager()
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
@@ -70,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        if (!isGameStart && p1_Manager.isReady) //TODO: && p2_Manager.isReady)
+        if (!isGameStart && p1_Manager.isReady && p2_Manager.isReady)
         {
             Toolbox.GetInstance().GetTimeManager().StartCountDownTimer(countInTime);
             isGameStart = true;

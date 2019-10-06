@@ -1,15 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player_UI : MonoBehaviour
 {
     [Space]
+    [Header("Player Status/Controls:")]
+    public GameObject readyPanel;
+    public Canvas controlSelectionCanvas;
+    public Button controler;
+    public Button keyMouse;
+
+    [Space]
     [Header("Player Score:")]
     public bool statPanelActive = false;
-
-
     public GameObject statusPanel;
     public Text level;
     public Text death;
@@ -29,14 +33,33 @@ public class Player_UI : MonoBehaviour
     private void Start()
     {
         pCon = GetComponentInParent<Player_Controller>();
-        //DisableStatPanel();
         respawnButton.onClick.AddListener(pCon.PlayerRespawn);
+
+        controler.onClick.AddListener(Control_Gamepad);
+        keyMouse.onClick.AddListener(Control_keyboardMouse);
     }
 
     void Update()
     {
         RunWindDown();
     }
+
+
+    // ---- CONTROLLS ---- //
+
+    public void Control_Gamepad()
+    {
+        pCon.isGamePad = true;
+        controlSelectionCanvas.enabled = false;
+    }
+    public void Control_keyboardMouse()
+    {
+        pCon.isGamePad = false;
+        controlSelectionCanvas.enabled = false;
+    }
+
+
+    // ---- STAT PANEL ---- //
 
     public void EnableStatPanel()
     {
@@ -55,6 +78,8 @@ public class Player_UI : MonoBehaviour
         statPanelActive = false;
     }
 
+
+    // ---- PLAYER UI ---- //
 
     public void EnableStaminaBar()
     {
@@ -112,6 +137,4 @@ public class Player_UI : MonoBehaviour
         staminaBar.enabled = false;
         Debug.Log("Running Ready!");
     }
-
-
 }
