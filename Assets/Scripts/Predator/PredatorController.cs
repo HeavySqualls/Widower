@@ -70,10 +70,15 @@ public class PredatorController : MonoBehaviour
         agent.destination = target.position;
         agent.speed = attackingSpeed;
 
-        if (!agent.pathPending && agent.remainingDistance < deathZone) // TODO this needs to be adjusted or have a debug line
+        if (target.gameObject.GetComponent<Player_Controller>().isDead == true)
         {
-            target.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
+            this.currentState = State.Patrolling;
+        }
+
+        if (!agent.pathPending && agent.remainingDistance < deathZone)
+        {
             target.gameObject.GetComponent<Player_Controller>().predatorKilledPlayer = true;
+            target.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
 
             CoolDown();
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Camera_Controller : MonoBehaviour
 {
     private float rotationSpeed = 1;
-    //public Transform player;
     private float xRot, yRot;
 
     public bool isCameraMovement = true;
@@ -28,7 +27,6 @@ public class Camera_Controller : MonoBehaviour
         CamControl();
     }
 
-
     void CamControl()
     {
         if (isCameraMovement)
@@ -36,13 +34,13 @@ public class Camera_Controller : MonoBehaviour
             // Calculate player rotation 
             if (playerController.isGamePad)
             {
-                xRot = Input.GetAxis(playerController.controlProfile.X_Gamepad)/* * rotationSpeed*/;
-                yRot = Input.GetAxis(playerController.controlProfile.Y_Gamepad)/* * rotationSpeed*/;
+                xRot = Input.GetAxis(playerController.controlProfile.X_Gamepad);
+                yRot = Input.GetAxis(playerController.controlProfile.Y_Gamepad);
             }
             else
             {
-                xRot = Input.GetAxis(playerController.controlProfile.Mouse_X)/* * rotationSpeed*/;
-                yRot = Input.GetAxis(playerController.controlProfile.Mouse_Y)/* * rotationSpeed*/;
+                xRot = Input.GetAxis(playerController.controlProfile.Mouse_X);
+                yRot = Input.GetAxis(playerController.controlProfile.Mouse_Y);
             }
 
 
@@ -58,7 +56,6 @@ public class Camera_Controller : MonoBehaviour
                 // set rotation and clamp it
                 currentCameraRotX -= _cameraRotationX;
 
-                //currentCameraRotX = Mathf.Clamp(currentCameraRotX, +cameraRotLimit, cameraRotLimit);
                 currentCameraRotX = Mathf.Clamp(currentCameraRotX, -cameraRotLimit, cameraRotLimit);
 
                 // apply rotation to the camera

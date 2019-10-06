@@ -8,6 +8,7 @@ public class OnPlayerHitWidow : WidowInteractable
     {
         if (hit.gameObject.GetComponent<Player_Controller>() && !widow.isEating)
         {
+            hit.gameObject.GetComponent<Player_Controller>().predatorKilledPlayer = false;
             hit.gameObject.GetComponent<Player_Controller>().playerManager.DisplayScore();
             widow.GoEating();
         }      

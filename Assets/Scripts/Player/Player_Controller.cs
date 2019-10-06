@@ -1,9 +1,6 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class Player_Controller : MonoBehaviour
 {
@@ -14,12 +11,12 @@ public class Player_Controller : MonoBehaviour
     public bool canRun = true;
     public bool isInteracting = false;
     public bool isEating = false;
+    public bool isDead = false;
     public bool predatorKilledPlayer = false;
-    private bool runWindDown = false;
 
     [Space]
     [Header("Player States:")]
-    private float runTime;
+    public float runTime;
     private float pCurrentMoveSpeed;
 
     [Space]
@@ -37,16 +34,6 @@ public class Player_Controller : MonoBehaviour
     private ReachTargetInTime reachTargetInTime;
 
     [Space]
-    [Header("Player Score:")]
-    public GameObject statusPanel;
-    public Text level;
-    public Text death;
-    public Text points;
-    public Text eatSpeed;
-    public Text moveSpeed;
-    public Button respawnButton;
-
-    [Space]
     [Header("Player Spawn:")]
     private float spawnDelay = 3f;
     public GameObject playerCamera;
@@ -56,11 +43,10 @@ public class Player_Controller : MonoBehaviour
 
     [Space]
     [Header("Player Refrences:")]
-    public Canvas CanvasObj;
-    public Image staminaBar;
     public PickupController interactedController;
     public GameObject playerModel;
     private GameManager gameManager;
+    private Player_UI pUI;
 
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
@@ -77,6 +63,7 @@ public class Player_Controller : MonoBehaviour
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
         controlProfile = this.gameObject.AddComponent<ControlProfile>();
+        pUI = GetComponentInChildren<Player_UI>();
 
         if (isPlayer1)
         {
@@ -98,19 +85,17 @@ public class Player_Controller : MonoBehaviour
 
     void Start()
     {
-        staminaBar.enabled = false;
         pCurrentMoveSpeed = playerManager.moveSpeed;        
 
         cameraAnchor = GameObject.FindGameObjectWithTag("CameraAnchorPoint").transform;
         playerSpawnAnchor = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
-        respawnButton.onClick.AddListener(PlayerRespawn);
+        pUI.DisableStaminaBar();
     }
 
     void Update()
     {
         PlayerMovement();
         PlayerInputs();
-        RunWindDown();
     }
 
     void PlayerInputs()
@@ -126,21 +111,19 @@ public class Player_Controller : MonoBehaviour
 
                 if (Input.GetButtonDown(controlProfile.X_Button) && isInteracting && interactedController != null && !isEating)
                 {
-                    Debug.Log("eat!");
                     isEating = true;
                     interactedController.GoGettingEaten(playerManager.eatSpeed);
                 }
 
                 if (Input.GetButtonDown(controlProfile.O_Button) && isInteracting && interactedController != null && isEating)
                 {
-                    Debug.Log("Stop Eating!");
                     isEating = false;
                     interactedController.StopGettingEaten();
                     interactedController = null;
                     isInteracting = false;
                 }
 
-                if (Input.GetButtonDown(controlProfile.Respawn_Gamepad) && statusPanel.activeSelf == true)
+                if (Input.GetButtonDown(controlProfile.Respawn_Gamepad) && pUI.statPanelActive == true)
                 {
                     PlayerRespawn();
                 }
@@ -169,14 +152,12 @@ public class Player_Controller : MonoBehaviour
 
                 if (Input.GetKeyUp(controlProfile.Eat_Key) && isInteracting && interactedController != null && !isEating)
                 {
-                    Debug.Log("eat!");
                     isEating = true;
                     interactedController.GoGettingEaten(playerManager.eatSpeed);
                 }
 
                 if (Input.GetKeyUp(controlProfile.QuitEat_Key) && isInteracting && interactedController != null && isEating)
                 {
-                    Debug.Log("Stop Eating!");
                     isEating = false;
 
                     interactedController.StopGettingEaten();
@@ -184,14 +165,13 @@ public class Player_Controller : MonoBehaviour
                 }
 
                 // Shoot projectile when button pressed down
-                if (Input.GetKeyUp(controlProfile.Respawn_Key) && statusPanel.activeSelf == true)
+                if (Input.GetKeyUp(controlProfile.Respawn_Key) && pUI.statPanelActive == true)
                 {
                     PlayerRespawn();
                 }
 
                 if (Input.GetKeyDown(controlProfile.Hookshot_Key) && currentShot == null)
                 {
-                    print("shooot");
                     currentShot = Instantiate(projectilePrefab, shootPosition);
                     currentShot.GetComponent<Projectile>().player = this.gameObject;
                 }
@@ -199,7 +179,6 @@ public class Player_Controller : MonoBehaviour
                 // go to projectile when button raised up
                 if (Input.GetKeyUp(controlProfile.Hookshot_Key) && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime && currentShot != null)
                 {
-                    print("release");
                     reachTargetInTime = this.gameObject.AddComponent<ReachTargetInTime>();
                     reachTargetInTime.SetInitialValue(currentShot.transform, reachingTime, attachedToTarget);
                 }
@@ -224,29 +203,25 @@ public class Player_Controller : MonoBehaviour
                     pCurrentMoveSpeed = playerManager.runSpeed;
                     runTime += 1 / (1 / Time.deltaTime);
                     isRunning = true;
-                    staminaBar.enabled = true;
-                    staminaBar.fillAmount = (runTime / 2);
+                    pUI.EnableStaminaBar();
                 }
 
                 // Stop Running Case - Player let go of key
                 if (Input.GetButtonUp(controlProfile.Sprint_Gamepad))
                 {
-                    Debug.Log("Player State: Stopped Running");
                     pCurrentMoveSpeed = playerManager.moveSpeed;
-                    runWindDown = true;
-                    Debug.Log("Run wind down!");
+                    pUI.runWindDown = true;
                     isRunning = false;
                 }
 
                 // Stop Running Case - Player ran out of stamina
                 if (isRunning == true && runTime > playerManager.secondsCanRun)
                 {
-                    Debug.Log("Player State: Out of stamina");
                     pCurrentMoveSpeed = playerManager.moveSpeed;
                     runTime = 0f;
                     isRunning = false;
                     canRun = false;
-                    PlayerRunningCoolDown();
+                    pUI.PlayerRunningCoolDown();
                 }
             }
             else
@@ -262,29 +237,25 @@ public class Player_Controller : MonoBehaviour
                     pCurrentMoveSpeed = playerManager.runSpeed;
                     runTime += 1 / (1 / Time.deltaTime);
                     isRunning = true;
-                    staminaBar.enabled = true;
-                    staminaBar.fillAmount = (runTime / 2);
+                    pUI.EnableStaminaBar();
                 }
 
                 // Stop Running Case - Player let go of key
                 if (Input.GetKeyUp(controlProfile.Sprint_Key))
                 {
-                    Debug.Log("Player State: Stopped Running");
                     pCurrentMoveSpeed = playerManager.moveSpeed;
-                    runWindDown = true;
-                    Debug.Log("Run wind down!");
+                    pUI.runWindDown = true;
                     isRunning = false;
                 }
 
                 // Stop Running Case - Player ran out of stamina
                 if (isRunning == true && runTime > playerManager.secondsCanRun)
                 {
-                    Debug.Log("Player State: Out of stamina");
                     pCurrentMoveSpeed = playerManager.moveSpeed;
                     runTime = 0f;
                     isRunning = false;
                     canRun = false;
-                    PlayerRunningCoolDown();
+                    pUI.PlayerRunningCoolDown();
                 }
             }
         }      
@@ -304,56 +275,16 @@ public class Player_Controller : MonoBehaviour
         }
     }
 
-    // ---- RUNNING METHODS ---- //
-
-    void PlayerRunningCoolDown()
-    {
-        staminaBar.GetComponent<Image>().color = Color.white;
-        StartCoroutine(IRunningCooldown());
-    }
-
-    void RunWindDown()
-    {
-        if (runTime > 0 && runWindDown)
-        {
-            runTime -= 1 * Time.deltaTime;
-            staminaBar.fillAmount = (runTime / 2);
-
-            if (runTime <= 0 || isRunning)
-            {
-                staminaBar.enabled = false;
-                runWindDown = false;
-            }
-
-            if (runTime <= 0)
-            {
-                runWindDown = false;
-                runTime = 0;
-                staminaBar.enabled = false;
-            }
-        }
-    }
-
-    public IEnumerator IRunningCooldown()
-    {
-        canRun = false;
-        yield return new WaitForSeconds(playerManager.runCooldownSeconds);
-        canRun = true;
-        staminaBar.GetComponent<Image>().color = Color.yellow;
-        staminaBar.enabled = false;
-        Debug.Log("Running Ready!");
-    }
-
     public IEnumerator ISpawnCooldown()
     {
         // Hide the player model & respawn button
+        pCurrentMoveSpeed = playerManager.moveSpeed;
         playerModel.SetActive(false);
-        respawnButton.gameObject.SetActive(false);
         isInteracting = false;
         isEating = false;
-        runTime = 0f;
-        staminaBar.fillAmount = 0f;
-        pCurrentMoveSpeed = playerManager.moveSpeed;
+
+        pUI.respawnButton.gameObject.SetActive(false);
+        pUI.DisableStaminaBar();
 
         // Move player camera to overhead camera anchor
         gameObject.transform.position = playerSpawnAnchor.transform.position;
@@ -373,15 +304,12 @@ public class Player_Controller : MonoBehaviour
 
         // Enable model & disable stats panel
         playerModel.SetActive(true);
-        respawnButton.gameObject.SetActive(true);
-        statusPanel.SetActive(false);
+        pUI.DisableStatPanel();
 
         // Give control back to player
         playerManager.UnFreezePlayer();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
-        print("Player 1 Respawned");
     }
 
     public void PlayerRespawn()

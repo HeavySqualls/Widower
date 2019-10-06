@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
 
     private void StartGame()
     {
-        if (!isGameStart && p1_Manager.isReady) //&& p2_Manager.isReady)
+        if (!isGameStart && p1_Manager.isReady) //TODO: && p2_Manager.isReady)
         {
             Toolbox.GetInstance().GetTimeManager().StartCountDownTimer(countInTime);
             isGameStart = true;

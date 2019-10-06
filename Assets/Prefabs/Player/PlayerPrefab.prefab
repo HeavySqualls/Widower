@@ -330,7 +330,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565545121358466882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.66, z: 4.56}
+  m_LocalPosition: {x: 0, y: -1.58, z: 6.009}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4528181167404223311}
@@ -443,7 +443,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1600154530546309202}
-  m_Father: {fileID: 4941977373026461121}
+  m_Father: {fileID: 5149592314024297116}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -460,9 +460,9 @@ Canvas:
   m_GameObject: {fileID: 1600154530575416825}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_RenderMode: 1
+  m_Camera: {fileID: 4528181167404223304}
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -542,8 +542,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3236412392660773272}
-  m_Father: {fileID: 4941977373026461121}
-  m_RootOrder: 2
+  m_Father: {fileID: 5149592314024297116}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -721,7 +721,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -61}
+  m_AnchoredPosition: {x: 0, y: -53.899994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &860804820194976823
@@ -961,7 +961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 29.8}
+  m_AnchoredPosition: {x: 0, y: 29.799988}
   m_SizeDelta: {x: 118.3, y: 34.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6311937239653572369
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 4528181167404223311}
   - component: {fileID: 4528181167404223304}
   - component: {fileID: 4528181167404223305}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: PlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1330,18 +1330,18 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0
+    y: 0.5
     width: 1
-    height: 1
+    height: 0.5
   near clip plane: 0.8
   far clip plane: 1000
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2871
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1533,7 +1533,7 @@ GameObject:
   - component: {fileID: 4941977373026461125}
   m_Layer: 9
   m_Name: PlayerPrefab
-  m_TagString: Player
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1549,10 +1549,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1600154530575416829}
   - {fileID: 4941977373344472728}
-  - {fileID: 2715318245112155783}
   - {fileID: 4941977374041009804}
+  - {fileID: 5149592314024297116}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1575,22 +1574,14 @@ MonoBehaviour:
   isInteracting: 0
   isEating: 0
   predatorKilledPlayer: 0
+  runTime: 0
   isGamePad: 0
   isPlayer1: 1
-  reachingTime: 1
+  reachingTime: 0.5
   attachedToTarget: 0
   shootPosition: {fileID: 6625612758416905736}
-  statusPanel: {fileID: 1600154530575416825}
-  level: {fileID: 8755241242647957836}
-  death: {fileID: 1318269752840185556}
-  points: {fileID: 1488418626261576850}
-  eatSpeed: {fileID: 7681755601813970904}
-  moveSpeed: {fileID: 4786712139981012472}
-  respawnButton: {fileID: 8773598027736833668}
   playerCamera: {fileID: 4528181167404223306}
   playerCamAnchor: {fileID: 5143077418372192830}
-  CanvasObj: {fileID: 8273059630006241699}
-  staminaBar: {fileID: 7655072411592212490}
   interactedController: {fileID: 0}
   playerModel: {fileID: 4941977374041009807}
   controlProfile: {fileID: 0}
@@ -1677,7 +1668,7 @@ Transform:
   m_Children:
   - {fileID: 5143077418372192830}
   m_Father: {fileID: 4941977373026461121}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -18.353, y: 0, z: 0}
 --- !u!1 &4941977374041009807
 GameObject:
@@ -1713,7 +1704,7 @@ Transform:
   - {fileID: 4528181166471943782}
   - {fileID: 2759019974062387679}
   m_Father: {fileID: 4941977373026461121}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5030599132289004865
 GameObject:
@@ -2055,6 +2046,62 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Respawn
+--- !u!1 &6628784143831897733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5149592314024297116}
+  - component: {fileID: 6568413374951982810}
+  m_Layer: 9
+  m_Name: PlayerUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5149592314024297116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628784143831897733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1600154530575416829}
+  - {fileID: 2715318245112155783}
+  m_Father: {fileID: 4941977373026461121}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6568413374951982810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6628784143831897733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9389b5d2499e640894d04d812d2b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statPanelActive: 0
+  statusPanel: {fileID: 1600154530575416825}
+  level: {fileID: 8755241242647957836}
+  death: {fileID: 1318269752840185556}
+  points: {fileID: 1488418626261576850}
+  eatSpeed: {fileID: 7681755601813970904}
+  moveSpeed: {fileID: 4786712139981012472}
+  respawnButton: {fileID: 8773598027736833668}
+  runWindDown: 0
+  playerUICanvas: {fileID: 8273059630006241699}
+  staminaBar: {fileID: 7655072411592212490}
 --- !u!1 &8043395515241577655
 GameObject:
   m_ObjectHideFlags: 0
