@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455090539613691336}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04, z: 0}
-  m_LocalScale: {x: 0.33333334, y: 0.5, z: 0.33333334}
+  m_LocalPosition: {x: 0, y: 0.411, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.5, z: 1.4507334}
   m_Children: []
   m_Father: {fileID: 455090540130747804}
   m_RootOrder: 0
@@ -105,7 +105,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455090540130747805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -131.6, y: 70.55019, z: 250.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 2, z: 3}
   m_Children:
   - {fileID: 455090539613691340}
@@ -191,8 +191,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.8680728
+  m_Center: {x: 0, y: 0.3319373, z: 0.064853355}
 --- !u!1 &2480740176954432598
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +304,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.356}
+  m_AnchoredPosition: {x: 0, y: 1.113}
   m_SizeDelta: {x: 100, y: 358}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2480740177272459163
@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 1984804896957752229, guid: f62c3726e2bba4c4cb50ce6ad82497ff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 452.7794
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1984804896957752229, guid: f62c3726e2bba4c4cb50ce6ad82497ff,
         type: 3}
@@ -556,7 +556,7 @@ PrefabInstance:
     - target: {fileID: 1984804896957752229, guid: f62c3726e2bba4c4cb50ce6ad82497ff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 267.74533
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1984804896957752229, guid: f62c3726e2bba4c4cb50ce6ad82497ff,
         type: 3}

@@ -1034,7 +1034,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2393053851061481974}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1512,23 +1512,16 @@ MonoBehaviour:
   canRun: 1
   isInteracting: 0
   isEating: 0
+  isDead: 0
   predatorKilledPlayer: 0
+  runTime: 0
   isGamePad: 0
   isPlayer1: 1
   reachingTime: 1
   attachedToTarget: 0
   shootPosition: {fileID: 4904532937315462326}
-  statusPanel: {fileID: 708865157827495751}
-  level: {fileID: 7377560906281642994}
-  death: {fileID: 984580023765048426}
-  points: {fileID: 812176054343767596}
-  eatSpeed: {fileID: 8464960864400008550}
-  moveSpeed: {fileID: 6741695536967337798}
-  respawnButton: {fileID: 7359046581704336442}
   playerCamera: {fileID: 2393053851061481972}
   playerCamAnchor: {fileID: 6394373295225970816}
-  CanvasObj: {fileID: 7867030904395133725}
-  staminaBar: {fileID: 8493444507273050804}
   interactedController: {fileID: 0}
   playerModel: {fileID: 4542288997418556775}
   controlProfile: {fileID: 0}
