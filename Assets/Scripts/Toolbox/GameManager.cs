@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool isGameStart = false;
 
-    public int gameDeathCount; // not used at the moment
+    private int gameDeathCount; // not used at the moment
     public int numberOfPlayers; //for knowing if it is multi player
     public int currentLevel;
 
@@ -28,8 +28,6 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //Toolbox.GetInstance().GetTimer().ResetTimer();
-        //Toolbox.GetInstance().GetPlayer_1_Manager().ResetPlayerManager();
         ResetGameManager();
     }
 
@@ -44,19 +42,19 @@ public class GameManager : MonoBehaviour
 
     private void ResetGameManager() // is this needed?
     {
+        Time.timeScale = 1f;
+        isGameStart = false;
+
+        timeManager = Toolbox.GetInstance().GetTimeManager();
+        timeManager.ResetTimer();
+
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p1_Manager.ResetPlayerManager1();
 
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
         p2_Manager.ResetPlayerManager2();
 
-        timeManager = Toolbox.GetInstance().GetTimeManager();
-        timeManager.ResetTimer();
-
         currentLevel = SceneManager.GetActiveScene().buildIndex;
-
-        Time.timeScale = 1f;
-        isGameStart = false;
     }
 
     private void Update()
@@ -82,6 +80,7 @@ public class GameManager : MonoBehaviour
     public void EndRound()
     {
         Time.timeScale = 0.25f;
+
         print("Game Over");
         isGameOver = true;
         timeManager.SetGameOverPanel();

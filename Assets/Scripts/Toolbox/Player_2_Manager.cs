@@ -38,20 +38,7 @@ public class Player_2_Manager : MonoBehaviour
 
     private void Start()
     {
-        //gM = Toolbox.GetInstance().GetGameManager();
-        //widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
-
-        //currentPlayer = GameObject.FindGameObjectWithTag("Player2");
-        //pController = currentPlayer.GetComponent<Player_Controller>();
-        //pUI = currentPlayer.GetComponentInChildren<Player_UI>();
-        //camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
-
-        //runSpeed = moveSpeed * 2;
-        //FreezePlayer();
-        //isWinner = false;
-
-        //pUI.DisableStatPanel();
-        //pUI.readyPanel.SetActive(false);
+        // References and set up is set up in ResetPlayerManager2() and is called by the GameManager 
     }
 
     public void ResetPlayerManager2()
@@ -67,6 +54,8 @@ public class Player_2_Manager : MonoBehaviour
         runSpeed = moveSpeed * 2;
         FreezePlayer();
         isWinner = false;
+        isReady = false;
+        pController.runTime = 0;
 
         pUI.DisableStatPanel();
         pUI.readyPanel.SetActive(false);

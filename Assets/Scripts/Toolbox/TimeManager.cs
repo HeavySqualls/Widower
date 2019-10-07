@@ -22,13 +22,29 @@ public class TimeManager : MonoBehaviour
     public Text time;
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
-    private GameManager gameManager;
 
     void Start()
     {
-        //ResetTimer();
+        // References and set up in ResetTimer() and is called by the GameManager 
     }
 
+    public void ResetTimer()
+    {
+        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+
+        time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
+        startText = GameObject.FindGameObjectWithTag("StartPrompt");
+        gameOverPanel = GameObject.FindGameObjectWithTag("GameOverNotice");
+
+        time.enabled = false;
+        gameOverPanel.SetActive(false);
+
+        isCountDownTime = false;
+
+        minutes = "0";
+        seconds = "0";
+    }
 
     void Update()
     {
@@ -50,7 +66,6 @@ public class TimeManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 StopCountDownTimer();
-                isCountDownTime = false;
             }
         }
     }
@@ -89,26 +104,5 @@ public class TimeManager : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
     }
-
-    public void ResetTimer()
-    {
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-        gameManager = Toolbox.GetInstance().GetGameManager();
-
-        time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
-        startText = GameObject.FindGameObjectWithTag("StartPrompt");
-        gameOverPanel = GameObject.FindGameObjectWithTag("GameOverNotice");
-
-        time.enabled = false;
-        gameOverPanel.SetActive(false);
-
-        isCountDownTime = false;
-
-        minutes = "0";
-        seconds = "0";
-    }
-
-
 }
 
