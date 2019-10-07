@@ -12,6 +12,7 @@ public class Player_2_Manager : MonoBehaviour
     public float points = 0; // ------------- used for widow stat check
     public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
     public bool isRestart = false;
+    public bool isWinner = false;
 
     [Space]
     [Header("Player Upgradable Points:")]
@@ -37,6 +38,24 @@ public class Player_2_Manager : MonoBehaviour
 
     private void Start()
     {
+        //gM = Toolbox.GetInstance().GetGameManager();
+        //widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
+
+        //currentPlayer = GameObject.FindGameObjectWithTag("Player2");
+        //pController = currentPlayer.GetComponent<Player_Controller>();
+        //pUI = currentPlayer.GetComponentInChildren<Player_UI>();
+        //camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
+
+        //runSpeed = moveSpeed * 2;
+        //FreezePlayer();
+        //isWinner = false;
+
+        //pUI.DisableStatPanel();
+        //pUI.readyPanel.SetActive(false);
+    }
+
+    public void ResetPlayerManager2()
+    {
         gM = Toolbox.GetInstance().GetGameManager();
         widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
@@ -47,6 +66,7 @@ public class Player_2_Manager : MonoBehaviour
 
         runSpeed = moveSpeed * 2;
         FreezePlayer();
+        isWinner = false;
 
         pUI.DisableStatPanel();
         pUI.readyPanel.SetActive(false);
@@ -119,6 +139,7 @@ public class Player_2_Manager : MonoBehaviour
         if (points >= widowController.scoreToBeat)
         {
             print("Player 2 wins!");
+            isWinner = true;
             gM.EndRound();
         }
 

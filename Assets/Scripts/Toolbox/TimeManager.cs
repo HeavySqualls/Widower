@@ -14,6 +14,7 @@ public class TimeManager : MonoBehaviour
     [Header("Time Status:")]
     public bool isCountDownTime;
     private bool isCountDownStarted;
+    public GameObject gameOverPanel;
 
     [Space]
     [Header("Time References:")]
@@ -21,17 +22,11 @@ public class TimeManager : MonoBehaviour
     public Text time;
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
+    private GameManager gameManager;
 
     void Start()
     {
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-
-        time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
-        startText = GameObject.FindGameObjectWithTag("StartPrompt");
-
-        time.enabled = false;
-        isCountDownTime = false;
+        //ResetTimer();
     }
 
 
@@ -55,6 +50,7 @@ public class TimeManager : MonoBehaviour
             if (currentTime <= 0)
             {
                 StopCountDownTimer();
+                isCountDownTime = false;
             }
         }
     }
@@ -89,18 +85,30 @@ public class TimeManager : MonoBehaviour
         Toolbox.GetInstance().GetGameManager().isGameStart = true;
     }
 
+    public void SetGameOverPanel()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
     public void ResetTimer()
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        gameManager = Toolbox.GetInstance().GetGameManager();
 
-        time = GameObject.Find("TimerUI").GetComponent<Text>();
-        startText = GameObject.Find("StartPrompt");
+        time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
+        startText = GameObject.FindGameObjectWithTag("StartPrompt");
+        gameOverPanel = GameObject.FindGameObjectWithTag("GameOverNotice");
+
         time.enabled = false;
+        gameOverPanel.SetActive(false);
+
         isCountDownTime = false;
 
         minutes = "0";
         seconds = "0";
     }
+
+
 }
 

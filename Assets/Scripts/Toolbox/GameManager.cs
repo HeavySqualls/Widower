@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
+    private TimeManager timeManager;
 
     void OnEnable()
     {
@@ -36,36 +37,37 @@ public class GameManager : MonoBehaviour
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        timeManager = Toolbox.GetInstance().GetTimeManager();
 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void ResetGameManager() // is this needed?
+    {
+        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
+        p1_Manager.ResetPlayerManager1();
+
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        p2_Manager.ResetPlayerManager2();
+
+        timeManager = Toolbox.GetInstance().GetTimeManager();
+        timeManager.ResetTimer();
+
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+
+        Time.timeScale = 1f;
+        isGameStart = false;
     }
 
     private void Update()
     {
         StartGame();
-    }
-
-    private void ResetGameManager()
-    {
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        ResetAndChangeLevel();
     }
 
     public void changeLevel(int selectedLevel)
     {
         SceneManager.LoadScene(selectedLevel);
-    }
-
-    public void ResetAndChangeLevel()
-    {
-        if (p1_Manager.isRestart && p2_Manager.isRestart)
-        {
-            p1_Manager.ResetPickups();
-            isGameOver = false;
-            isGameStart = false;
-            SceneManager.LoadScene(currentLevel); // resets current level for now
-        }
     }
 
     private void StartGame()
@@ -82,7 +84,27 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.25f;
         print("Game Over");
         isGameOver = true;
+        timeManager.SetGameOverPanel();
+
         p1_Manager.DisplayScore();
+        p1_Manager.pController.processInputs = false;
+
         p2_Manager.DisplayScore();
+        p2_Manager.pController.processInputs = false;
+
+    }
+
+
+    public void ResetAndChangeLevel()
+    {
+        if (p1_Manager.isRestart && p2_Manager.isRestart && isGameOver == true)
+        {
+            p1_Manager.ResetPickups();
+            p2_Manager.ResetPickups();
+
+            SceneManager.LoadScene("gym_WidowPredatorPathfinding"); // resets current level for now
+
+            isGameOver = false;
+        }
     }
 }

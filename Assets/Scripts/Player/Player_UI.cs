@@ -10,6 +10,7 @@ public class Player_UI : MonoBehaviour
     public Canvas controlSelectionCanvas;
     public Button controler;
     public Button keyMouse;
+    public GameObject winnerPanel;
 
     [Space]
     [Header("Player Score:")]
@@ -40,6 +41,7 @@ public class Player_UI : MonoBehaviour
         restartButton = restartButtonObject.GetComponent<Button>();
         restartButton.onClick.AddListener(OKToRestart);
         restartButtonObject.SetActive(false);
+        winnerPanel.SetActive(false);
 
         respawnButton = respawnButtonObject.GetComponent<Button>();
         respawnButton.onClick.AddListener(pCon.PlayerRespawn);
@@ -51,6 +53,11 @@ public class Player_UI : MonoBehaviour
     void Update()
     {
         RunWindDown();
+
+        if (pCon.playerManager.isWinner)
+        {
+            winnerPanel.SetActive(true);
+        }
     }
 
 

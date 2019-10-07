@@ -20,8 +20,12 @@ public class PickupID : MonoBehaviour
 
     public float hValue;
 
+    private PickupController puCon;
+
     void Start()
     {
+        puCon = GetComponentInParent<PickupController>();
+
         if (pickupPoints)
         {
             hValue = healthPoints;
@@ -55,18 +59,18 @@ public class PickupID : MonoBehaviour
     public void AddGreyStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayer_1_Manager().pointPickups += scoreValPoints;
-    }
+        puCon.pCon.playerManager.pointPickups += scoreValPoints;
+    }    
 
     public void AddOrangeStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayer_1_Manager().eatPickups += scoreValEatSpeed;
+        puCon.pCon.playerManager.eatPickups += scoreValEatSpeed;
     }
 
     public void AddBlueStats()
     {
         Debug.Log("Add grey player stats");
-        Toolbox.GetInstance().GetPlayer_1_Manager().movePickups += scoreValMoveSpeed;
+        puCon.pCon.playerManager.movePickups += scoreValMoveSpeed;
     }
 }
