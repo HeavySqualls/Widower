@@ -29,7 +29,7 @@ public class PickupController : MonoBehaviour
 
     [Space]
     [Header("Player Refs:")]
-    private Player_Controller player_Controller;
+    public Player_Controller pCon;
 
     [Space]
     [Header("Self Refs:")]
@@ -86,12 +86,12 @@ public class PickupController : MonoBehaviour
 
         eatProgress.fillAmount = (maxHealth / maxHealthStart);
 
-        player_Controller.playerManager.FreezePlayer();
+        pCon.playerManager.FreezePlayer();
 
         if (maxHealth <= 0)
         {
-            player_Controller.isEating = false;
-            player_Controller.playerManager.UnFreezePlayer();
+            pCon.isEating = false;
+            pCon.playerManager.UnFreezePlayer();
 
             pickupID.IncrementStats();
 
@@ -128,7 +128,7 @@ public class PickupController : MonoBehaviour
         inputCall.enabled = false;
         cameraTarget = null;
         interactObjInRange = false;
-        player_Controller = null;
+        pCon = null;
         interactedObj = null;
 
         this.currentState = State.Idle;
@@ -139,7 +139,7 @@ public class PickupController : MonoBehaviour
         inputCall.enabled = true;
         interactObjInRange = true;
 
-        player_Controller.InteractableObject(this);
+        pCon.InteractableObject(this);
 
         this.currentState = State.Interacted;
     }
@@ -165,7 +165,7 @@ public class PickupController : MonoBehaviour
     {
         if (interactObjInRange)
         {
-            player_Controller.playerManager.UnFreezePlayer();
+            pCon.playerManager.UnFreezePlayer();
         }
 
         myBoxCollider.enabled = true;
@@ -191,7 +191,7 @@ public class PickupController : MonoBehaviour
         {
             // Assign references to the player in trigger zone
             interactedObj = other.gameObject;
-            player_Controller = interactedObj.GetComponent<Player_Controller>();
+            pCon = interactedObj.GetComponent<Player_Controller>();
             cameraTarget = other.GetComponentInChildren<Camera>();
 
             // Set up for interaction state
@@ -203,14 +203,14 @@ public class PickupController : MonoBehaviour
     {
         if (other.GetComponent<Player_Controller>() && this.currentState == State.Interacted)
         {
-            player_Controller.isEating = false;
-            player_Controller.isInteracting = false;
+            pCon.isEating = false;
+            pCon.isInteracting = false;
             GoIdle();
         }
         else if (other.GetComponent<Player_Controller>() && this.currentState == State.GettingEaten)
         {
-            player_Controller.isEating = false;
-            player_Controller.isInteracting = false;
+            pCon.isEating = false;
+            pCon.isInteracting = false;
 
             StopGettingEaten();
         }
@@ -220,7 +220,7 @@ public class PickupController : MonoBehaviour
     {
         PickUpObj.SetActive(false);
         CanvasObj.SetActive(false);
-        player_Controller.interactedController = null;
+        pCon.interactedController = null;
         interactedObj = null;
         myBoxCollider.enabled = false;
     }

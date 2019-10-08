@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PredatorSpawner : MonoBehaviour
@@ -31,21 +30,28 @@ public class PredatorSpawner : MonoBehaviour
     private GameObject currentSpawned;
 
     private string spawnerTag;
+    private GameManager gM;
 
     private void Start()
     {
+        gM = Toolbox.GetInstance().GetGameManager();
         this.currentState = State.SpawnCooldown;
         spawnerTag = gameObject.tag;
     }
 
     private void Update()
     {
-        switch (this.currentState)
+        if (gM.isGameStart)
         {
-            case State.SpawnCooldown: this.SpawnCoolDown();
-                break;
-            case State.Spawn: this.Spawn();
-                break;
+            switch (this.currentState)
+            {
+                case State.SpawnCooldown:
+                    this.SpawnCoolDown();
+                    break;
+                case State.Spawn:
+                    this.Spawn();
+                    break;
+            }
         }
     }
 

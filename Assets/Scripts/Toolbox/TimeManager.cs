@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
@@ -16,6 +14,7 @@ public class TimeManager : MonoBehaviour
     [Header("Time Status:")]
     public bool isCountDownTime;
     private bool isCountDownStarted;
+    public GameObject gameOverPanel;
 
     [Space]
     [Header("Time References:")]
@@ -26,16 +25,26 @@ public class TimeManager : MonoBehaviour
 
     void Start()
     {
+        // References and set up in ResetTimer() and is called by the GameManager 
+    }
+
+    public void ResetTimer()
+    {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
         time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
         startText = GameObject.FindGameObjectWithTag("StartPrompt");
+        gameOverPanel = GameObject.FindGameObjectWithTag("GameOverNotice");
 
         time.enabled = false;
-        isCountDownTime = false;
-    }
+        gameOverPanel.SetActive(false);
 
+        isCountDownTime = false;
+
+        minutes = "0";
+        seconds = "0";
+    }
 
     void Update()
     {
@@ -81,23 +90,19 @@ public class TimeManager : MonoBehaviour
         isCountDownStarted = false;
 
         p1_Manager.UnFreezePlayer();
+        p1_Manager.pUI.readyPanel.SetActive(false);
+        p1_Manager.HideCursor();
+
         p2_Manager.UnFreezePlayer();
+        p2_Manager.pUI.readyPanel.SetActive(false);
+        p2_Manager.HideCursor();
 
         Toolbox.GetInstance().GetGameManager().isGameStart = true;
     }
 
-    public void ResetTimer()
+    public void SetGameOverPanel()
     {
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-
-        time = GameObject.Find("TimerUI").GetComponent<Text>();
-        startText = GameObject.Find("StartPrompt");
-        time.enabled = false;
-        isCountDownTime = false;
-
-        minutes = "0";
-        seconds = "0";
+        gameOverPanel.SetActive(true);
     }
 }
 

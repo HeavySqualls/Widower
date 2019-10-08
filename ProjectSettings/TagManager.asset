@@ -18,6 +18,7 @@ TagManager:
   - Player2
   - Player1
   - StartPrompt
+  - GameOverNotice
   layers:
   - Default
   - TransparentFX

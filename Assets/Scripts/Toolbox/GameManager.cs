@@ -1,9 +1,5 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {   
@@ -12,12 +8,13 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool isGameStart = false;
 
-    public int gameDeathCount; // not used at the moment
+    private int gameDeathCount; // not used at the moment
     public int numberOfPlayers; //for knowing if it is multi player
     public int currentLevel;
 
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
+    private TimeManager timeManager;
 
     void OnEnable()
     {
@@ -31,8 +28,6 @@ public class GameManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        //Toolbox.GetInstance().GetTimer().ResetTimer();
-        //Toolbox.GetInstance().GetPlayer_1_Manager().ResetPlayerManager();
         ResetGameManager();
     }
 
@@ -40,6 +35,24 @@ public class GameManager : MonoBehaviour
     {
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        timeManager = Toolbox.GetInstance().GetTimeManager();
+
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    private void ResetGameManager() // is this needed?
+    {
+        Time.timeScale = 1f;
+        isGameStart = false;
+
+        timeManager = Toolbox.GetInstance().GetTimeManager();
+        timeManager.ResetTimer();
+
+        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
+        p1_Manager.ResetPlayerManager1();
+
+        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        p2_Manager.ResetPlayerManager2();
 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
@@ -47,12 +60,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         StartGame();
-    }
-
-    private void ResetGameManager()
-    {
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        ResetAndChangeLevel();
     }
 
     public void changeLevel(int selectedLevel)
@@ -60,26 +68,42 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(selectedLevel);
     }
 
-    public void ResetAndChangeLevel()
-    {
-        p1_Manager.ResetPickups();
-        isGameOver = false;
-        isGameStart = false;
-        SceneManager.LoadScene(currentLevel); // resets current level for now
-    }
-
     private void StartGame()
     {
-        if (!isGameStart && p1_Manager.isReady) //TODO: && p2_Manager.isReady)
+        if (!isGameStart && p1_Manager.isReady && p2_Manager.isReady)
         {
             Toolbox.GetInstance().GetTimeManager().StartCountDownTimer(countInTime);
             isGameStart = true;
         }
     }
 
-    public void EndGame()
+    public void EndRound()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.25f;
+
         print("Game Over");
+        isGameOver = true;
+        timeManager.SetGameOverPanel();
+
+        p1_Manager.DisplayScore();
+        p1_Manager.pController.processInputs = false;
+
+        p2_Manager.DisplayScore();
+        p2_Manager.pController.processInputs = false;
+
+    }
+
+
+    public void ResetAndChangeLevel()
+    {
+        if (p1_Manager.isRestart && p2_Manager.isRestart && isGameOver == true)
+        {
+            p1_Manager.ResetPickups();
+            p2_Manager.ResetPickups();
+
+            SceneManager.LoadScene("gym_WidowPredatorPathfinding"); // resets current level for now
+
+            isGameOver = false;
+        }
     }
 }

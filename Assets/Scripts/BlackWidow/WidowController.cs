@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,10 +10,9 @@ public class WidowController : MonoBehaviour
     [Space]
     [Header("Widow States:")]
 
-    public int scoreToBeat = 100;
+    public int scoreToBeat = 2;
     public bool isEating = false;
     private bool isCoolDown = false;
-    private bool isMoving = false;
 
     [Space]
     [Header("Widow Patrolling:")]
@@ -27,9 +25,11 @@ public class WidowController : MonoBehaviour
     [Space]
     [Header("Widow References:")]
     private NavMeshAgent agent;
+    private GameManager gM;
 
     private void Start()
     {
+        gM = Toolbox.GetInstance().GetGameManager();
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
         this.currentState = State.Patrolling;
@@ -37,12 +37,17 @@ public class WidowController : MonoBehaviour
 
     private void Update()
     {
-        switch (this.currentState)
+        if (gM.isGameStart)
         {
-            case State.Patrolling: this.Patrolling();
-                break;
-            case State.Eating: this.Eating();
-                break;
+            switch (this.currentState)
+            {
+                case State.Patrolling:
+                    this.Patrolling();
+                    break;
+                case State.Eating:
+                    this.Eating();
+                    break;
+            }
         }
     }
 
@@ -69,8 +74,6 @@ public class WidowController : MonoBehaviour
         int randomDest = Random.Range(0, waypoints.Length);
 
         agent.destination = waypoints[randomDest].position;
-
-        //currentTarget = (currentTarget + 1) % waypoints.Length; --- for patrolling in a specific order
     }
 
     public void Eating()

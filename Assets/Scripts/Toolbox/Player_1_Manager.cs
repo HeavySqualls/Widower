@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 public class Player_1_Manager : MonoBehaviour
 {
     [Header("Player Stats:")]
@@ -13,6 +10,8 @@ public class Player_1_Manager : MonoBehaviour
     public float eatSpeed = 0.5f;
     public float points = 0f; // ------------- used for widow stat check
     public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
+    public bool isRestart = false;
+    public bool isWinner = false;
 
     [Space]
     [Header("Player Upgradable Points:")]
@@ -32,13 +31,18 @@ public class Player_1_Manager : MonoBehaviour
     [Header("Player References:")]
     public Camera_Controller camController;
     public Player_Controller pController;
-    private Player_UI pUI;
+    public Player_UI pUI;
     private WidowController widowController;
-    private GameManager gameManager;
+    private GameManager gM;
 
     private void Start()
     {
-        gameManager = Toolbox.GetInstance().GetGameManager();
+        // References and set up is set up in ResetPlayerManager1() and is called by the GameManager 
+    }
+
+    public void ResetPlayerManager1()
+    {
+        gM = Toolbox.GetInstance().GetGameManager();
         widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
         currentPlayer = GameObject.FindGameObjectWithTag("Player1");
@@ -48,35 +52,30 @@ public class Player_1_Manager : MonoBehaviour
 
         runSpeed = moveSpeed * 2;
         FreezePlayer();
+        isWinner = false;
+        isReady = false;
+
+        pController.runTime = 0;
 
         pUI.DisableStatPanel();
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        pUI.readyPanel.SetActive(false);
     }
 
     public void DisplayScore()
     {
         FreezePlayer();
+        pController.isDead = true;
 
-        if (!pController.predatorKilledPlayer)
-        {
-            deathCause = "Death By Widow";
-            TallyPickups();
-
-            if ((points + pointsToAdd) >= widowController.scoreToBeat)
-            {
-                print("Player 1 wins!");
-                gameManager.EndGame();
-            }
-        }
-        else
-        {
-            deathCause = "Death By Predator";
-            ResetPickups();
-        }
-
+        // Determine who killed player
+        WhoKilledPlayer();
 
         pUI.EnableStatPanel();
+
+        if (gM.isGameOver)
+        {
+            pUI.respawnButtonObject.SetActive(false);
+            pUI.restartButtonObject.SetActive(true); 
+        }
 
         pUI.level.text = playerLevel.ToString();
         pUI.death.text = deathCause;
@@ -84,9 +83,22 @@ public class Player_1_Manager : MonoBehaviour
         pUI.eatSpeed.text = eatSpeed + " + " + eatSpeedToAdd;
         pUI.moveSpeed.text = moveSpeed + " + " + moveSpeedToAdd;
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        DisplayCursor();
         pController.predatorKilledPlayer = false;
+    }
+
+    private void WhoKilledPlayer()
+    {
+        if (!pController.predatorKilledPlayer)
+        {
+            deathCause = "Death By Widow";
+            TallyPickups();
+        }
+        else
+        {
+            deathCause = "Death By Predator";
+            ResetPickups();
+        }
     }
 
     public void TallyPickups()
@@ -114,20 +126,39 @@ public class Player_1_Manager : MonoBehaviour
         eatSpeed += eatSpeedToAdd;
         moveSpeed += moveSpeedToAdd;
 
+        // breaks the game for some reason....
+        if (points >= widowController.scoreToBeat)
+        {
+            print("Player 1 wins!");
+            isWinner = true;
+            gM.EndRound();
+        }
+
         ResetPickups();
     }
 
     public void FreezePlayer()
     {
-        pController.isDead = true;
         pController.processMovement = false;
         camController.isCameraMovement = false;
     }
 
     public void UnFreezePlayer()
     {
-        pController.isDead = false;
         pController.processMovement = true;
         camController.isCameraMovement = true;
     }
+
+    public void HideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void DisplayCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
+

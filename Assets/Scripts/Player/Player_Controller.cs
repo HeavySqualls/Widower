@@ -85,11 +85,13 @@ public class Player_Controller : MonoBehaviour
 
     void Start()
     {
-        pCurrentMoveSpeed = playerManager.moveSpeed;        
+        pCurrentMoveSpeed = playerManager.moveSpeed;
+        pUI.DisableStaminaBar();
+
+        playerManager.isRestart = false;
 
         cameraAnchor = GameObject.FindGameObjectWithTag("CameraAnchorPoint").transform;
         playerSpawnAnchor = GameObject.FindGameObjectWithTag("Player1_SpawnPoint").transform;
-        pUI.DisableStaminaBar();
     }
 
     void Update()
@@ -107,6 +109,7 @@ public class Player_Controller : MonoBehaviour
                 if (Input.GetButtonDown(controlProfile.Gamepad_Start) && gameManager.isGameStart == false)
                 {
                     playerManager.isReady = true;
+                    pUI.readyPanel.SetActive(true);
                 }
 
                 if (Input.GetButtonDown(controlProfile.X_Button) && isInteracting && interactedController != null && !isEating)
@@ -135,8 +138,8 @@ public class Player_Controller : MonoBehaviour
                     currentShot.GetComponent<Projectile>().player = this.gameObject;
                 }
 
-                // go to projectile when button raised up
-                if (Input.GetButtonUp(controlProfile.Hookshot_Gamepad) && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime)
+                // Go to projectile when button raised up
+                if (Input.GetButtonUp(controlProfile.Hookshot_Gamepad) && currentShot && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime)
                 {
                     reachTargetInTime = this.gameObject.AddComponent<ReachTargetInTime>();
 
@@ -148,6 +151,7 @@ public class Player_Controller : MonoBehaviour
                 if (Input.GetKeyUp(controlProfile.Enter_Key) && gameManager.isGameStart == false)
                 {
                     playerManager.isReady = true;
+                    pUI.readyPanel.SetActive(true);
                 }
 
                 if (Input.GetKeyUp(controlProfile.Eat_Key) && isInteracting && interactedController != null && !isEating)
@@ -274,6 +278,18 @@ public class Player_Controller : MonoBehaviour
             isInteracting = false;
         }
     }
+    
+    // RESPAWN
+
+    public void PlayerRespawn()
+    {
+        if (interactedController != null)
+            interactedController.interactObjInRange = false;
+
+        playerManager.AddPoints();
+
+        StartCoroutine(ISpawnCooldown());
+    }
 
     public IEnumerator ISpawnCooldown()
     {
@@ -308,17 +324,9 @@ public class Player_Controller : MonoBehaviour
 
         // Give control back to player
         playerManager.UnFreezePlayer();
+        isDead = false;
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-    }
-
-    public void PlayerRespawn()
-    {
-        if (interactedController != null)
-            interactedController.interactObjInRange = false;
-
-        playerManager.AddPoints();
-
-        StartCoroutine(ISpawnCooldown());
     }
 }

@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour
 {
-    private float rotationSpeed = 1;
+    private float rotationSpeed = 1.5f;
     private float xRot, yRot;
 
     public bool isCameraMovement = true;
     private float currentCameraRotX = 0f;
     private float cameraRotLimit = 32f;
-    private Camera cam;
 
+    private Camera cam;
     private Player_Controller playerController;
     private Rigidbody rb;
 

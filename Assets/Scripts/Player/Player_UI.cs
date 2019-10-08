@@ -1,15 +1,20 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Player_UI : MonoBehaviour
 {
     [Space]
+    [Header("Player Status/Controls:")]
+    public GameObject readyPanel;
+    public Canvas controlSelectionCanvas;
+    public Button controler;
+    public Button keyMouse;
+    public GameObject winnerPanel;
+
+    [Space]
     [Header("Player Score:")]
     public bool statPanelActive = false;
-
-
     public GameObject statusPanel;
     public Text level;
     public Text death;
@@ -17,6 +22,9 @@ public class Player_UI : MonoBehaviour
     public Text eatSpeed;
     public Text moveSpeed;
     public Button respawnButton;
+    public GameObject respawnButtonObject;
+    public Button restartButton;
+    public GameObject restartButtonObject;
 
     [Space]
     [Header("Player UI:")]
@@ -29,13 +37,49 @@ public class Player_UI : MonoBehaviour
     private void Start()
     {
         pCon = GetComponentInParent<Player_Controller>();
-        //DisableStatPanel();
+
+        restartButton = restartButtonObject.GetComponent<Button>();
+        restartButton.onClick.AddListener(OKToRestart);
+        restartButtonObject.SetActive(false);
+        winnerPanel.SetActive(false);
+
+        respawnButton = respawnButtonObject.GetComponent<Button>();
         respawnButton.onClick.AddListener(pCon.PlayerRespawn);
+
+        controler.onClick.AddListener(Control_Gamepad);
+        keyMouse.onClick.AddListener(Control_keyboardMouse);
     }
 
     void Update()
     {
         RunWindDown();
+
+        if (pCon.playerManager.isWinner)
+        {
+            winnerPanel.SetActive(true);
+        }
+    }
+
+
+    // ---- CONTROLLS ---- //
+
+    public void Control_Gamepad()
+    {
+        pCon.isGamePad = true;
+        controlSelectionCanvas.enabled = false;
+    }
+    public void Control_keyboardMouse()
+    {
+        pCon.isGamePad = false;
+        controlSelectionCanvas.enabled = false;
+    }
+
+
+    // ---- STAT PANEL ---- //
+
+    public void OKToRestart()
+    {
+        pCon.playerManager.isRestart = true;
     }
 
     public void EnableStatPanel()
@@ -55,6 +99,8 @@ public class Player_UI : MonoBehaviour
         statPanelActive = false;
     }
 
+
+    // ---- PLAYER UI ---- //
 
     public void EnableStaminaBar()
     {
@@ -112,6 +158,4 @@ public class Player_UI : MonoBehaviour
         staminaBar.enabled = false;
         Debug.Log("Running Ready!");
     }
-
-
 }
