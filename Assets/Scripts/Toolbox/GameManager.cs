@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour
 
     private void Start() // references to scene objects must also be made in ResetGameManager() below
     {
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-        timeManager = Toolbox.GetInstance().GetTimeManager();
+        //p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
+        //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
+        //timeManager = Toolbox.GetInstance().GetTimeManager();
 
-        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        //currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void ResetGameManager() // is this needed?

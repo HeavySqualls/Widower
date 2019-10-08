@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 public class Player_1_Manager : MonoBehaviour
 {
+    //static int players = 1;
+    //string playerID;
+
     [Header("Player Stats:")]
     private int playerLevel = 0;
     public float moveSpeed = 8;
@@ -34,6 +37,12 @@ public class Player_1_Manager : MonoBehaviour
     public Player_UI pUI;
     private WidowController widowController;
     private GameManager gM;
+
+    //private void Awake()
+    //{
+    //    playerID = players.ToString();
+    //    players += 1;
+    //}
 
     private void Start()
     {

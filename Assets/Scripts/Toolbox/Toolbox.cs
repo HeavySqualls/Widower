@@ -19,6 +19,7 @@ public class Toolbox : MonoBehaviour
 
     private TimeManager timeManager;
     private GameManager gameManager;
+
     private Player_1_Manager p1_playerManager;
     private Player_2_Manager p2_playerManager;
 
@@ -36,6 +37,7 @@ public class Toolbox : MonoBehaviour
 
         timeManager = gameObject.AddComponent<TimeManager>();
         gameManager = gameObject.AddComponent<GameManager>();
+
         p1_playerManager = gameObject.AddComponent<Player_1_Manager>();
         p2_playerManager = gameObject.AddComponent<Player_2_Manager>();
     }
