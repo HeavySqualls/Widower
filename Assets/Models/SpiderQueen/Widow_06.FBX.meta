@@ -5,8 +5,38 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
-    second: Take 001
-  externalObjects: {}
+    second: Widow_06_walk
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Widow_06_Bow_Lips_AlbedoTransparency
+    second: {fileID: 2800000, guid: fb27fd0f76b766742bec9e942f339112, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Widow_06_Eyes_AlbedoTransparency
+    second: {fileID: 2800000, guid: a9ffe879f68575b4baded830ff6d956a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Widow_06_Head and Body_AlbedoTransparency
+    second: {fileID: 2800000, guid: 2c639417074445e4dba9c4b9a445940d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Widow_06_Legs_AlbedoTransparency
+    second: {fileID: 2800000, guid: 5ecfc197a0e81614691396de6924cbde, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Widow_06_Shoe_Soles_AlbedoTransparency
+    second: {fileID: 2800000, guid: 99fb70168dab6b642a718e61deec0571, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Widow_06_Shoe_Top_AlbedoTransparency
+    second: {fileID: 2800000, guid: 784b85fcffad50d4fafbff9ea3dcfb9b, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
@@ -33,7 +63,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Widow_06_walk
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
