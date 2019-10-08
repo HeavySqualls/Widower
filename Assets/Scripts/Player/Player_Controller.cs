@@ -138,8 +138,8 @@ public class Player_Controller : MonoBehaviour
                     currentShot.GetComponent<Projectile>().player = this.gameObject;
                 }
 
-                // go to projectile when button raised up
-                if (Input.GetButtonUp(controlProfile.Hookshot_Gamepad) && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime)
+                // Go to projectile when button raised up
+                if (Input.GetButtonUp(controlProfile.Hookshot_Gamepad) && currentShot && currentShot.GetComponent<Projectile>().isCollided && !reachTargetInTime)
                 {
                     reachTargetInTime = this.gameObject.AddComponent<ReachTargetInTime>();
 
