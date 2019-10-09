@@ -4,9 +4,9 @@ public class Player_2_Manager : MonoBehaviour
 {
     [Header("Player Stats:")]
     private int playerLevel = 0;
-    public float moveSpeed = 8;
+    public float moveSpeed = 5;
     public float runCooldownSeconds = 4;
-    public float secondsCanRun = 2;
+    public float secondsCanRun = 0.5f;
     public float runSpeed; // ----------- set in start
     public float eatSpeed = 0.5f;
     public float points = 0; // ------------- used for widow stat check
@@ -19,6 +19,7 @@ public class Player_2_Manager : MonoBehaviour
     public float pointsToAdd = 0f;
     public float eatSpeedToAdd = 0f;
     public float moveSpeedToAdd = 0f;
+    private float currentScore;
     private string deathCause;
 
     [Space]
@@ -68,12 +69,15 @@ public class Player_2_Manager : MonoBehaviour
         // Determine who killed player
         WhoKilledPlayer();
 
-        pUI.EnableStatPanel();
-
-        if (gM.isGameOver)
+        if (currentScore >= widowController.scoreToBeat && !gM.isGameOver)
         {
-            pUI.respawnButtonObject.SetActive(false);
-            pUI.restartButtonObject.SetActive(true);
+            print("Player 2 wins!");
+            isWinner = true;
+            gM.EndRound();
+        }
+        else
+        {
+            pUI.EnableStatPanel();
         }
 
         pUI.level.text = playerLevel.ToString();
@@ -106,6 +110,8 @@ public class Player_2_Manager : MonoBehaviour
         pointsToAdd = (pointPickups * 10) + (eatPickups * 5) + (movePickups * 5);
         eatSpeedToAdd = (eatPickups * 0.25f);
         moveSpeedToAdd = (movePickups * 0.30f);
+
+        currentScore = points + pointsToAdd;
     }
 
     public void ResetPickups()
@@ -119,18 +125,19 @@ public class Player_2_Manager : MonoBehaviour
         moveSpeedToAdd = 0;
     }
 
+    public void ResetStats()
+    {
+        playerLevel = 0;
+        eatSpeed = 0.5f;
+        moveSpeed = 8;
+        points = 0f;
+    }
+
     public void AddPoints()
     {
         points += pointsToAdd;
         eatSpeed += eatSpeedToAdd;
         moveSpeed += moveSpeedToAdd;
-
-        if (points >= widowController.scoreToBeat)
-        {
-            print("Player 2 wins!");
-            isWinner = true;
-            gM.EndRound();
-        }
 
         ResetPickups();
     }

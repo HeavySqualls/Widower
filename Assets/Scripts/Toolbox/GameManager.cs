@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 
         print("Game Over");
         isGameOver = true;
+
         timeManager.SetGameOverPanel();
 
         p1_Manager.DisplayScore();
@@ -99,7 +100,10 @@ public class GameManager : MonoBehaviour
         if (p1_Manager.isRestart && p2_Manager.isRestart && isGameOver == true)
         {
             p1_Manager.ResetPickups();
+            p1_Manager.ResetStats();
+
             p2_Manager.ResetPickups();
+            p2_Manager.ResetStats();
 
             SceneManager.LoadScene("gym_WidowPredatorPathfinding"); // resets current level for now
 

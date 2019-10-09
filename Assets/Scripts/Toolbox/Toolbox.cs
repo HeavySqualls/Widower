@@ -36,6 +36,7 @@ public class Toolbox : MonoBehaviour
 
         timeManager = gameObject.AddComponent<TimeManager>();
         gameManager = gameObject.AddComponent<GameManager>();
+
         p1_playerManager = gameObject.AddComponent<Player_1_Manager>();
         p2_playerManager = gameObject.AddComponent<Player_2_Manager>();
     }

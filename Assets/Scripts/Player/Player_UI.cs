@@ -39,12 +39,13 @@ public class Player_UI : MonoBehaviour
         pCon = GetComponentInParent<Player_Controller>();
 
         restartButton = restartButtonObject.GetComponent<Button>();
-        restartButton.onClick.AddListener(OKToRestart);
+
         restartButtonObject.SetActive(false);
+
         winnerPanel.SetActive(false);
 
         respawnButton = respawnButtonObject.GetComponent<Button>();
-        respawnButton.onClick.AddListener(pCon.PlayerRespawn);
+        respawnButton.gameObject.SetActive(false);
 
         controler.onClick.AddListener(Control_Gamepad);
         keyMouse.onClick.AddListener(Control_keyboardMouse);
@@ -85,6 +86,18 @@ public class Player_UI : MonoBehaviour
     public void EnableStatPanel()
     {
         statusPanel.SetActive(true);
+
+        if (Toolbox.GetInstance().GetGameManager().isGameOver)
+        {
+            restartButtonObject.SetActive(true);
+            restartButton.onClick.AddListener(OKToRestart);
+        }
+        else
+        {
+            respawnButton.gameObject.SetActive(true);
+            respawnButton.onClick.AddListener(pCon.PlayerRespawn);
+        }
+
         statPanelActive = true;
     }
 
@@ -93,6 +106,8 @@ public class Player_UI : MonoBehaviour
         if (respawnButton.gameObject.activeSelf == false)
         {
             respawnButton.gameObject.SetActive(true);
+            respawnButton.onClick.AddListener(pCon.PlayerRespawn);
+            respawnButton.onClick.RemoveListener(pCon.PlayerRespawn);
         }
 
         statusPanel.SetActive(false);
@@ -115,7 +130,6 @@ public class Player_UI : MonoBehaviour
         staminaBar.fillAmount = 0f;
         staminaBar.enabled = false;
     }
-
 
     // AFTER PLAYER LETS GO OF SPRINT BUTTON, 
     // THIS DECREASES THE STAMINA ON THE BAR UNTIL IT REACHES 0.

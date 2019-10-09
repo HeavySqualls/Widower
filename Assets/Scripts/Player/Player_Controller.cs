@@ -283,6 +283,7 @@ public class Player_Controller : MonoBehaviour
 
     public void PlayerRespawn()
     {
+        print("player respawn triggered");
         if (interactedController != null)
             interactedController.interactObjInRange = false;
 

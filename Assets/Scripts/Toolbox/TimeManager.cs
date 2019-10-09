@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class TimeManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class TimeManager : MonoBehaviour
     [Header("Time References:")]
     public GameObject startText;
     public Text time;
+    public GameObject timerCanvas;
     private Player_1_Manager p1_Manager;
     private Player_2_Manager p2_Manager;
 
@@ -33,12 +35,12 @@ public class TimeManager : MonoBehaviour
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
 
-        time = GameObject.FindGameObjectWithTag("TimerUI").GetComponent<Text>();
+        timerCanvas = GameObject.FindGameObjectWithTag("TimerUI");
+        time = timerCanvas.GetComponent<Text>();
         startText = GameObject.FindGameObjectWithTag("StartPrompt");
-        gameOverPanel = GameObject.FindGameObjectWithTag("GameOverNotice");
 
         time.enabled = false;
-        gameOverPanel.SetActive(false);
+        gameOverPanel = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/Utility/GameOver.prefab");
 
         isCountDownTime = false;
 
@@ -102,7 +104,7 @@ public class TimeManager : MonoBehaviour
 
     public void SetGameOverPanel()
     {
-        gameOverPanel.SetActive(true);
+        Instantiate(gameOverPanel, timerCanvas.transform.position, timerCanvas.transform.rotation, timerCanvas.transform );
     }
 }
 

@@ -1621,7 +1621,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16384
+  m_Name: pb_Mesh16440
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1858,13 +1858,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 314584264}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &350412370
+--- !u!43 &378816896
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16466
+  m_Name: pb_Mesh16522
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2217,7 +2217,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16490
+  m_Name: pb_Mesh16546
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2786,7 +2786,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16504
+  m_Name: pb_Mesh16560
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3225,7 +3225,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 350412370}
+  m_Mesh: {fileID: 378816896}
 --- !u!114 &988276229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5174,7 +5174,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 988276227}
-  m_Mesh: {fileID: 350412370}
+  m_Mesh: {fileID: 378816896}
 --- !u!4 &988276232
 Transform:
   m_ObjectHideFlags: 0
@@ -12796,7 +12796,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16544
+  m_Name: pb_Mesh16600
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -13163,7 +13163,7 @@ PrefabInstance:
     - target: {fileID: 163419881942037078, guid: ed224922f9c25ad4c82ef09f3bb67fb5,
         type: 3}
       propertyPath: scoreToBeat
-      value: 300
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed224922f9c25ad4c82ef09f3bb67fb5, type: 3}
