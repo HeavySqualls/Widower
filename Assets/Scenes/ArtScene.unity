@@ -2184,6 +2184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterfallEffect (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000012529653530, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4000010227208682, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.6308
@@ -2554,7 +2558,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2706,6 +2710,10 @@ PrefabInstance:
     - target: {fileID: 1000012529653530, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
       propertyPath: m_Name
       value: WaterfallEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012529653530, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010227208682, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2946,6 +2954,10 @@ PrefabInstance:
     - target: {fileID: 1000012882023006, guid: 5ca4c580b3888314581688fa46fb142d, type: 3}
       propertyPath: m_Name
       value: DustMotesEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012882023006, guid: 5ca4c580b3888314581688fa46fb142d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010002477438, guid: 5ca4c580b3888314581688fa46fb142d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4212,6 +4224,7 @@ GameObject:
   - component: {fileID: 591571030}
   - component: {fileID: 591571029}
   - component: {fileID: 591571028}
+  - component: {fileID: 591571032}
   m_Layer: 0
   m_Name: Floor (1)
   m_TagString: Untagged
@@ -4508,6 +4521,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 591571026}
   m_Mesh: {fileID: 777815950}
+--- !u!65 &591571032
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591571026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 161.61572, y: 7.7780447, z: 143.56552}
+  m_Center: {x: 12.227402, y: -2.8890224, z: -71.78276}
 --- !u!1 &623148669 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 689370215946888575, guid: 29d0d76dbfa07c64ba3046b3e1d69f39,
@@ -4970,7 +4996,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -5723,7 +5749,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23412
+  m_Name: pb_Mesh21370
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10736,7 +10762,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -10833,6 +10859,10 @@ PrefabInstance:
     - target: {fileID: 1000010302070858, guid: d0c0b49979d372942ae5a964d9364111, type: 3}
       propertyPath: m_Name
       value: RainEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010302070858, guid: d0c0b49979d372942ae5a964d9364111, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010603562546, guid: d0c0b49979d372942ae5a964d9364111, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11343,6 +11373,10 @@ PrefabInstance:
     - target: {fileID: 1000012529653530, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
       propertyPath: m_Name
       value: WaterfallEffect (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000012529653530, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000010227208682, guid: 8edb62778d3ea1e489bc191b81b2fc46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13207,6 +13241,10 @@ PrefabInstance:
     - target: {fileID: 1000014033464604, guid: e0ea35e989dfcd043b42d7053b546abc, type: 3}
       propertyPath: m_Name
       value: WaterfallSmallEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000014033464604, guid: e0ea35e989dfcd043b42d7053b546abc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011677278212, guid: e0ea35e989dfcd043b42d7053b546abc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30204,7 +30242,7 @@ PrefabInstance:
     - target: {fileID: 5447321372733949990, guid: 319cd0a64da2b8b4ba29107ec9b7ac49,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 5447321372733949990, guid: 319cd0a64da2b8b4ba29107ec9b7ac49,
         type: 3}
@@ -30250,6 +30288,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447321372733949991, guid: 319cd0a64da2b8b4ba29107ec9b7ac49,
+        type: 3}
+      propertyPath: isGamePad
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447321372733949991, guid: 319cd0a64da2b8b4ba29107ec9b7ac49,
+        type: 3}
+      propertyPath: isPlayer1
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 319cd0a64da2b8b4ba29107ec9b7ac49, type: 3}
@@ -30844,7 +30892,7 @@ PrefabInstance:
     - target: {fileID: 2354527328949271067, guid: 970df6b1145d49d49ba3ff72cffa8800,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 2354527328949271067, guid: 970df6b1145d49d49ba3ff72cffa8800,
         type: 3}
@@ -30889,6 +30937,16 @@ PrefabInstance:
     - target: {fileID: 2354527328949271067, guid: 970df6b1145d49d49ba3ff72cffa8800,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354527328949271066, guid: 970df6b1145d49d49ba3ff72cffa8800,
+        type: 3}
+      propertyPath: isPlayer1
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354527328949271066, guid: 970df6b1145d49d49ba3ff72cffa8800,
+        type: 3}
+      propertyPath: isGamePad
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
