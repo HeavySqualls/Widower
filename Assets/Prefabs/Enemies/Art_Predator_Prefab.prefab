@@ -96,8 +96,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.4537977}
-  m_Center: {x: 0, y: 0, z: 0.22689804}
+  m_Size: {x: 1.5639198, y: 1, z: 1.6473148}
+  m_Center: {x: -0.01681614, y: 0, z: 0.32365653}
 --- !u!114 &4460498326106563909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,8 +148,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4.4986453
+  m_Center: {x: 0.07371839, y: 0, z: 0.075782776}
 --- !u!1 &8647635738347804683
 GameObject:
   m_ObjectHideFlags: 0
