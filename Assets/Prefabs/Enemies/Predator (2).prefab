@@ -187,9 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisSpawner: 
-  attackingSpeed: 13
+  attackingSpeed: 15
   cooldownTime: 2
-  deathZone: 2.5
+  deathZone: 3
   spawner: {fileID: 0}
 --- !u!195 &7391060084148117570
 NavMeshAgent:
@@ -201,7 +201,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 0.5
-  m_Speed: 10
+  m_Speed: 11
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 220
@@ -224,7 +224,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.5
+  m_Radius: 5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5861404318906695126
 GameObject:

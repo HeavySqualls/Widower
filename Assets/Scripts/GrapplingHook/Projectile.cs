@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-//using System.Numerics;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
 public class Projectile : MonoBehaviour
@@ -77,7 +73,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        //stick the ball to the wall
+        //check if the ball hits the wall stick the ball to the wall
         rb.isKinematic = true;
         rb.useGravity = false;
         transform.rotation = Quaternion.identity;

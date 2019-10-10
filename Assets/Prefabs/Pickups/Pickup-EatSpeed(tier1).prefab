@@ -366,7 +366,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2611404314363061205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.32, y: 1.13, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 2, z: 3}
   m_Children:
   - {fileID: 2611404314890648452}
@@ -439,6 +439,7 @@ MonoBehaviour:
   timeToRespawn: 5
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
+  pCon: {fileID: 0}
   PickUpObj: {fileID: 2611404314890648448}
 --- !u!135 &988050545023190682
 SphereCollider:
@@ -549,7 +550,7 @@ MonoBehaviour:
   healthPoints: 400
   scoreValPoints: 1
   pickupEatSpeed: 1
-  healthEatSpeed: 400
+  healthEatSpeed: 350
   scoreValEatSpeed: 1
   pickupMoveSpeed: 0
   healthMoveSpeed: 50

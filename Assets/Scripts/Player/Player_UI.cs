@@ -139,7 +139,7 @@ public class Player_UI : MonoBehaviour
         if (pCon.runTime > 0 && runWindDown)
         {
             pCon.runTime -= 1 * Time.deltaTime;
-            staminaBar.fillAmount = (pCon.runTime / 2);
+            staminaBar.fillAmount = (pCon.runTime / 1);
 
             if (pCon.runTime <= 0 || pCon.isRunning)
             {
