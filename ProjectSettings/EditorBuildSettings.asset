@@ -6,15 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f62130b41a4f92f458d3481239cb19bf
-  - enabled: 1
-    path: Assets/Scenes/ArtScene.unity
-    guid: 1789e41e2132b48478f062bafa346aba
-  - enabled: 1
-    path: Assets/Scenes/Gym's/gym_WidowPredatorPathfinding Scene 2.unity
-    guid: 8a36a19a45de92c44ba5fdce3121444c
-  - enabled: 0
-    path: Assets/Scenes/Gym's/gym_WidowPredatorPathfinding.unity
-    guid: 08bd7f3416cab2c4eaff744e84aeda91
+    path: Assets/Scenes/2ZoneArtScene.unity
+    guid: d0df779cdfec99948a7b79e8f36650b2
   m_configObjects: {}

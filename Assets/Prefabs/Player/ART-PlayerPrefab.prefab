@@ -3132,8 +3132,8 @@ GameObject:
   - component: {fileID: 5447321372733949991}
   - component: {fileID: 7029153745123755529}
   - component: {fileID: 5447321372733949988}
-  - component: {fileID: 5447321372733949989}
   - component: {fileID: 5447321372733949986}
+  - component: {fileID: 3410706051674526967}
   m_Layer: 9
   m_Name: ART-PlayerPrefab
   m_TagString: Player1
@@ -3218,19 +3218,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!65 &5447321372733949989
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5447321372733949987}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.61, z: 1}
-  m_Center: {x: 0, y: 0.82, z: 0}
 --- !u!114 &5447321372733949986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3243,6 +3230,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68af8134b4ee06f45b0093ba25cdfd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &3410706051674526967
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5447321372733949987}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.9717715
+  m_Height: 3.2140737
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.47177148, z: -0.062053442}
 --- !u!1 &5830744169911498153
 GameObject:
   m_ObjectHideFlags: 0
