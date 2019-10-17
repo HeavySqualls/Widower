@@ -153,7 +153,7 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4915780993170487756}
   m_Enabled: 1
-  m_AgentTypeID: -1372625422
+  m_AgentTypeID: 1479372276
   m_Radius: 0.5
   m_Speed: 10
   m_Acceleration: 15
@@ -232,11 +232,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mantis_Rigged_Animated
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 015abdaeeb2789d4b9f2f52f87d8b15a,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e7773a2ba58e0754fae2ad21102668b9, type: 2}
     - target: {fileID: -4216859302048453862, guid: 015abdaeeb2789d4b9f2f52f87d8b15a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -292,6 +287,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 015abdaeeb2789d4b9f2f52f87d8b15a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e7773a2ba58e0754fae2ad21102668b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 015abdaeeb2789d4b9f2f52f87d8b15a, type: 3}
 --- !u!4 &7852117882418506755 stripped
