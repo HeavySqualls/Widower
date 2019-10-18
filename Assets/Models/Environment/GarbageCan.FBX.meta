@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: 69a658cfdac012c41bc7123c4139b42b
+guid: e79564e94f35f3e4f8ae73eb7154d776
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
   externalObjects:
   - first:
-      type: UnityEngine:Material
+      type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: 20 - Default
-    second: {fileID: 2100000, guid: 3a8c46327a04aaa47b6ad33a81d2373c, type: 2}
+      name: GarbageCan_GarbageCan_AlbedoTransparency
+    second: {fileID: 2800000, guid: f5e9426cde9ccff41b66ec33e939cd31, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
