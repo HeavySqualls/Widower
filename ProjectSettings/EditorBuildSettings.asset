@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2ZoneArtScene.unity
     guid: d0df779cdfec99948a7b79e8f36650b2
+  - enabled: 1
+    path: Assets/Scenes/SettingsMenu.unity
+    guid: d2ae571a14517564495e35ad7c8073a5
   m_configObjects: {}
