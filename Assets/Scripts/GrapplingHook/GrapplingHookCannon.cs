@@ -27,8 +27,8 @@ public class GrapplingHookCannon : MonoBehaviour
     private void Awake()
     {
         //assign my prefab from the assets folder
-        projectilePrefab =
-            (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
+        //projectilePrefab =(GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
+        projectilePrefab = Resources.Load<GameObject>("Resources/Projectile");
 
         player = transform.parent.parent.gameObject;
 

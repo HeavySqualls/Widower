@@ -57,7 +57,8 @@ public class Player_Controller : MonoBehaviour
     {
         gameManager = Toolbox.GetInstance().GetGameManager();
 
-        projectilePrefab = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
+        //projectilePrefab = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
+        projectilePrefab = Resources.Load<GameObject>("Resources/Projectile");
 
         p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
