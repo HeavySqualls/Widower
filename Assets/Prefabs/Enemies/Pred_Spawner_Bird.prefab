@@ -263,7 +263,7 @@ MonoBehaviour:
   - {fileID: 2209686175988995028}
   - {fileID: 2209686175570712160}
   - {fileID: 2209686175905375923}
-  predatorPrefab: {fileID: 4460498326106563908, guid: 080a717b798832447a3d3449700b2f0e,
+  predatorPrefab: {fileID: 4460498326106563908, guid: 048f1715f6e08ef4a8b87851112b5bc6,
     type: 3}
 --- !u!1 &2209686177119342415
 GameObject:
@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2209686177442701579}
   m_Layer: 0
-  m_Name: PredatorSpawningSystem
+  m_Name: Pred_Spawner_Bird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
