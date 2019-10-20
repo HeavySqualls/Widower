@@ -10,7 +10,7 @@ public class PickupController : MonoBehaviour
     [Header("Countdown Vars")]
     public float maxHealth;
     public Image eatProgress;
-    public Text inputCall;
+    public GameObject inputCall;
     public GameObject CanvasObj;
     private float maxHealthStart;
     private float eatSpeed;
@@ -23,7 +23,7 @@ public class PickupController : MonoBehaviour
 
     [Space]
     [Header("Universal Interaction obj Refs:")]
-    private GameObject interactedObj; // Assigned in OnTriggerEnter()
+    private GameObject interactedObj;
     public Camera cameraTarget;
     public bool interactObjInRange = false;
 
@@ -46,7 +46,7 @@ public class PickupController : MonoBehaviour
         myBoxCollider = GetComponentInChildren<BoxCollider>();
         triggerZoneCollider = GetComponent<SphereCollider>();
 
-        inputCall.enabled = false;
+        inputCall.SetActive(false);
         eatProgress.enabled = false;
     }
 
@@ -125,7 +125,7 @@ public class PickupController : MonoBehaviour
         maxHealth = pickupID.hValue;
         maxHealthStart = maxHealth;
 
-        inputCall.enabled = false;
+        inputCall.SetActive(false);
         cameraTarget = null;
         interactObjInRange = false;
         pCon = null;
@@ -136,7 +136,7 @@ public class PickupController : MonoBehaviour
 
     public void GoInteracted()
     {
-        inputCall.enabled = true;
+        inputCall.SetActive(true);
         interactObjInRange = true;
 
         pCon.InteractableObject(this);
@@ -146,7 +146,7 @@ public class PickupController : MonoBehaviour
 
     public float GoGettingEaten(float time)
     {
-        inputCall.enabled = false;
+        inputCall.SetActive(false);
         eatProgress.enabled = true;
 
         eatSpeed = time;

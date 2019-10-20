@@ -1,15 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CanvasFaceCamera : MonoBehaviour
 {
     private Camera currentCamera;
-    public PickupController pickupController;
+    private PickupController pickupCon;
+
+    void Start()
+    {
+        pickupCon = GetComponentInParent<PickupController>();
+    }
 
     void Update()
     {
-        if (pickupController.interactObjInRange)
+        if (pickupCon.interactObjInRange)
         {
             AssignCamera();
 
@@ -23,9 +26,9 @@ public class CanvasFaceCamera : MonoBehaviour
 
     void AssignCamera()
     {
-        if (pickupController.cameraTarget != null)
+        if (pickupCon.cameraTarget != null)
         {
-            currentCamera = pickupController.cameraTarget;
+            currentCamera = pickupCon.cameraTarget;
         }
     }
 }
