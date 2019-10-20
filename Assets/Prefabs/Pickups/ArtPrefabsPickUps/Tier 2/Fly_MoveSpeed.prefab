@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 945225965828675455}
   - component: {fileID: 7331446881356426288}
   m_Layer: 8
-  m_Name: Fly_EatSpeed1
+  m_Name: Fly_MoveSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ MonoBehaviour:
   maxHealth: 0
   eatProgress: {fileID: 8454556289122864499}
   inputCall: {fileID: 4554111598502592957}
-  CanvasObj: {fileID: 945225967421973895}
+  CanvasObj: {fileID: 3524968959050324027}
   timeToRespawn: 8
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
@@ -247,12 +247,12 @@ MonoBehaviour:
   pickupPoints: 0
   healthPoints: 400
   scoreValPoints: 1
-  pickupEatSpeed: 1
+  pickupEatSpeed: 0
   healthEatSpeed: 400
   scoreValEatSpeed: 1
-  pickupMoveSpeed: 0
-  healthMoveSpeed: 150
-  scoreValMoveSpeed: 1
+  pickupMoveSpeed: 1
+  healthMoveSpeed: 350
+  scoreValMoveSpeed: 2
   pickUpValue: 0
   hValue: 0
 --- !u!65 &7338925866972639267
@@ -292,8 +292,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454585805682219918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.066, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.0027347, y: -0.269, z: 0.0074802}
+  m_LocalScale: {x: 0.76215506, y: 1.3442361, z: 1.3442361}
   m_Children:
   - {fileID: 6054223982049606812}
   m_Father: {fileID: 945225965828675443}
@@ -326,7 +326,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3524968959050324027}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005536667, y: 0.000995, z: 0.005536667}
   m_Children:
@@ -334,10 +334,10 @@ RectTransform:
   - {fileID: 1247446735064406141}
   m_Father: {fileID: 945225965828675443}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 1.297}
+  m_AnchoredPosition: {x: 0, y: 1.57}
   m_SizeDelta: {x: 245.92, y: 676.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7279909657126050584
@@ -412,7 +412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dedbc565cca29c4a9a49e41a7f09aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupController: {fileID: 0}
 --- !u!1 &3811277866030984291
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,8 +520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 196}
-  m_SizeDelta: {x: -160.83, y: -660}
+  m_AnchoredPosition: {x: 3.3675308, y: 196}
+  m_SizeDelta: {x: -154.09506, y: -660}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1948099652614166181
 CanvasRenderer:
@@ -634,10 +633,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: + EAT SPD
+  m_Text: ++ MOVE SPD
 --- !u!1 &7965002287761505096
 GameObject:
   m_ObjectHideFlags: 0
