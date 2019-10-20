@@ -1483,6 +1483,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4013275331872712965, guid: d380bafa984e7b04abf9729a63714d03, type: 3}
+--- !u!4 &278464798 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 423027022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &280534112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2892,6 +2898,31 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -31.17
       objectReference: {fileID: 0}
+    - target: {fileID: 690161306275103608, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorSpawner_Mantis1 - Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154764, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(1) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306275103610, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: spawnLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 278464798}
+    - target: {fileID: 690161306761755080, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(2) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161307182267516, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(3) - Start
+      objectReference: {fileID: 0}
     - target: {fileID: 690161306326031074, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2907,6 +2938,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7.41
       objectReference: {fileID: 0}
+    - target: {fileID: 690161307651198125, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(4) - Start
+      objectReference: {fileID: 0}
     - target: {fileID: 690161307501786530, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2921,6 +2957,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 11.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306326031075, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(3) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306751557201, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(1) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306887554160, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(2) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161307501786531, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis(4) - End
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02de3aba07331ba49ad2da9f860a10ee, type: 3}
@@ -3499,6 +3555,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6480735433458643210, guid: 118a864c029ed3e4f9c161a239250791,
     type: 3}
   m_PrefabInstance: {fileID: 1914085240}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &565810336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 690161305631368531, guid: 02de3aba07331ba49ad2da9f860a10ee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1391727926}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &566456302 stripped
 Transform:
@@ -4615,7 +4677,47 @@ PrefabInstance:
     - target: {fileID: 2209686176738437479, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
         type: 3}
       propertyPath: m_Name
-      value: PredatorSpawner - Level 2
+      value: PredatorSpawner_Bird2 - Level 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175570712163, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(3) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175905375922, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(4) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175988995031, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(2) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686177242363731, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(1) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175788457916, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(4) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175991460942, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(1) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686176131591791, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(2) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686176693154044, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird2(3) - End
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3004e2eb46668f64f9f36a6ee91a7ab5, type: 3}
@@ -6426,6 +6528,51 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 60.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686176738437479, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorSpawner_Bird1 - Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175570712163, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(3) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175905375922, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(4) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175988995031, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(2) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686177242363731, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(1) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175788457916, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(4) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686175991460942, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(1) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686176131591791, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(2) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 2209686176693154044, guid: 3004e2eb46668f64f9f36a6ee91a7ab5,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Bird(3) - End
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3004e2eb46668f64f9f36a6ee91a7ab5, type: 3}
@@ -8556,12 +8703,37 @@ PrefabInstance:
     - target: {fileID: 690161306275103608, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: m_Name
-      value: PredatorSpawner - Level 2
+      value: PredatorSpawner_Mantis2 - Level 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154764, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(1) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306275103610, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: spawnLocations.Array.size
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 690161306275103610, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: spawnDelay
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306275103610, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: spawnLocations.Array.data[4]
+      value: 
+      objectReference: {fileID: 565810336}
+    - target: {fileID: 690161306761755080, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(2) - Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161307182267516, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(3) - Start
       objectReference: {fileID: 0}
     - target: {fileID: 690161306326031074, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
@@ -8578,6 +8750,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -15.96
       objectReference: {fileID: 0}
+    - target: {fileID: 690161307651198125, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(4) - Start
+      objectReference: {fileID: 0}
     - target: {fileID: 690161307501786530, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8592,6 +8769,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306326031075, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(3) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306751557201, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(1) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161306887554160, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(2) - End
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161307501786531, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_Name
+      value: PredatorPath_Mantis2(4) - End
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02de3aba07331ba49ad2da9f860a10ee, type: 3}

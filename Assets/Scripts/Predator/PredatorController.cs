@@ -9,7 +9,8 @@ public class PredatorController : MonoBehaviour
 
     [Space]
     [Header("Predator Spawn:")]
-    public string thisSpawner;
+    public string thisSpawnerName;
+    public GameObject thisSpawnerGO;
 
     [Space]
     [Header("Predator Patrolling:")]
@@ -31,6 +32,9 @@ public class PredatorController : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+
+        thisSpawnerGO = GameObject.Find(thisSpawnerName);
+        spawner = thisSpawnerGO.GetComponent<PredatorSpawner>();
         OnPatrolling();
     }
 
@@ -55,8 +59,6 @@ public class PredatorController : MonoBehaviour
 
     private void Patrolling()
     {
-        spawner = GameObject.FindGameObjectWithTag(thisSpawner).GetComponent<PredatorSpawner>();
-
         agent.destination = patrolTarget.position;
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
@@ -98,7 +100,8 @@ public class PredatorController : MonoBehaviour
 
     private void LeftArea()
     {
-        spawner.predatorAlive = false;
+        spawner.OnSpawmCoolDown();
+
         Destroy(gameObject); 
     }
 

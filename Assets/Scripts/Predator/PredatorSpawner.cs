@@ -8,18 +8,14 @@ public class PredatorSpawner : MonoBehaviour
 
     [Space]
     [Header("Spawner States:")]
-    public bool predatorAlive = false;
-    private bool isSpawnCoolDown = false;
-
-    [Space]
-    [Header("Spawner variables:")]
+    public bool spawnStop = false;
+    private bool isSpawning = false;
 
     [Tooltip("Time in between spawns.")]
     public float spawnDelay = 3f;
 
     [Space]
     [Header("Spawner References:")]
-
     [Tooltip("Set up as many spawn locations as needed. " +
             "Locations must have a second location as its child and tagged with 'PatrolEnd'.")]
     public Transform[] spawnLocations;
@@ -29,14 +25,14 @@ public class PredatorSpawner : MonoBehaviour
 
     private GameObject currentSpawned;
 
-    private string spawnerTag;
+    private string spawnerName;
     private GameManager gM;
 
     private void Start()
     {
         gM = Toolbox.GetInstance().GetGameManager();
         this.currentState = State.SpawnCooldown;
-        spawnerTag = gameObject.tag;
+        spawnerName = gameObject.name;
     }
 
     private void Update()
@@ -57,37 +53,45 @@ public class PredatorSpawner : MonoBehaviour
 
     private void Spawn()
     {
+        // Check for spawners 
         if (spawnLocations.Length == 0)
         {
             print("No spawn points set");
             return;
         }
 
-        int randomSpawnSpot = Random.Range(0, spawnLocations.Length);
+        if (!isSpawning)
+        {
+            int randomSpawnSpot = Random.Range(0, spawnLocations.Length);
 
-        Transform target = spawnLocations[randomSpawnSpot];
+            Transform target = spawnLocations[randomSpawnSpot];
 
-        currentSpawned = Instantiate(
-            predatorPrefab, 
-            spawnLocations[randomSpawnSpot].position, 
-            spawnLocations[randomSpawnSpot].rotation, 
-            target
-            );
+            currentSpawned = Instantiate(
+                predatorPrefab,
+                spawnLocations[randomSpawnSpot].position,
+                spawnLocations[randomSpawnSpot].rotation,
+                target
+                );
 
-        currentSpawned.GetComponent<PredatorController>().thisSpawner = spawnerTag;
+            currentSpawned.GetComponent<PredatorController>().thisSpawnerName = spawnerName;
 
-        print("Spawn Predator");
-
-        this.currentState = State.SpawnCooldown;     
+            print("Spawn Predator");
+            isSpawning = true;
+        }
     }
 
-    private void SpawnCoolDown()
+    public void OnSpawmCoolDown()
     {
-        if (!predatorAlive && !isSpawnCoolDown)
+        this.currentState = State.SpawnCooldown;
+    }
+
+    public void SpawnCoolDown()
+    {
+        if (!spawnStop)
         {
             StartCoroutine(ISpawnCoolDown());
-            isSpawnCoolDown = true;
-            predatorAlive = true;
+
+            spawnStop = true;
         }
     }
 
@@ -97,8 +101,8 @@ public class PredatorSpawner : MonoBehaviour
 
         yield return new WaitForSeconds(spawnDelay);
 
-        isSpawnCoolDown = false;
-
+        isSpawning = false;
+        spawnStop = false;
         this.currentState = State.Spawn;
     }
 }
