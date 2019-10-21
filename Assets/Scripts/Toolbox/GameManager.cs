@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     public int numberOfPlayers; //for knowing if it is multi player
     public int currentLevel;
 
-    private Player_1_Manager p1_Manager;
-    private Player_2_Manager p2_Manager;
+    private Player_Manager p1_Manager;
+    private Player_Manager p2_Manager;
     private TimeManager timeManager;
 
     void OnEnable()
@@ -31,16 +31,12 @@ public class GameManager : MonoBehaviour
         ResetGameManager();
     }
 
-    private void Start() // references to scene objects must also be made in ResetGameManager() below
+    private void Start() 
     {
-        //p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        //p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-        //timeManager = Toolbox.GetInstance().GetTimeManager();
 
-        //currentLevel = SceneManager.GetActiveScene().buildIndex;
     }
 
-    private void ResetGameManager() // is this needed?
+    private void ResetGameManager()
     {
         Time.timeScale = 1f;
         isGameStart = false;
@@ -52,7 +48,7 @@ public class GameManager : MonoBehaviour
         p1_Manager.ResetPlayerManager1();
 
         p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-        p2_Manager.ResetPlayerManager2();
+        p2_Manager.ResetPlayerManager1();
 
         currentLevel = SceneManager.GetActiveScene().buildIndex;
     }

@@ -20,8 +20,8 @@ public class TimeManager : MonoBehaviour
     [Header("Time References:")]
     public GameObject startText;
     public Text time;
-    private Player_1_Manager p1_Manager;
-    private Player_2_Manager p2_Manager;
+    private Player_Manager p1_Manager;
+    private Player_Manager p2_Manager;
 
     void Start()
     {

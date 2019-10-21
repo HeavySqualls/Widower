@@ -15265,6 +15265,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8639561151468190716, guid: 319cd0a64da2b8b4ba29107ec9b7ac49,
+        type: 3}
+      propertyPath: m_Name
+      value: ReadyPanel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 319cd0a64da2b8b4ba29107ec9b7ac49, type: 3}
 --- !u!1001 &3952788273422783672
@@ -15695,6 +15700,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6436286679330992859, guid: 970df6b1145d49d49ba3ff72cffa8800,
+        type: 3}
+      propertyPath: statPanelActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6687696133378385320, guid: 970df6b1145d49d49ba3ff72cffa8800,
         type: 3}

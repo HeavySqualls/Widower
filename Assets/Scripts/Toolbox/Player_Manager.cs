@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
-
-public class Player_2_Manager : MonoBehaviour
+public class Player_Manager : MonoBehaviour
 {
+    //static int players = 1;
+    public int playerID;
+
     [Header("Player Stats:")]
-    private int playerLevel = 0;
+    public int playerLevel = 0;
     public float moveSpeed = 8;
     public float runCooldownSeconds = 4;
     public float secondsCanRun = 2;
     public float runSpeed; // ----------- set in start
     public float eatSpeed = 0.5f;
-    public float points = 0; // ------------- used for widow stat check
+    public float points = 0f; // ------------- used for widow stat check
     public bool isReady = false; // set by player controller - read by Game Manager to know when to start the coutdown
     public bool isRestart = false;
     public bool isWinner = false;
@@ -19,7 +21,7 @@ public class Player_2_Manager : MonoBehaviour
     public float pointsToAdd = 0f;
     public float eatSpeedToAdd = 0f;
     public float moveSpeedToAdd = 0f;
-    private string deathCause;
+    public string deathCause;
 
     [Space]
     [Header("Player PickUp:")]
@@ -36,17 +38,19 @@ public class Player_2_Manager : MonoBehaviour
     private WidowController widowController;
     private GameManager gM;
 
-    private void Start()
-    {
-        // References and set up is set up in ResetPlayerManager2() and is called by the GameManager 
-    }
-
-    public void ResetPlayerManager2()
+    public void ResetPlayerManager1()
     {
         gM = Toolbox.GetInstance().GetGameManager();
+
+        // Sets up player manager to the proper player controller 
+        if (playerID == 1)
+            currentPlayer = GameObject.FindGameObjectWithTag("Player1");
+        else if (playerID == 2)
+            currentPlayer = GameObject.FindGameObjectWithTag("Player2");
+
+
         widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
-        currentPlayer = GameObject.FindGameObjectWithTag("Player2");
         pController = currentPlayer.GetComponent<Player_Controller>();
         pUI = currentPlayer.GetComponentInChildren<Player_UI>();
         camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
@@ -55,6 +59,7 @@ public class Player_2_Manager : MonoBehaviour
         FreezePlayer();
         isWinner = false;
         isReady = false;
+
         pController.runTime = 0;
 
         pUI.DisableStatPanel();
@@ -64,23 +69,12 @@ public class Player_2_Manager : MonoBehaviour
     public void DisplayScore()
     {
         FreezePlayer();
+        pController.isDead = true;
 
-        // Determine who killed player
         WhoKilledPlayer();
 
-        pUI.EnableStatPanel();
-
-        if (gM.isGameOver)
-        {
-            pUI.respawnButtonObject.SetActive(false);
-            pUI.restartButtonObject.SetActive(true);
-        }
-
-        pUI.level.text = playerLevel.ToString();
-        pUI.death.text = deathCause;
-        pUI.points.text = points + " + " + pointsToAdd;
-        pUI.eatSpeed.text = eatSpeed + " + " + eatSpeedToAdd;
-        pUI.moveSpeed.text = moveSpeed + " + " + moveSpeedToAdd;
+        pUI.DisplayStatsPanel();
+        
 
         DisplayCursor();
         pController.predatorKilledPlayer = false;
@@ -127,7 +121,7 @@ public class Player_2_Manager : MonoBehaviour
 
         if (points >= widowController.scoreToBeat)
         {
-            print("Player 2 wins!");
+            print("WINNER!");
             isWinner = true;
             gM.EndRound();
         }
@@ -137,14 +131,12 @@ public class Player_2_Manager : MonoBehaviour
 
     public void FreezePlayer()
     {
-        pController.isDead = true;
         pController.processMovement = false;
         camController.isCameraMovement = false;
     }
 
     public void UnFreezePlayer()
     {
-        pController.isDead = false;
         pController.processMovement = true;
         camController.isCameraMovement = true;
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Player_UI : MonoBehaviour
 {
     [Space]
-    [Header("Player Status/Controls:")]
+    [Header("Player Ready/Controls:")]
     public GameObject readyPanel;
     public Canvas controlSelectionCanvas;
     public Button controler;
@@ -32,11 +32,19 @@ public class Player_UI : MonoBehaviour
     public Canvas playerUICanvas;
     public Image staminaBar;
 
+
+    [Space]
+    [Header("UI Refs:")]
+    //TODO: Link up players current pick ups and stats to display
     private Player_Controller pCon;
+    private Player_Manager pMan;
+    private GameManager gMan;
 
     private void Start()
     {
         pCon = GetComponentInParent<Player_Controller>();
+        pMan = pCon.playerManager;
+        gMan = Toolbox.GetInstance().GetGameManager();
 
         restartButton = restartButtonObject.GetComponent<Button>();
         restartButton.onClick.AddListener(OKToRestart);
@@ -76,6 +84,23 @@ public class Player_UI : MonoBehaviour
 
 
     // ---- STAT PANEL ---- //
+
+    public void DisplayStatsPanel()
+    {
+        EnableStatPanel();
+
+        if (gMan.isGameOver)
+        {
+            respawnButtonObject.SetActive(false);
+            restartButtonObject.SetActive(true);
+        }
+
+        level.text = pMan.playerLevel.ToString();
+        death.text = pMan.deathCause;
+        points.text = pMan.points + " + " + pMan.pointsToAdd;
+        eatSpeed.text = pMan.eatSpeed + " + " + pMan.eatSpeedToAdd;
+        moveSpeed.text = pMan.moveSpeed + " + " + pMan.moveSpeedToAdd;
+    }
 
     public void OKToRestart()
     {

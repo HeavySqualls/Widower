@@ -48,36 +48,31 @@ public class Player_Controller : MonoBehaviour
     private GameManager gameManager;
     private Player_UI pUI;
 
-    private Player_1_Manager p1_Manager;
-    private Player_2_Manager p2_Manager;
+    private Player_Manager p1_Manager;
+    private Player_Manager p2_Manager;
     public dynamic playerManager;
     public ControlProfile controlProfile;
 
     private void Awake()
     {
-        gameManager = Toolbox.GetInstance().GetGameManager();
-
-        //projectilePrefab = (GameObject)AssetDatabase.LoadMainAssetAtPath("Assets/Prefabs/GrapplingHook/Projectile.prefab");
         projectilePrefab = Resources.Load<GameObject>("Projectile");
-
-        p1_Manager = Toolbox.GetInstance().GetPlayer_1_Manager();
-        p2_Manager = Toolbox.GetInstance().GetPlayer_2_Manager();
-
+        
         controlProfile = this.gameObject.AddComponent<ControlProfile>();
         pUI = GetComponentInChildren<Player_UI>();
+        gameManager = Toolbox.GetInstance().GetGameManager();
 
         if (isPlayer1)
         {
             // have a variable that is assigned to the player 1 manager 
-            playerManager = p1_Manager;
+            playerManager = Toolbox.GetInstance().GetPlayer_1_Manager(); 
 
             // set controller profile to player 1
             controlProfile.ControlProfile1();
         }
         else // is player 2
         {
-            // have a variable that is assigned to the player 2 manager
-            playerManager = p2_Manager;
+            // have a variable that is assigned to the player 2 manageR
+            playerManager = Toolbox.GetInstance().GetPlayer_2_Manager(); 
 
             // set controller profile to player 1
             controlProfile.ControlProfile2();
