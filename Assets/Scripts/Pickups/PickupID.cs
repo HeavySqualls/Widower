@@ -60,17 +60,20 @@ public class PickupID : MonoBehaviour
     {
         Debug.Log("Add grey player stats");
         puCon.pCon.playerManager.pointPickups += scoreValPoints;
+        puCon.pCon.pUI.UpdateNextStats();
     }    
 
     public void AddOrangeStats()
     {
         Debug.Log("Add grey player stats");
         puCon.pCon.playerManager.eatPickups += scoreValEatSpeed;
+        puCon.pCon.pUI.UpdateNextStats();
     }
 
     public void AddBlueStats()
     {
         Debug.Log("Add grey player stats");
         puCon.pCon.playerManager.movePickups += scoreValMoveSpeed;
+        puCon.pCon.pUI.UpdateNextStats();
     }
 }

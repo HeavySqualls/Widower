@@ -33,7 +33,7 @@ public class Player_Manager : MonoBehaviour
     [Space]
     [Header("Player References:")]
     public Camera_Controller camController;
-    public Player_Controller pController;
+    public Player_Controller pCon;
     public Player_UI pUI;
     private WidowController widowController;
     private GameManager gM;
@@ -51,7 +51,7 @@ public class Player_Manager : MonoBehaviour
 
         widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
 
-        pController = currentPlayer.GetComponent<Player_Controller>();
+        pCon = currentPlayer.GetComponent<Player_Controller>();
         pUI = currentPlayer.GetComponentInChildren<Player_UI>();
         camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
 
@@ -60,7 +60,7 @@ public class Player_Manager : MonoBehaviour
         isWinner = false;
         isReady = false;
 
-        pController.runTime = 0;
+        pCon.runTime = 0;
 
         pUI.DisableStatPanel();
         pUI.readyPanel.SetActive(false);
@@ -69,7 +69,7 @@ public class Player_Manager : MonoBehaviour
     public void DisplayScore()
     {
         FreezePlayer();
-        pController.isDead = true;
+        pCon.isDead = true;
 
         WhoKilledPlayer();
 
@@ -77,12 +77,12 @@ public class Player_Manager : MonoBehaviour
         
 
         DisplayCursor();
-        pController.predatorKilledPlayer = false;
+        pCon.predatorKilledPlayer = false;
     }
 
     private void WhoKilledPlayer()
     {
-        if (!pController.predatorKilledPlayer)
+        if (!pCon.predatorKilledPlayer)
         {
             deathCause = "Death By Widow";
             TallyPickups();
@@ -131,13 +131,13 @@ public class Player_Manager : MonoBehaviour
 
     public void FreezePlayer()
     {
-        pController.processMovement = false;
+        pCon.processMovement = false;
         camController.isCameraMovement = false;
     }
 
     public void UnFreezePlayer()
     {
-        pController.processMovement = true;
+        pCon.processMovement = true;
         camController.isCameraMovement = true;
     }
 

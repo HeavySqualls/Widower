@@ -417,7 +417,7 @@ MonoBehaviour:
   eatProgress: {fileID: 5211120567842967044}
   inputCall: {fileID: 5051374097415327912}
   CanvasObj: {fileID: 9044411855748627065}
-  timeToRespawn: 5
+  timeToRespawn: 25
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
   pCon: {fileID: 0}
@@ -886,11 +886,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1768284841139630205}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 6e44e6a7c022e174fb2288282e30fbb6,
-        type: 3}
-      propertyPath: m_Name
-      value: Cockroach_Optimized
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6e44e6a7c022e174fb2288282e30fbb6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -945,6 +940,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6e44e6a7c022e174fb2288282e30fbb6,
+        type: 3}
+      propertyPath: m_Name
+      value: Cockroach_Optimized
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 6e44e6a7c022e174fb2288282e30fbb6,
         type: 3}

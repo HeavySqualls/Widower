@@ -178,7 +178,7 @@ MonoBehaviour:
   eatProgress: {fileID: 9115548829749161514}
   inputCall: {fileID: 3451155189709886364}
   CanvasObj: {fileID: 8364091285846566179}
-  timeToRespawn: 5
+  timeToRespawn: 15
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
   pCon: {fileID: 0}

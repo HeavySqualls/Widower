@@ -175,7 +175,7 @@ MonoBehaviour:
   eatProgress: {fileID: 8454556289122864499}
   inputCall: {fileID: 4554111598502592957}
   CanvasObj: {fileID: 3524968959050324027}
-  timeToRespawn: 8
+  timeToRespawn: 20
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
   pCon: {fileID: 0}
@@ -921,11 +921,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 945225965828675443}
     m_Modifications:
-    - target: {fileID: 8478449067908582006, guid: 425cfb5da7d75a9479103476ebd0ab80,
-        type: 3}
-      propertyPath: m_Name
-      value: MoveSpeedGlowEffect
-      objectReference: {fileID: 0}
     - target: {fileID: 5884641404205501421, guid: 425cfb5da7d75a9479103476ebd0ab80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -980,6 +975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8478449067908582006, guid: 425cfb5da7d75a9479103476ebd0ab80,
+        type: 3}
+      propertyPath: m_Name
+      value: MoveSpeedGlowEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 425cfb5da7d75a9479103476ebd0ab80, type: 3}

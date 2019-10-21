@@ -4525,6 +4525,12 @@ MonoBehaviour:
   runWindDown: 0
   playerUICanvas: {fileID: 9061915589426308164}
   staminaBar: {fileID: 7291868881099501037}
+  eatSpCurrent: {fileID: 909610392184218913}
+  eatSpNext: {fileID: 2618338830912485344}
+  moveSpCurrent: {fileID: 1158650276702359151}
+  moveSpNext: {fileID: 4895979117092893826}
+  pointsCurrent: {fileID: 268900289599520295}
+  pointsNext: {fileID: 6785891694832184561}
 --- !u!1 &6310539846275361436
 GameObject:
   m_ObjectHideFlags: 0
@@ -6331,7 +6337,7 @@ GameObject:
   - component: {fileID: 5868046460332798458}
   - component: {fileID: 2703234997355364492}
   m_Layer: 10
-  m_Name: EatSpeed
+  m_Name: EatSpeedNext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2760,6 +2760,12 @@ MonoBehaviour:
   runWindDown: 0
   playerUICanvas: {fileID: 1654606650610243193}
   staminaBar: {fileID: 1010459780665450448}
+  eatSpCurrent: {fileID: 4459840599784240370}
+  eatSpNext: {fileID: 7636000562262165667}
+  moveSpCurrent: {fileID: 8912869909797753407}
+  moveSpNext: {fileID: 5063400361094701942}
+  pointsCurrent: {fileID: 4729063679740423994}
+  pointsNext: {fileID: 5902658679997828770}
 --- !u!1 &6487701639250000119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4366,7 +4372,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9134460759086222734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00011270858}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00013079568}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5593009863187531750}

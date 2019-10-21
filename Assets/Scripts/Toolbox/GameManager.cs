@@ -82,10 +82,10 @@ public class GameManager : MonoBehaviour
         timeManager.SetGameOverPanel();
 
         p1_Manager.DisplayScore();
-        p1_Manager.pController.processInputs = false;
+        p1_Manager.pCon.processInputs = false;
 
         p2_Manager.DisplayScore();
-        p2_Manager.pController.processInputs = false;
+        p2_Manager.pCon.processInputs = false;
 
     }
 

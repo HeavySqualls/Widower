@@ -46,7 +46,7 @@ public class Player_Controller : MonoBehaviour
     public PickupController interactedController;
     public GameObject playerModel;
     private GameManager gameManager;
-    private Player_UI pUI;
+    public Player_UI pUI;
 
     private Player_Manager p1_Manager;
     private Player_Manager p2_Manager;
@@ -82,7 +82,6 @@ public class Player_Controller : MonoBehaviour
     void Start()
     {
         pCurrentMoveSpeed = playerManager.moveSpeed;
-        pUI.DisableStaminaBar();
 
         playerManager.isRestart = false;
 
@@ -297,6 +296,8 @@ public class Player_Controller : MonoBehaviour
 
         pUI.respawnButton.gameObject.SetActive(false);
         pUI.DisableStaminaBar();
+
+        pUI.UpdateUI();
 
         // Move player camera to overhead camera anchor
         gameObject.transform.position = playerSpawnAnchor.transform.position;

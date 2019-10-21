@@ -26,16 +26,21 @@ public class Player_UI : MonoBehaviour
     public Button restartButton;
     public GameObject restartButtonObject;
 
+    //TODO: Link up players current pick ups and stats to display
     [Space]
     [Header("Player UI:")]
     public bool runWindDown = false;
     public Canvas playerUICanvas;
     public Image staminaBar;
-
+    public Text eatSpCurrent;
+    public Text eatSpNext;
+    public Text moveSpCurrent;
+    public Text moveSpNext;
+    public Text pointsCurrent;
+    public Text pointsNext;
 
     [Space]
     [Header("UI Refs:")]
-    //TODO: Link up players current pick ups and stats to display
     private Player_Controller pCon;
     private Player_Manager pMan;
     private GameManager gMan;
@@ -50,12 +55,15 @@ public class Player_UI : MonoBehaviour
         restartButton.onClick.AddListener(OKToRestart);
         restartButtonObject.SetActive(false);
         winnerPanel.SetActive(false);
+        DisableStaminaBar();
 
         respawnButton = respawnButtonObject.GetComponent<Button>();
         respawnButton.onClick.AddListener(pCon.PlayerRespawn);
 
         controler.onClick.AddListener(Control_Gamepad);
         keyMouse.onClick.AddListener(Control_keyboardMouse);
+
+        UpdateUI();
     }
 
     void Update()
@@ -110,6 +118,7 @@ public class Player_UI : MonoBehaviour
     public void EnableStatPanel()
     {
         statusPanel.SetActive(true);
+        UpdateCurrentStats();
         statPanelActive = true;
     }
 
@@ -127,6 +136,26 @@ public class Player_UI : MonoBehaviour
 
     // ---- PLAYER UI ---- //
 
+    public void UpdateCurrentStats()
+    {
+        eatSpCurrent.text = pMan.eatSpeed.ToString();
+        moveSpCurrent.text = pMan.moveSpeed.ToString();
+        pointsCurrent.text = pMan.points.ToString();
+    }
+
+    public void UpdateNextStats()
+    {
+        eatSpNext.text = pMan.eatPickups.ToString();
+        moveSpNext.text = pMan.movePickups.ToString();
+        pointsNext.text = pMan.pointPickups.ToString();
+    }
+
+    public void UpdateUI()
+    {
+        UpdateCurrentStats();
+        UpdateNextStats();
+    }
+
     public void EnableStaminaBar()
     {
         staminaBar.enabled = true;
@@ -141,9 +170,7 @@ public class Player_UI : MonoBehaviour
         staminaBar.enabled = false;
     }
 
-
-    // AFTER PLAYER LETS GO OF SPRINT BUTTON, 
-    // THIS DECREASES THE STAMINA ON THE BAR UNTIL IT REACHES 0.
+    // SPRINT WIND DOWN CALL & COROUTINE
 
     void RunWindDown()
     {
@@ -164,9 +191,6 @@ public class Player_UI : MonoBehaviour
             }
         }
     }
-
-
-    // SPRINT WIND DOWN CALL & COROUTINE
 
     public void PlayerRunningCoolDown()
     {

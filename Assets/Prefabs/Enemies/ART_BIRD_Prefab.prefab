@@ -97,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.85566616, y: 0.6185837, z: 0.86484545}
-  m_Center: {x: 0.017029285, y: -0.19070816, z: -0.0675782}
+  m_Size: {x: 0.85566616, y: 0.6185837, z: 0.89}
+  m_Center: {x: 0, y: 0.32, z: 0.11}
 --- !u!114 &4460498326106563909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.4986453
+  m_Radius: 2.96
   m_Center: {x: 0.07371839, y: 0, z: 0.075782776}
 --- !u!82 &-5878084607854367191
 AudioSource:
@@ -294,11 +294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4460498326106563961}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 46bb052db8a5c4448b4bab07a4ef513b,
-        type: 3}
-      propertyPath: m_Name
-      value: Bird
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 46bb052db8a5c4448b4bab07a4ef513b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -368,6 +363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.50000024
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 46bb052db8a5c4448b4bab07a4ef513b,
+        type: 3}
+      propertyPath: m_Name
+      value: Bird
       objectReference: {fileID: 0}
     - target: {fileID: 1707243787577406375, guid: 46bb052db8a5c4448b4bab07a4ef513b,
         type: 3}
