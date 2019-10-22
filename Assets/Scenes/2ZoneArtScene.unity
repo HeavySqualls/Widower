@@ -2643,6 +2643,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2030709156}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &362619124 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 374993835, guid: 895ba1b2219624d41a92d9ec90bdb041,
+    type: 3}
+  m_PrefabInstance: {fileID: 2030709156}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362619123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5133286eb9ef4b54c90e8846e4a35e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &376950090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3239,6 +3251,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pred_Spawner_Mantis
       objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 32.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -24.55
+      objectReference: {fileID: 0}
     - target: {fileID: 690161305838586644, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3293,21 +3320,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 32.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 83.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24.55
       objectReference: {fileID: 0}
     - target: {fileID: 690161306751557200, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
@@ -6415,11 +6427,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 362619123}
+      objectReference: {fileID: 362619124}
     - target: {fileID: 5657962589949028142, guid: 855207c8ecc2ab04097f70103c92f7cb,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: set_enabled
       objectReference: {fileID: 0}
     - target: {fileID: 5657962589949028142, guid: 855207c8ecc2ab04097f70103c92f7cb,
         type: 3}
@@ -10274,6 +10286,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pred_Spawner_Mantis - 2
       objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 83.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 143.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -21.84
+      objectReference: {fileID: 0}
     - target: {fileID: 690161305838586644, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10328,21 +10355,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 83.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 143.57
-      objectReference: {fileID: 0}
-    - target: {fileID: 690161305771154767, guid: 02de3aba07331ba49ad2da9f860a10ee,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -21.84
       objectReference: {fileID: 0}
     - target: {fileID: 690161306751557200, guid: 02de3aba07331ba49ad2da9f860a10ee,
         type: 3}
