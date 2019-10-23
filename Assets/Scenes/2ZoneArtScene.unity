@@ -321,12 +321,12 @@ PrefabInstance:
     - target: {fileID: 3918806016906700084, guid: d7b6d565430407540b47acb36598fc4b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -124.56
+      value: -111.49
       objectReference: {fileID: 0}
     - target: {fileID: 3918806016906700084, guid: d7b6d565430407540b47acb36598fc4b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 74.39
+      value: 83.923
       objectReference: {fileID: 0}
     - target: {fileID: 3918806016906700084, guid: d7b6d565430407540b47acb36598fc4b,
         type: 3}
@@ -1332,26 +1332,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 1055828277386185867, guid: c92988bad2770444ead3557408a08a9a,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1055828277386185867, guid: c92988bad2770444ead3557408a08a9a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6340558160535789110, guid: c92988bad2770444ead3557408a08a9a,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6340558160535789110, guid: c92988bad2770444ead3557408a08a9a,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: c92988bad2770444ead3557408a08a9a,
         type: 3}
       propertyPath: m_Controller
@@ -1442,12 +1422,32 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 1055828277386185867, guid: c92988bad2770444ead3557408a08a9a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055828277386185867, guid: c92988bad2770444ead3557408a08a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2018022177237836241, guid: c92988bad2770444ead3557408a08a9a,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 2018022177237836241, guid: c92988bad2770444ead3557408a08a9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558160535789110, guid: c92988bad2770444ead3557408a08a9a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558160535789110, guid: c92988bad2770444ead3557408a08a9a,
         type: 3}
       propertyPath: m_Layer
       value: 12
@@ -2220,7 +2220,7 @@ PrefabInstance:
     - target: {fileID: 2611404314363061204, guid: eadd733a7bf7a7e4ab044312c006a6d1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 74.99
+      value: 83.894
       objectReference: {fileID: 0}
     - target: {fileID: 2611404314363061204, guid: eadd733a7bf7a7e4ab044312c006a6d1,
         type: 3}
@@ -2545,7 +2545,7 @@ PrefabInstance:
     - target: {fileID: 945225965828675443, guid: 50f782ca45426ba4dbb92696fd261b93,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 73.35
+      value: 80.29
       objectReference: {fileID: 0}
     - target: {fileID: 945225965828675443, guid: 50f782ca45426ba4dbb92696fd261b93,
         type: 3}
@@ -3991,16 +3991,6 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 1055828277386185867, guid: c92988bad2770444ead3557408a08a9a,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 6340558160535789110, guid: c92988bad2770444ead3557408a08a9a,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: c92988bad2770444ead3557408a08a9a,
         type: 3}
       propertyPath: m_Controller
@@ -4086,7 +4076,17 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 1055828277386185867, guid: c92988bad2770444ead3557408a08a9a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2018022177237836241, guid: c92988bad2770444ead3557408a08a9a,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6340558160535789110, guid: c92988bad2770444ead3557408a08a9a,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
@@ -5284,21 +5284,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 431744195}
     m_Modifications:
-    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform Mushroom1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5368,6 +5353,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.27680996
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform Mushroom1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5369163719864876064, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
@@ -8372,26 +8372,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0f250afcfcc5bb94da91adbb4e510c54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8461,6 +8441,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 101.87002
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f250afcfcc5bb94da91adbb4e510c54, type: 3}
@@ -8746,21 +8746,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 431744195}
     m_Modifications:
-    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
-        type: 3}
-      propertyPath: m_Name
-      value: Platform Mushroom1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 2485750852146463665, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8830,6 +8815,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.15738116
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_Name
+      value: Platform Mushroom1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5410947559475956134, guid: eb56871d1c09da3429da936cebdb2ff4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 5369163719864876064, guid: eb56871d1c09da3429da936cebdb2ff4,
         type: 3}
@@ -8945,26 +8945,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0f250afcfcc5bb94da91adbb4e510c54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9034,6 +9014,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 101.87003
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: -834207313569322493, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 689370215946888575, guid: 0f250afcfcc5bb94da91adbb4e510c54,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f250afcfcc5bb94da91adbb4e510c54, type: 3}
@@ -13739,7 +13739,7 @@ PrefabInstance:
     - target: {fileID: 2611404314363061204, guid: c10cad0ee01274c4a9deac55566ac4f6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 74.62
+      value: 86.59
       objectReference: {fileID: 0}
     - target: {fileID: 2611404314363061204, guid: c10cad0ee01274c4a9deac55566ac4f6,
         type: 3}
@@ -13835,7 +13835,7 @@ PrefabInstance:
     - target: {fileID: 945225965828675443, guid: 50f782ca45426ba4dbb92696fd261b93,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 79.31
+      value: 86.7
       objectReference: {fileID: 0}
     - target: {fileID: 945225965828675443, guid: 50f782ca45426ba4dbb92696fd261b93,
         type: 3}
@@ -14369,6 +14369,11 @@ PrefabInstance:
     - target: {fileID: 4887159270705792951, guid: 51cf742aca57a15469849e51cbb51510,
         type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4887159271985251485, guid: 51cf742aca57a15469849e51cbb51510,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
