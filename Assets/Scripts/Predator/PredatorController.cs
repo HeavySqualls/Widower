@@ -27,6 +27,8 @@ public class PredatorController : MonoBehaviour
     [Space]
     [Header("Predator References:")]
     public PredatorSpawner spawner;
+    public GameObject eatEffect;
+    private GameObject currentEatEffect;
     private NavMeshAgent agent;
 
     private void Start()
@@ -147,9 +149,11 @@ public class PredatorController : MonoBehaviour
     {
         agent.isStopped = true;
         print("Predator Cooldown Start");
+        currentEatEffect = Instantiate(eatEffect, transform.position, transform.rotation);
 
         yield return new WaitForSeconds(cooldownTime);
 
+        Destroy(currentEatEffect);
         print("Predator Cooldown End");
         agent.isStopped = false;
         this.currentState = State.Patrolling;

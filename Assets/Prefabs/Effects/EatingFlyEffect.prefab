@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7127895091316499279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 56.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5050685293978233425}
@@ -4841,6 +4841,21 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.2320497
       objectReference: {fileID: 0}
+    - target: {fileID: 2625515317346253863, guid: 8797b3aef32e4344fb4a1685b1bf436c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625515313900281359, guid: 8797b3aef32e4344fb4a1685b1bf436c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2625515313511960379, guid: 8797b3aef32e4344fb4a1685b1bf436c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2797674574214983725, guid: 8797b3aef32e4344fb4a1685b1bf436c,
         type: 3}
       propertyPath: InitialModule.startColor.maxGradient.atime0
@@ -4895,21 +4910,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxGradient.key0.a
       value: 0.7764706
-      objectReference: {fileID: 0}
-    - target: {fileID: 2625515317346253863, guid: 8797b3aef32e4344fb4a1685b1bf436c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2625515313900281359, guid: 8797b3aef32e4344fb4a1685b1bf436c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2625515313511960379, guid: 8797b3aef32e4344fb4a1685b1bf436c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8797b3aef32e4344fb4a1685b1bf436c, type: 3}
@@ -5269,6 +5269,11 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 198000014159833656, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c,
+        type: 3}
+      propertyPath: stopAction
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000011364351328, guid: a3768c8a9d1b90d4bb0eb0e4bdbe730c, type: 3}
       propertyPath: m_LocalPosition.x

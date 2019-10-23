@@ -45,18 +45,19 @@ public class Player_Controller : MonoBehaviour
     [Header("Player Refrences:")]
     public PickupController interactedController;
     public GameObject playerModel;
-    private GameManager gameManager;
-    public Player_UI pUI;
-
-    private Player_Manager p1_Manager;
-    private Player_Manager p2_Manager;
     public dynamic playerManager;
     public ControlProfile controlProfile;
+    public Player_UI pUI;
+
+    public GameObject body;
+    private GameManager gameManager;
+    private Player_Manager p1_Manager;
+    private Player_Manager p2_Manager;
 
     private void Awake()
     {
         projectilePrefab = Resources.Load<GameObject>("Projectile");
-        
+
         controlProfile = this.gameObject.AddComponent<ControlProfile>();
         pUI = GetComponentInChildren<Player_UI>();
         gameManager = Toolbox.GetInstance().GetGameManager();
@@ -109,7 +110,7 @@ public class Player_Controller : MonoBehaviour
 
                 if (Input.GetButtonDown(controlProfile.X_Button) && isInteracting && interactedController != null && !isEating)
                 {
-                    isEating = true;
+                    isEating = true;                    
                     interactedController.GoGettingEaten(playerManager.eatSpeed);
                 }
 
@@ -318,6 +319,7 @@ public class Player_Controller : MonoBehaviour
         // Enable model & disable stats panel
         playerModel.SetActive(true);
         pUI.DisableStatPanel();
+        body.SetActive(true);
 
         // Give control back to player
         playerManager.UnFreezePlayer();
@@ -325,5 +327,10 @@ public class Player_Controller : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void HideBody()
+    {
+        body.SetActive(false);
     }
 }

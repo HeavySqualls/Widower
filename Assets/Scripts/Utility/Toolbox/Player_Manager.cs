@@ -68,6 +68,8 @@ public class Player_Manager : MonoBehaviour
 
     public void DisplayScore()
     {
+
+        pCon.HideBody();
         FreezePlayer();
         pCon.isDead = true;
 

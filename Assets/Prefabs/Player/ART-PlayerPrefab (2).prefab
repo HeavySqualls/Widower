@@ -1006,8 +1006,9 @@ MonoBehaviour:
   playerCamAnchor: {fileID: 2550860055080764900}
   interactedController: {fileID: 0}
   playerModel: {fileID: 2151039585136966466}
-  pUI: {fileID: 0}
   controlProfile: {fileID: 0}
+  pUI: {fileID: 0}
+  body: {fileID: 2151039585136966466}
 --- !u!114 &1047327749463272974
 MonoBehaviour:
   m_ObjectHideFlags: 0

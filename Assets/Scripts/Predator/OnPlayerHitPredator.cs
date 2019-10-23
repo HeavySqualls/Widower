@@ -10,15 +10,16 @@ public class OnPlayerHitPredator : PredatorInteractable
 
         if (hit.gameObject.GetComponent<Player_Controller>())
         {
-            Player_Controller playerController = hit.gameObject.GetComponent<Player_Controller>();
+            Player_Controller pCon = hit.gameObject.GetComponent<Player_Controller>();
 
-            if (playerController.isEating == true)
+            if (pCon.isEating == true)
             {
-                playerController.isEating = false;
+                pCon.isEating = false;
             }
 
-            playerController.predatorKilledPlayer = true;
-            playerController.playerManager.DisplayScore();
+            
+            pCon.predatorKilledPlayer = true;
+            pCon.playerManager.DisplayScore();
         }
     }
 }

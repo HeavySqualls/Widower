@@ -24,12 +24,20 @@ public class WidowController : MonoBehaviour
 
     [Space]
     [Header("Widow References:")]
+    public ParticleSystem spiderBabiesEffect;
+    public ParticleSystem heartEffect;
+    private ParticleSystem currentHeartEffect;
+    private ParticleSystem currentBabiesEffect;
+
     private NavMeshAgent agent;
     private GameManager gM;
 
     private void Start()
     {
         gM = Toolbox.GetInstance().GetGameManager();
+
+       // heartEffect = Resources.Load<ParticleSystem>("Heart_Effect");
+
         agent = GetComponent<NavMeshAgent>();
         agent.autoBraking = false;
         this.currentState = State.Patrolling;
@@ -96,6 +104,8 @@ public class WidowController : MonoBehaviour
 
     public void GoEating()
     {
+        currentHeartEffect = Instantiate(heartEffect, transform.position, transform.rotation);
+        currentBabiesEffect = Instantiate(spiderBabiesEffect, transform.position, transform.rotation);
         isEating = true;
         this.currentState = State.Eating;
     }
@@ -119,7 +129,8 @@ public class WidowController : MonoBehaviour
         agent.isStopped = true;
 
         yield return new WaitForSeconds(cooldownTime);
-
+        Destroy(currentHeartEffect, 5);
+        Destroy(currentBabiesEffect, 5);
         isEating = false;
         isCoolDown = false;
         agent.isStopped = false;
