@@ -24,7 +24,11 @@ public class SettingsMenu : MonoBehaviour
     {
         scene = SceneManager.GetActiveScene();
         controlsPanel.SetActive(false);
-        pauseMenuUI.SetActive(false);
+
+        if (pauseMenuUI)
+        {
+            pauseMenuUI.SetActive(false);
+        }
 
         resolutions = Screen.resolutions;
 
