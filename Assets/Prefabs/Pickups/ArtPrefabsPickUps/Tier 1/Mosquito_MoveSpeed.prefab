@@ -443,6 +443,8 @@ MonoBehaviour:
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
   pCon: {fileID: 0}
+  eatEffect: {fileID: 7127895091316499279, guid: 74aaa8a026e339b4b9b83229c2e20222,
+    type: 3}
   PickUpObj: {fileID: 6258567320373157872}
 --- !u!135 &8286814725790725627
 SphereCollider:
@@ -896,6 +898,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2611404314363061204}
     m_Modifications:
+    - target: {fileID: 8478449067908582006, guid: 425cfb5da7d75a9479103476ebd0ab80,
+        type: 3}
+      propertyPath: m_Name
+      value: MoveSpeedGlowEffect
+      objectReference: {fileID: 0}
     - target: {fileID: 5884641404205501421, guid: 425cfb5da7d75a9479103476ebd0ab80,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -950,11 +957,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8478449067908582006, guid: 425cfb5da7d75a9479103476ebd0ab80,
-        type: 3}
-      propertyPath: m_Name
-      value: MoveSpeedGlowEffect
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 425cfb5da7d75a9479103476ebd0ab80, type: 3}

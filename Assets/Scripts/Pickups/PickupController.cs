@@ -33,6 +33,9 @@ public class PickupController : MonoBehaviour
 
     [Space]
     [Header("Self Refs:")]
+    public GameObject eatEffect;
+    private GameObject currentEatEffect;
+
     public GameObject PickUpObj;
     private BoxCollider myBoxCollider;
     private SphereCollider triggerZoneCollider;
@@ -87,6 +90,11 @@ public class PickupController : MonoBehaviour
         eatProgress.fillAmount = (maxHealth / maxHealthStart);
 
         pCon.playerManager.FreezePlayer();
+
+        if (!currentEatEffect)
+        {
+            currentEatEffect = Instantiate(eatEffect, transform.position, transform.rotation);
+        }
 
         if (maxHealth <= 0)
         {
@@ -170,11 +178,13 @@ public class PickupController : MonoBehaviour
 
         myBoxCollider.enabled = true;
         triggerZoneCollider.enabled = true;
+        Destroy(currentEatEffect);
         GoIdle();
     }
 
     public float GoRespawn(float time)
     {
+        Destroy(currentEatEffect);
         respawnTime = time;
         respawning = true;
         this.currentState = State.Respawn;
@@ -211,7 +221,7 @@ public class PickupController : MonoBehaviour
         {
             pCon.isEating = false;
             pCon.isInteracting = false;
-
+            Destroy(currentEatEffect);
             StopGettingEaten();
         }
     }

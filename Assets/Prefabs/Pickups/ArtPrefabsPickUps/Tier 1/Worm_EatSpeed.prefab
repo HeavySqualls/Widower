@@ -181,6 +181,8 @@ MonoBehaviour:
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
   pCon: {fileID: 0}
+  eatEffect: {fileID: 7127895091316499279, guid: 74aaa8a026e339b4b9b83229c2e20222,
+    type: 3}
   PickUpObj: {fileID: 5239192823109310864}
 --- !u!135 &3448383682683281618
 SphereCollider:
