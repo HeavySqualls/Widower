@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
+    public GameObject controlsPanel;
+    private bool isControlPanel;
+
     public AudioMixer audioMixer;
 
     public Dropdown resolutionDropdown;
@@ -14,6 +17,8 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+        controlsPanel.SetActive(false);
+
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -53,5 +58,19 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullScreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void ControlsPanel()
+    {
+        if (!isControlPanel)
+        {
+            controlsPanel.SetActive(true);
+            isControlPanel = true;
+        }
+        else if (isControlPanel)
+        {
+            controlsPanel.SetActive(false);
+            isControlPanel = false;
+        }
     }
 }

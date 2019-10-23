@@ -42,8 +42,8 @@ public class ControlProfile : MonoBehaviour
         X_Button = "XButton";
         O_Button = "BButton";
         Sprint_Gamepad = "Sprint_Gamepad";
-        Respawn_Gamepad = "YButton";
-        Hookshot_Gamepad = "AButton";
+        Respawn_Gamepad = "AButton";
+        Hookshot_Gamepad = "RightBumper";
 
         // Keyboard
         Horizontal = "Horizontal";
@@ -70,8 +70,8 @@ public class ControlProfile : MonoBehaviour
         X_Button = "XButton2";
         O_Button = "BButton2";
         Sprint_Gamepad = "Sprint_Gamepad2";
-        Respawn_Gamepad = "YButton2";
-        Hookshot_Gamepad = "AButton2";
+        Respawn_Gamepad = "AButton2";
+        Hookshot_Gamepad = "RightBumper2";
 
         // Keyboard
         Horizontal = "Horizontal2";

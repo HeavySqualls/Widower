@@ -5,6 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject settingsMenu;
+    private bool isSettingsMenu;
+
+    void Start()
+    {
+        isSettingsMenu = false;
+        settingsMenu.SetActive(false);
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -14,5 +23,19 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Player quit game.");
         Application.Quit();
+    }
+
+    public void SettingsMenu()
+    {
+        if (!isSettingsMenu)
+        {
+            settingsMenu.SetActive(true);
+            isSettingsMenu = true;
+        }
+        else if (isSettingsMenu)
+        {
+            settingsMenu.SetActive(false);
+            isSettingsMenu = false;
+        }
     }
 }
