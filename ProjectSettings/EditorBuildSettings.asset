@@ -6,12 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f62130b41a4f92f458d3481239cb19bf
+    path: Assets/Scenes/MainMenu-Jordan.unity
+    guid: 6ea68481dc53be242b9ef1c932ed8588
   - enabled: 1
     path: Assets/Scenes/2ZoneArtScene.unity
     guid: d0df779cdfec99948a7b79e8f36650b2
-  - enabled: 1
-    path: Assets/Scenes/SettingsMenu.unity
-    guid: d2ae571a14517564495e35ad7c8073a5
   m_configObjects: {}

@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
     public GameObject controlsPanel;
+    public GameObject pauseMenuUI;
+
     private bool isControlPanel;
+    private bool isPaused = false;
+    private Scene scene;
 
     public AudioMixer audioMixer;
 
@@ -17,7 +22,9 @@ public class SettingsMenu : MonoBehaviour
 
     private void Start()
     {
+        scene = SceneManager.GetActiveScene();
         controlsPanel.SetActive(false);
+        pauseMenuUI.SetActive(false);
 
         resolutions = Screen.resolutions;
 
@@ -41,23 +48,48 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
-    public void SetResolution(int resolutionIndex)
+
+    void Update()
     {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        if (Input.GetKeyDown(KeyCode.Escape) && scene.buildIndex != 0)
+        {
+            if (isPaused)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
+        }
     }
-    public void SetVolume(float volume)
+
+
+    // ---- SCENE MANAGEMENT METHODS ---- //
+
+    void Pause()
     {
-        audioMixer.SetFloat("MasterVolume", volume);
-        Debug.Log(volume);
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+        isPaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
-    public void SetQuality(int qualityIndex)
+
+    public void Resume()
     {
-        QualitySettings.SetQualityLevel(qualityIndex);
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
-    public void SetFullScreen(bool isFullscreen)
+
+    public void LoadMenu()
     {
-        Screen.fullScreen = isFullscreen;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(sceneBuildIndex:0);
+        Debug.Log("Menu loading...");
     }
 
     public void ControlsPanel()
@@ -72,5 +104,35 @@ public class SettingsMenu : MonoBehaviour
             controlsPanel.SetActive(false);
             isControlPanel = false;
         }
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(scene.buildIndex);
+    }
+
+
+    // ---- SETTINGS METHODS ---- //
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void SetVolume(float volume)
+    {
+        audioMixer.SetFloat("MasterVolume", volume);
+        Debug.Log(volume);
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullScreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 }
