@@ -30,11 +30,11 @@ public class WidowController : MonoBehaviour
     private ParticleSystem currentBabiesEffect;
 
     private NavMeshAgent agent;
-    private GameManager gM;
+    private GameManager gMan;
 
     private void Start()
     {
-        gM = Toolbox.GetInstance().GetGameManager();
+        gMan = Toolbox.GetInstance().GetGameManager();
 
        // heartEffect = Resources.Load<ParticleSystem>("Heart_Effect");
 
@@ -45,7 +45,7 @@ public class WidowController : MonoBehaviour
 
     private void Update()
     {
-        if (gM.isGameStart)
+        if (gMan.isGameStart)
         {
             switch (this.currentState)
             {
@@ -104,7 +104,7 @@ public class WidowController : MonoBehaviour
 
     public void GoEating()
     {
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             currentHeartEffect = Instantiate(heartEffect, transform.position, transform.rotation);
             currentBabiesEffect = Instantiate(spiderBabiesEffect, transform.position, transform.rotation);
@@ -134,7 +134,7 @@ public class WidowController : MonoBehaviour
 
         yield return new WaitForSeconds(cooldownTime);
 
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             Destroy(currentHeartEffect, 5);
             Destroy(currentBabiesEffect, 5);

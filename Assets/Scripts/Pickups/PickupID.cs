@@ -20,11 +20,13 @@ public class PickupID : MonoBehaviour
 
     public float hValue;
 
+    private GameManager gMan;
     private PickupController puCon;
 
     void Start()
     {
         puCon = GetComponentInParent<PickupController>();
+        gMan = Toolbox.GetInstance().GetGameManager();
 
         if (pickupPoints)
         {
@@ -60,7 +62,7 @@ public class PickupID : MonoBehaviour
     {
         Debug.Log("Add grey player stats");
         puCon.pCon.playerManager.pointPickups += scoreValPoints;
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             puCon.pCon.pUI.UpdateNextStats();
         }
@@ -71,7 +73,7 @@ public class PickupID : MonoBehaviour
     {
         Debug.Log("Add grey player stats");
         puCon.pCon.playerManager.eatPickups += scoreValEatSpeed;
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             puCon.pCon.pUI.UpdateNextStats();
         }
@@ -81,7 +83,7 @@ public class PickupID : MonoBehaviour
     {
         Debug.Log("Add grey player stats");
         puCon.pCon.playerManager.movePickups += scoreValMoveSpeed;
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             puCon.pCon.pUI.UpdateNextStats();
         }

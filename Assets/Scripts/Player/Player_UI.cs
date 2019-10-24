@@ -63,7 +63,7 @@ public class Player_UI : MonoBehaviour
         controler.onClick.AddListener(Control_Gamepad);
         keyMouse.onClick.AddListener(Control_keyboardMouse);
 
-        if (!gMan.isPrototype)
+        if (gMan.currentLevel != 2)
         {
             UpdateUI();
         }
@@ -102,6 +102,10 @@ public class Player_UI : MonoBehaviour
 
         if (gMan.isGameOver)
         {
+            //eatSpNext.text = 0.ToString();
+            //moveSpNext.text = 0.ToString();
+            //pointsNext.text = 0.ToString();
+
             respawnButtonObject.SetActive(false);
             restartButtonObject.SetActive(true);
         }
@@ -122,7 +126,7 @@ public class Player_UI : MonoBehaviour
     {
         statusPanel.SetActive(true);
 
-        if (!gMan.isPrototype)
+        if (gMan.currentLevel != 2)
         {
             UpdateCurrentStats();
         }
@@ -160,7 +164,7 @@ public class Player_UI : MonoBehaviour
 
     public void UpdateUI()
     {
-        if (!gMan.isPrototype)
+        if (gMan.currentLevel != 2)
         {
             UpdateCurrentStats();
             UpdateNextStats();

@@ -38,7 +38,7 @@ public class Player_Manager : MonoBehaviour
     private WidowController widowController;
     private GameManager gM;
 
-    public void ResetPlayerManager1()
+    public void ResetPlayerManager()
     {
         gM = Toolbox.GetInstance().GetGameManager();
 
@@ -48,22 +48,23 @@ public class Player_Manager : MonoBehaviour
         else if (playerID == 2)
             currentPlayer = GameObject.FindGameObjectWithTag("Player2");
 
+        if (gM.currentLevel != 0)
+        {
+            widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
+            pCon = currentPlayer.GetComponent<Player_Controller>();
+            pUI = currentPlayer.GetComponentInChildren<Player_UI>();
+            camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
 
-        widowController = GameObject.FindGameObjectWithTag("Widow").GetComponent<WidowController>();
+            runSpeed = moveSpeed * 2;
+            FreezePlayer();
+            isWinner = false;
+            isReady = false;
 
-        pCon = currentPlayer.GetComponent<Player_Controller>();
-        pUI = currentPlayer.GetComponentInChildren<Player_UI>();
-        camController = currentPlayer.GetComponentInChildren<Camera_Controller>();
+            pCon.runTime = 0;
 
-        runSpeed = moveSpeed * 2;
-        FreezePlayer();
-        isWinner = false;
-        isReady = false;
-
-        pCon.runTime = 0;
-
-        pUI.DisableStatPanel();
-        pUI.readyPanel.SetActive(false);
+            pUI.DisableStatPanel();
+            pUI.readyPanel.SetActive(false);
+        }
     }
 
     public void DisplayScore()

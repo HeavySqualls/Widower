@@ -40,11 +40,12 @@ public class PickupController : MonoBehaviour
     private BoxCollider myBoxCollider;
     private SphereCollider triggerZoneCollider;
     private PickupID pickupID;
+    private GameManager gMan;
 
     void Start()
     {
         this.currentState = State.Idle;
-
+        gMan = Toolbox.GetInstance().GetGameManager();
         pickupID = GetComponentInChildren<PickupID>();
         myBoxCollider = GetComponentInChildren<BoxCollider>();
         triggerZoneCollider = GetComponent<SphereCollider>();
@@ -91,7 +92,7 @@ public class PickupController : MonoBehaviour
 
         pCon.playerManager.FreezePlayer();
 
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             if (!currentEatEffect)
             {
@@ -182,7 +183,7 @@ public class PickupController : MonoBehaviour
         myBoxCollider.enabled = true;
         triggerZoneCollider.enabled = true;
 
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (gMan.currentLevel != 2)
         {
             Destroy(currentEatEffect);
         }
@@ -192,7 +193,7 @@ public class PickupController : MonoBehaviour
 
     public float GoRespawn(float time)
     {
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (Toolbox.GetInstance().GetGameManager().currentLevel != 2)
         {
             Destroy(currentEatEffect);
         }
@@ -234,7 +235,7 @@ public class PickupController : MonoBehaviour
             pCon.isEating = false;
             pCon.isInteracting = false;
 
-            if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+            if (Toolbox.GetInstance().GetGameManager().currentLevel != 2)
             {
                 Destroy(currentEatEffect);
             }

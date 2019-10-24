@@ -50,7 +50,7 @@ public class Player_Controller : MonoBehaviour
     public Player_UI pUI;
 
     public GameObject body;
-    private GameManager gameManager;
+    private GameManager gMan;
     private Player_Manager p1_Manager;
     private Player_Manager p2_Manager;
 
@@ -60,7 +60,7 @@ public class Player_Controller : MonoBehaviour
 
         controlProfile = this.gameObject.AddComponent<ControlProfile>();
         pUI = GetComponentInChildren<Player_UI>();
-        gameManager = Toolbox.GetInstance().GetGameManager();
+        gMan = Toolbox.GetInstance().GetGameManager();
 
         if (isPlayer1)
         {
@@ -102,7 +102,7 @@ public class Player_Controller : MonoBehaviour
         {
             if (isGamePad)
             {
-                if (Input.GetButtonDown(controlProfile.Gamepad_Start) && gameManager.isGameStart == false)
+                if (Input.GetButtonDown(controlProfile.Gamepad_Start) && gMan.isGameStart == false)
                 {
                     playerManager.isReady = true;
                     pUI.readyPanel.SetActive(true);
@@ -144,7 +144,7 @@ public class Player_Controller : MonoBehaviour
             }
             else
             {
-                if (Input.GetKeyUp(controlProfile.Enter_Key) && gameManager.isGameStart == false)
+                if (Input.GetKeyUp(controlProfile.Enter_Key) && gMan.isGameStart == false)
                 {
                     playerManager.isReady = true;
                     pUI.readyPanel.SetActive(true);
@@ -298,7 +298,7 @@ public class Player_Controller : MonoBehaviour
         pUI.respawnButton.gameObject.SetActive(false);
         pUI.DisableStaminaBar();
 
-        if (!gameManager.isPrototype)
+        if (gMan.currentLevel != 2)
         {
             pUI.UpdateUI();
         }

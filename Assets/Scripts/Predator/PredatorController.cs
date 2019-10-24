@@ -150,14 +150,14 @@ public class PredatorController : MonoBehaviour
         agent.isStopped = true;
         print("Predator Cooldown Start");
 
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (Toolbox.GetInstance().GetGameManager().currentLevel != 2)
         {       
             currentEatEffect = Instantiate(eatEffect, transform.position, transform.rotation);
         }
 
         yield return new WaitForSeconds(cooldownTime);
 
-        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        if (Toolbox.GetInstance().GetGameManager().currentLevel != 2)
         {
             Destroy(currentEatEffect);
         }

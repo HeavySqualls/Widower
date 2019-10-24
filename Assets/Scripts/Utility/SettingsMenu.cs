@@ -20,6 +20,8 @@ public class SettingsMenu : MonoBehaviour
 
     Resolution[] resolutions;
 
+    private GameManager gMan;
+
     private void Start()
     {
         scene = SceneManager.GetActiveScene();
@@ -29,6 +31,8 @@ public class SettingsMenu : MonoBehaviour
         {
             pauseMenuUI.SetActive(false);
         }
+
+        gMan = Toolbox.GetInstance().GetGameManager();
 
         resolutions = Screen.resolutions;
 
@@ -112,6 +116,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        gMan.ResetPlayerPickUps();
         SceneManager.LoadScene(scene.buildIndex);
     }
 
