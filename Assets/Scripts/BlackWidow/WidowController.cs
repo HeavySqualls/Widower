@@ -104,8 +104,12 @@ public class WidowController : MonoBehaviour
 
     public void GoEating()
     {
-        currentHeartEffect = Instantiate(heartEffect, transform.position, transform.rotation);
-        currentBabiesEffect = Instantiate(spiderBabiesEffect, transform.position, transform.rotation);
+        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        {
+            currentHeartEffect = Instantiate(heartEffect, transform.position, transform.rotation);
+            currentBabiesEffect = Instantiate(spiderBabiesEffect, transform.position, transform.rotation);
+        }
+
         isEating = true;
         this.currentState = State.Eating;
     }
@@ -129,8 +133,13 @@ public class WidowController : MonoBehaviour
         agent.isStopped = true;
 
         yield return new WaitForSeconds(cooldownTime);
-        Destroy(currentHeartEffect, 5);
-        Destroy(currentBabiesEffect, 5);
+
+        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        {
+            Destroy(currentHeartEffect, 5);
+            Destroy(currentBabiesEffect, 5);
+        }
+
         isEating = false;
         isCoolDown = false;
         agent.isStopped = false;

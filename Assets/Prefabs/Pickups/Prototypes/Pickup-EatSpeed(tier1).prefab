@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dedbc565cca29c4a9a49e41a7f09aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupController: {fileID: 2611404314363061208}
 --- !u!1 &415414814
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,11 +433,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   eatProgress: {fileID: 415414817}
-  inputCall: {fileID: 1171486666}
+  inputCall: {fileID: 1171486665}
   CanvasObj: {fileID: 234318287}
   timeToRespawn: 5
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
+  pCon: {fileID: 0}
+  eatEffect: {fileID: 0}
   PickUpObj: {fileID: 2611404314890648448}
 --- !u!135 &988050545023190682
 SphereCollider:

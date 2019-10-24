@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/2ZoneArtScene.unity
     guid: d0df779cdfec99948a7b79e8f36650b2
+  - enabled: 1
+    path: Assets/Scenes/gym_WidowPredatorPathfinding.unity
+    guid: 08bd7f3416cab2c4eaff744e84aeda91
   m_configObjects: {}

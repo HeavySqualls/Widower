@@ -63,7 +63,10 @@ public class Player_UI : MonoBehaviour
         controler.onClick.AddListener(Control_Gamepad);
         keyMouse.onClick.AddListener(Control_keyboardMouse);
 
-        UpdateUI();
+        if (!gMan.isPrototype)
+        {
+            UpdateUI();
+        }
     }
 
     void Update()
@@ -118,7 +121,12 @@ public class Player_UI : MonoBehaviour
     public void EnableStatPanel()
     {
         statusPanel.SetActive(true);
-        UpdateCurrentStats();
+
+        if (!gMan.isPrototype)
+        {
+            UpdateCurrentStats();
+        }
+
         statPanelActive = true;
     }
 
@@ -152,8 +160,11 @@ public class Player_UI : MonoBehaviour
 
     public void UpdateUI()
     {
-        UpdateCurrentStats();
-        UpdateNextStats();
+        if (!gMan.isPrototype)
+        {
+            UpdateCurrentStats();
+            UpdateNextStats();
+        }
     }
 
     public void EnableStaminaBar()

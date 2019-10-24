@@ -14,7 +14,7 @@ public class TimeManager : MonoBehaviour
     [Header("Time Status:")]
     public bool isCountDownTime;
     private bool isCountDownStarted;
-    public GameObject gameOverPanel;
+    private GameObject gameOverPanel;
 
     [Space]
     [Header("Time References:")]
@@ -39,7 +39,6 @@ public class TimeManager : MonoBehaviour
 
         time.enabled = false;
         gameOverPanel.SetActive(false);
-
         isCountDownTime = false;
 
         minutes = "0";

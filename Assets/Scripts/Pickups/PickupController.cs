@@ -91,9 +91,12 @@ public class PickupController : MonoBehaviour
 
         pCon.playerManager.FreezePlayer();
 
-        if (!currentEatEffect)
+        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
         {
-            currentEatEffect = Instantiate(eatEffect, transform.position, transform.rotation);
+            if (!currentEatEffect)
+            {
+                currentEatEffect = Instantiate(eatEffect, transform.position, transform.rotation);
+            }
         }
 
         if (maxHealth <= 0)
@@ -178,13 +181,22 @@ public class PickupController : MonoBehaviour
 
         myBoxCollider.enabled = true;
         triggerZoneCollider.enabled = true;
-        Destroy(currentEatEffect);
+
+        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        {
+            Destroy(currentEatEffect);
+        }
+
         GoIdle();
     }
 
     public float GoRespawn(float time)
     {
-        Destroy(currentEatEffect);
+        if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+        {
+            Destroy(currentEatEffect);
+        }
+                  
         respawnTime = time;
         respawning = true;
         this.currentState = State.Respawn;
@@ -221,7 +233,12 @@ public class PickupController : MonoBehaviour
         {
             pCon.isEating = false;
             pCon.isInteracting = false;
-            Destroy(currentEatEffect);
+
+            if (!Toolbox.GetInstance().GetGameManager().isPrototype)
+            {
+                Destroy(currentEatEffect);
+            }
+
             StopGettingEaten();
         }
     }

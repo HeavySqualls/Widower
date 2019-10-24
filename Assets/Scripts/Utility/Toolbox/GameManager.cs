@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {   
     public float countInTime = 3;
-
+    public bool isPrototype = false;
     public bool isGameOver = false;
     public bool isGameStart = false;
 
@@ -31,15 +31,11 @@ public class GameManager : MonoBehaviour
         ResetGameManager();
     }
 
-    private void Start() 
-    {
-
-    }
-
     public void ResetGameManager()
     {
         Time.timeScale = 1f;
         isGameStart = false;
+        isPrototype = false;
 
         timeManager = Toolbox.GetInstance().GetTimeManager();
         timeManager.ResetTimer();

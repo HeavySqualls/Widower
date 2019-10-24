@@ -113,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dedbc565cca29c4a9a49e41a7f09aaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupController: {fileID: 2611404314363061208}
 --- !u!1 &415414814
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +211,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171486665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 10, z: 1}
   m_Children: []
@@ -221,7 +220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 46}
+  m_AnchoredPosition: {x: 0, y: 46.00314}
   m_SizeDelta: {x: 91.19, y: 16.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1171486667
@@ -434,11 +433,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   eatProgress: {fileID: 415414817}
-  inputCall: {fileID: 1171486666}
+  inputCall: {fileID: 1171486665}
   CanvasObj: {fileID: 234318287}
   timeToRespawn: 5
   cameraTarget: {fileID: 0}
   interactObjInRange: 0
+  pCon: {fileID: 0}
+  eatEffect: {fileID: 0}
   PickUpObj: {fileID: 2611404314890648448}
 --- !u!135 &2815180278114096832
 SphereCollider:

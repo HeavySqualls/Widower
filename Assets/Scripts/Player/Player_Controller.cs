@@ -298,7 +298,11 @@ public class Player_Controller : MonoBehaviour
         pUI.respawnButton.gameObject.SetActive(false);
         pUI.DisableStaminaBar();
 
-        pUI.UpdateUI();
+        if (!gameManager.isPrototype)
+        {
+            pUI.UpdateUI();
+        }
+
 
         // Move player camera to overhead camera anchor
         gameObject.transform.position = playerSpawnAnchor.transform.position;

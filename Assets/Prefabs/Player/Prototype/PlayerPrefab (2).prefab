@@ -872,6 +872,12 @@ MonoBehaviour:
   runWindDown: 0
   playerUICanvas: {fileID: 5608490596517372553}
   staminaBar: {fileID: 6135824990613023520}
+  eatSpCurrent: {fileID: 0}
+  eatSpNext: {fileID: 0}
+  moveSpCurrent: {fileID: 0}
+  moveSpNext: {fileID: 0}
+  pointsCurrent: {fileID: 0}
+  pointsNext: {fileID: 0}
 --- !u!1 &1197040941720691792
 GameObject:
   m_ObjectHideFlags: 0
@@ -3325,7 +3331,7 @@ MonoBehaviour:
   isDead: 0
   predatorKilledPlayer: 0
   runTime: 0
-  isGamePad: 1
+  isGamePad: 0
   isPlayer1: 0
   reachingTime: 0.5
   attachedToTarget: 0
@@ -3335,6 +3341,8 @@ MonoBehaviour:
   interactedController: {fileID: 0}
   playerModel: {fileID: 8903613859690415525}
   controlProfile: {fileID: 0}
+  pUI: {fileID: 0}
+  body: {fileID: 8903613859690415525}
 --- !u!114 &6173257009412758270
 MonoBehaviour:
   m_ObjectHideFlags: 0

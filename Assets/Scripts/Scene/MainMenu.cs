@@ -38,4 +38,9 @@ public class MainMenu : MonoBehaviour
             isSettingsMenu = false;
         }
     }
+
+    public void LoadPrototype()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
