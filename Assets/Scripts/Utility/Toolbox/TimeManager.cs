@@ -102,7 +102,15 @@ public class TimeManager : MonoBehaviour
 
     public void SetGameOverPanel()
     {
-        gameOverPanel.SetActive(true);
+        if (gameOverPanel.activeSelf == false)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        else if (gameOverPanel.activeSelf == true)
+        {
+            gameOverPanel.SetActive(false);
+        }
+
     }
 }
 

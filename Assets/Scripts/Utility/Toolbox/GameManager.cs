@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    private void ResetGameManager()
+    public void ResetGameManager()
     {
         Time.timeScale = 1f;
         isGameStart = false;
